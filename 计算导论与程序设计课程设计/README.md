@@ -2,9 +2,9 @@
 
 ## 平时练习
 
-### [链表]()
+### [链表](https://github.com/Aliaxy/BUPT/blob/main/计算导论与程序设计课程设计/链表练习/Solution.md)
 
-### [文件]()
+### [文件](https://github.com/Aliaxy/BUPT/blob/main/计算导论与程序设计课程设计/文件练习/Solution.md)
 
 ## 大作业
 
