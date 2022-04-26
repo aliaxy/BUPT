@@ -5,13 +5,8 @@
 ### Solution 3
 
 * 求下列公式的析取范式和合取范式
-
-  ```latex
   \\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
-  ```
-
-  \\( (( \lnot A \lor \lnot B) → (A \leftrightarrow C)) \rightarrow B \\)
-
+  
 * 通过求主合取范式的方法，判断下列各对公式是否等价
 
   $\lnot A \lor (A \land B) \lor C$
