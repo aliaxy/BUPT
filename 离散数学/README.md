@@ -5,6 +5,7 @@
 ### Solution 3
 
 * 求下列公式的析取范式和合取范式
+  
   $((\lnot A \lor \lnot B)\rightarrow (A \leftrightarrow C) \rightarrow B)$
   
 * 通过求主合取范式的方法，判断下列各对公式是否等价
