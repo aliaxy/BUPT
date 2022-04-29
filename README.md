@@ -1,6 +1,6 @@
 # BUPT
 
-#### Semester
+### Semester
 
 * [2021-2022-1](https://github.com/Aliaxy/BUPT/tree/main/2021-2022-1)
 
