@@ -2,11 +2,11 @@
 
 对于非课本上习题，在此处给出题目(Gihub 不支持 LaTex 公式，请复制至可支持处查看)
 
-* [Solution3](#Solution3)
-* [Solution5](#Solution5)
-* [Solution6](#Solution6)
+* [Solution.3](#Solution.3)
+* [Solution.5](#Solution.5)
+* [Solution.6](#Solution.6)
 
-### Solution 3
+### Solution.3
 
 * 求下列公式的析取范式和合取范式
   
@@ -44,7 +44,7 @@
 
     上述五种条件全部满足，问有几种合理的方案供张先生选择。
 
-### Solution 5
+### Solution.5
 
 * 构造下面的证明：
 
@@ -56,7 +56,7 @@
 
     结论：$\lnot p$
 
-### Solution 6
+### Solution.6
 
 * 构造下面推理的证明：
 
