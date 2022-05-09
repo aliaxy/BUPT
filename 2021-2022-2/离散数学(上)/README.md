@@ -2,9 +2,9 @@
 
 对于非课本上习题，在此处给出题目(Gihub 不支持 LaTex 公式，请复制至可支持处查看)
 
-* [Solution.3](#Solution.3)
-* [Solution.5](#Solution.5)
-* [Solution.6](#solution6)
+* [Solution 3](#solution3)
+* [Solution 5](#solution5)
+* [Solution 6](#solution6)
 
 ### Solution.3
 
