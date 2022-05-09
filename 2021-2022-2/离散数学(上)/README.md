@@ -4,7 +4,7 @@
 
 * [Solution.3](#Solution.3)
 * [Solution.5](#Solution.5)
-* [Solution.6](#Solution.6)
+* [Solution.6](#solution6)
 
 ### Solution.3
 
