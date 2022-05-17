@@ -60,7 +60,7 @@
 
 * 构造下面推理的证明：
 
-  * 前提：![](http://latex.codecogs.com/svg.latex?\exists{x}F(x)\rightarrow\forall{y}(F(y)\lor{G}(y)\rightarrow{R}(y),\exists{x}F(x))) 
+  * 前提：![](http://latex.codecogs.com/svg.latex?\exists{x}F(x)\rightarrow\forall{y}(F(y)\lor{G}(y))\rightarrow{R}(y),\exists{x}F(x))
 
     结论： ![](http://latex.codecogs.com/svg.latex?\exists{x}R(x))
 
