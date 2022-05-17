@@ -64,7 +64,7 @@
 
     结论： ![](http://latex.codecogs.com/svg.latex?\exists{x}R(x))
 
-  * 前提：![](http://latex.codecogs.com/svg.latex?\forall{x}{(F(x)\lor{G}(x)},\exists{x}[\lnot{G}(x)\lor\lnot{R}(x)]) ![](http://latex.codecogs.com/svg.latex?,\,\forall{x}R(x))
+  * 前提：![](http://latex.codecogs.com/svg.latex?\forall{x}{(F(x)\lor{G}(x)},\exists{x}\lnot{G}(x)\lor\lnot{R}(x)) ![](http://latex.codecogs.com/svg.latex?,\forall{x}R(x))
 
     结论：![](http://latex.codecogs.com/svg.latex?\forall{x}F(x))
 
