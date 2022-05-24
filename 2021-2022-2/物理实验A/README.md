@@ -11,3 +11,6 @@
 * [分光计的调整与使用](https://github.com/Aliaxy/BUPT/blob/main/2021-2022-2/物理实验A/分光计的调整与使用.pdf)
 
 * [声速的测量](https://github.com/Aliaxy/BUPT/blob/main/2021-2022-2/物理实验A/声速实验报告.pdf)
+
+* [电阻应变片传感器](https://github.com/Aliaxy/BUPT/blob/main/2021-2022-2/物理实验A/电阻应变片传感器实验报告.pdf)
+
