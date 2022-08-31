@@ -14,3 +14,4 @@
 
 * [电阻应变片传感器](https://github.com/Aliaxy/BUPT/blob/main/2021-2022-2/物理实验A/电阻应变片传感器实验报告.pdf)
 
+* [单桥实验报告](https://github.com/Aliaxy/BUPT/blob/main/2021-2022-2/物理实验A/单桥实验报告.pdf)
