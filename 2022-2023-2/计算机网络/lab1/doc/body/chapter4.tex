@@ -25,8 +25,7 @@
 
 解得, $u = W / 4.1 \geqslant 100\% \Rightarrow W \geqslant 5$.
 
-重传定时器设置为两倍传播时延加一个 ACK 定时器时延比较合适, ACK 定时器设置为 2000ms, 则重传定时器为 $2700 * 2 + 2000 = 7400$ms.
-
+\par 经过测试, 选取ACK计时器为5100ms, 重传计时器为6000ms.(选择重传)
 \subsection{理论分析}
 
 \subsubsection{无误码情况下最大信道利用率}
