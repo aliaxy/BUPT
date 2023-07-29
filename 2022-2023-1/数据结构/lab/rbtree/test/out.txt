@@ -1,0 +1,4000 @@
+2872 exists.
+Compare times: 10
+Use time: 0.00000026s
+
+4006 exists.
+Compare times: 11
+Use time: 0.00000020s
+
+3219 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+745 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+3429 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4343 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2104 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+385 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4697 not exists.
+Compare times: 13
+Use time: 0.00000016s
+
+1291 not exists.
+Compare times: 13
+Use time: 0.00000017s
+
+4160 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+960 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+581 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+3249 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4638 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2969 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+1905 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+14 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+2312 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+2645 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+392 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3546 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+2331 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+71 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+3175 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4488 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1061 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4388 not exists.
+Compare times: 10
+Use time: 0.00000008s
+
+4833 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2359 exists.
+Compare times: 7
+Use time: 0.00000007s
+
+4310 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+820 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4950 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4661 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+628 not exists.
+Compare times: 14
+Use time: 0.00000012s
+
+1824 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+3060 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1183 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1225 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2334 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+892 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4312 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3203 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+3500 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+458 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2900 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+871 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1539 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4359 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2879 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+916 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1640 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3055 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2876 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+750 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+1009 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2372 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4590 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1336 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3614 exists.
+Compare times: 13
+Use time: 0.00000012s
+
+955 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+3727 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+4090 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1511 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2137 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4271 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+4117 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1368 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4695 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1813 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+3763 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1840 not exists.
+Compare times: 13
+Use time: 0.00000016s
+
+4567 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+1226 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2011 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4508 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4623 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+571 exists.
+Compare times: 8
+Use time: 0.00000006s
+
+3326 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+215 not exists.
+Compare times: 14
+Use time: 0.00000018s
+
+2881 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2370 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+4973 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2601 not exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2197 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4003 exists.
+Compare times: 4
+Use time: 0.00000006s
+
+4721 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2503 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3936 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2661 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4879 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+349 exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3924 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1452 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1556 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1345 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3417 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1987 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4738 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2387 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1278 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+359 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2215 exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2934 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2214 exists.
+Compare times: 11
+Use time: 0.00000008s
+
+980 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+1415 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2762 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3590 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2481 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+3115 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+869 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+3216 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3119 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3026 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3144 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+719 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+354 exists.
+Compare times: 11
+Use time: 0.00000007s
+
+4969 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+711 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+1820 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+3934 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+3294 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4329 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+530 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1227 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+702 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+4882 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2532 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2108 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4398 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2886 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3485 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2592 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3638 not exists.
+Compare times: 14
+Use time: 0.00000012s
+
+4418 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2018 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+909 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+1617 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+4161 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+31 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3358 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1319 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3913 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4295 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+648 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1654 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2763 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4519 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4406 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2048 not exists.
+Compare times: 11
+Use time: 0.00000015s
+
+4494 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+3740 exists.
+Compare times: 12
+Use time: 0.00000016s
+
+2201 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3636 exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2514 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+3258 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+2733 not exists.
+Compare times: 11
+Use time: 0.00000015s
+
+2086 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+977 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+2100 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3021 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1912 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1470 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1129 not exists.
+Compare times: 12
+Use time: 0.00000016s
+
+4313 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+4890 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+454 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+766 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4188 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+765 not exists.
+Compare times: 12
+Use time: 0.00000009s
+
+3435 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+652 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1761 exists.
+Compare times: 11
+Use time: 0.00000015s
+
+590 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2571 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4281 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+4202 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4431 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+1855 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+464 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+3343 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3655 not exists.
+Compare times: 15
+Use time: 0.00000016s
+
+2546 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2507 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+92 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3933 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+606 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4357 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3649 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+4930 not exists.
+Compare times: 13
+Use time: 0.00000016s
+
+1300 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+1559 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3777 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1277 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+3495 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+168 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1351 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+3954 not exists.
+Compare times: 13
+Use time: 0.00000010s
+
+2845 exists.
+Compare times: 9
+Use time: 0.00000013s
+
+1906 not exists.
+Compare times: 14
+Use time: 0.00000018s
+
+3018 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1704 not exists.
+Compare times: 10
+Use time: 0.00000014s
+
+2029 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2556 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+1527 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+3745 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4461 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+3281 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3512 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+3470 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4579 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1102 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+1443 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4692 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+256 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+996 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+2262 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+1153 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3261 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4827 exists.
+Compare times: 7
+Use time: 0.00000010s
+
+4366 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4392 exists.
+Compare times: 7
+Use time: 0.00000009s
+
+3283 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+3095 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+149 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1258 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+4190 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+1972 not exists.
+Compare times: 14
+Use time: 0.00000016s
+
+1713 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+172 not exists.
+Compare times: 13
+Use time: 0.00000010s
+
+1323 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4374 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1047 not exists.
+Compare times: 11
+Use time: 0.00000015s
+
+4319 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3644 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+4753 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3059 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4365 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3662 exists.
+Compare times: 13
+Use time: 0.00000011s
+
+4771 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+2817 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+599 not exists.
+Compare times: 14
+Use time: 0.00000016s
+
+1685 exists.
+Compare times: 7
+Use time: 0.00000010s
+
+3903 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2165 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1056 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+2054 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1701 exists.
+Compare times: 11
+Use time: 0.00000015s
+
+3047 exists.
+Compare times: 7
+Use time: 0.00000009s
+
+3113 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2004 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1055 exists.
+Compare times: 8
+Use time: 0.00000772s
+
+4908 exists.
+Compare times: 11
+Use time: 0.00000018s
+
+4402 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+4036 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+22 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3156 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3350 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+778 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1564 not exists.
+Compare times: 13
+Use time: 0.00000016s
+
+4891 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4267 not exists.
+Compare times: 14
+Use time: 0.00000012s
+
+1363 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4748 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4293 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1717 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2826 exists.
+Compare times: 7
+Use time: 0.00000011s
+
+3682 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2842 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1165 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+900 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+3118 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1130 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2962 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+744 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+301 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+80 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4885 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2355 exists.
+Compare times: 12
+Use time: 0.00000019s
+
+1246 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+2892 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+1266 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2904 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+699 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2899 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+1224 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+115 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3793 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3764 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2655 not exists.
+Compare times: 12
+Use time: 0.00000016s
+
+181 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3508 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2399 not exists.
+Compare times: 14
+Use time: 0.00000018s
+
+1676 not exists.
+Compare times: 12
+Use time: 0.00000017s
+
+323 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4756 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1429 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+4173 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2374 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3987 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4698 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3663 exists.
+Compare times: 9
+Use time: 0.00000007s
+
+1445 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+3068 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4167 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1949 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+680 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1762 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+1112 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+776 exists.
+Compare times: 9
+Use time: 0.00000007s
+
+3731 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+478 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+1857 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+616 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+75 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3461 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1042 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3206 exists.
+Compare times: 10
+Use time: 0.00000743s
+
+1667 not exists.
+Compare times: 13
+Use time: 0.00000018s
+
+2208 not exists.
+Compare times: 13
+Use time: 0.00000019s
+
+1694 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+585 not exists.
+Compare times: 14
+Use time: 0.00000723s
+
+1235 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3480 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+153 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+396 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2614 not exists.
+Compare times: 12
+Use time: 0.00000016s
+
+3471 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4580 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2362 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+3896 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4978 exists.
+Compare times: 9
+Use time: 0.00000013s
+
+4000 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2662 not exists.
+Compare times: 12
+Use time: 0.00000017s
+
+3771 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+2659 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+495 exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3200 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+928 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+265 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2429 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+806 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+536 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3863 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2781 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+60 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4496 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+87 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3414 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1953 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+4171 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2103 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3022 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3076 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+858 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+34 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+575 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2209 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+2750 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1668 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+419 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+135 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2513 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1898 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+1844 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+82 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+279 exists.
+Compare times: 6
+Use time: 0.00000007s
+
+1361 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+3877 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+749 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3535 not exists.
+Compare times: 14
+Use time: 0.00000017s
+
+208 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+1831 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4212 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3103 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4501 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+687 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+1796 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1658 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2740 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4364 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+526 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+824 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4151 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4555 not exists.
+Compare times: 11
+Use time: 0.00000019s
+
+768 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3054 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4163 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2821 exists.
+Compare times: 10
+Use time: 0.00000017s
+
+1333 not exists.
+Compare times: 14
+Use time: 0.00000019s
+
+3497 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4869 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+433 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+1515 exists.
+Compare times: 6
+Use time: 0.00000011s
+
+2722 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2926 exists.
+Compare times: 3
+Use time: 0.00000006s
+
+1817 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3359 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+3848 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2739 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+521 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3767 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2144 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2595 not exists.
+Compare times: 12
+Use time: 0.00000019s
+
+3136 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+520 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1944 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4162 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1457 not exists.
+Compare times: 12
+Use time: 0.00000016s
+
+4495 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3413 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2182 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1850 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+741 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+2621 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+403 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1597 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2679 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+4302 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+4324 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+997 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4189 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3932 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2639 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+2896 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+1273 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4283 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+1578 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1456 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2024 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+915 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4602 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+4094 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+767 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3594 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2154 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3236 exists.
+Compare times: 11
+Use time: 0.00000015s
+
+4913 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+477 not exists.
+Compare times: 13
+Use time: 0.00000017s
+
+2695 not exists.
+Compare times: 11
+Use time: 0.00000015s
+
+2830 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+2042 exists.
+Compare times: 12
+Use time: 0.00000016s
+
+4260 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+3489 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+3126 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4749 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1503 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4208 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+1327 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+2950 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3897 not exists.
+Compare times: 12
+Use time: 0.00000009s
+
+4979 exists.
+Compare times: 11
+Use time: 0.00000015s
+
+4178 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+1473 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1753 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+1397 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+315 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1133 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2242 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2756 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+3865 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2877 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3035 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+4964 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+1177 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2965 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+801 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+1342 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4948 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3040 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+876 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1664 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4937 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3828 not exists.
+Compare times: 14
+Use time: 0.00000016s
+
+3587 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1964 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2045 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1029 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+1523 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4850 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2455 not exists.
+Compare times: 13
+Use time: 0.00000017s
+
+3131 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+913 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1427 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+2536 exists.
+Compare times: 1
+Use time: 0.00000004s
+
+4159 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3591 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4700 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3928 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+1634 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3852 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4614 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+2991 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3792 not exists.
+Compare times: 12
+Use time: 0.00000009s
+
+546 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+1087 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2487 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+3596 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1215 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3433 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+337 exists.
+Compare times: 4
+Use time: 0.00000004s
+
+3438 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2329 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+1220 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1734 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+30 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3357 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1234 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4561 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4736 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3627 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+4195 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3086 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4898 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1571 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3194 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+906 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+3043 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4152 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1474 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+365 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+3597 not exists.
+Compare times: 12
+Use time: 0.00000009s
+
+270 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4625 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3516 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4679 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1352 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1041 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+97 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4425 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+554 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2123 exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1014 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4341 not exists.
+Compare times: 12
+Use time: 0.00000016s
+
+4923 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+646 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3973 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3432 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3459 exists.
+Compare times: 6
+Use time: 0.00000008s
+
+2350 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+727 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2377 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1268 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1162 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2271 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+2325 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+107 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+973 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2623 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1514 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1487 not exists.
+Compare times: 10
+Use time: 0.00000010s
+
+2258 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+13 exists.
+Compare times: 11
+Use time: 0.00000009s
+
+1122 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4449 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+3340 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4455 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2237 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+19 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+3346 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2606 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3147 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3742 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1524 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+685 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4012 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+171 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2389 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+33 exists.
+Compare times: 10
+Use time: 0.00000007s
+
+1142 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4929 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3901 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1683 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4506 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+70 exists.
+Compare times: 12
+Use time: 0.00000010s
+
+4939 exists.
+Compare times: 12
+Use time: 0.00000009s
+
+578 not exists.
+Compare times: 14
+Use time: 0.00000012s
+
+358 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1467 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+331 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+1440 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4767 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2549 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+1247 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2356 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+1391 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2419 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+942 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2051 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3160 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2619 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1072 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2181 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+4399 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+17 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2235 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+1058 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3817 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1599 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+280 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+3607 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2395 exists.
+Compare times: 11
+Use time: 0.00000009s
+
+4613 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+177 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+246 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4682 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3140 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+949 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3167 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2058 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1135 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2163 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4976 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+540 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4775 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2611 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+293 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1402 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4648 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2484 exists.
+Compare times: 7
+Use time: 0.00000008s
+
+222 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+3679 exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2570 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+893 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3111 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+4395 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4733 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3624 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+919 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2542 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+738 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+4065 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1306 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3524 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3808 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+363 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+2581 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2297 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+1283 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4610 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4867 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+485 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+2703 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+426 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3753 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3239 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+3045 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+340 not exists.
+Compare times: 13
+Use time: 0.00000010s
+
+3958 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+3892 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1187 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1593 exists.
+Compare times: 7
+Use time: 0.00000010s
+
+4920 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4158 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+2806 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+1007 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1778 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+1805 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+696 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3565 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2456 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4992 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4221 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+434 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2598 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1516 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+934 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+964 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+423 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3669 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2844 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1735 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4440 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1498 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2509 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4110 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1892 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4597 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+3475 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4016 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+486 exists.
+Compare times: 13
+Use time: 0.00000011s
+
+432 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3759 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2650 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+854 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+1969 exists.
+Compare times: 13
+Use time: 0.00000015s
+
+1111 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3329 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4438 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2220 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1598 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+1569 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+1239 exists.
+Compare times: 8
+Use time: 0.00000008s
+
+2348 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+4539 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+103 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3430 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3189 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+2080 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1661 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+4988 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3879 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+2797 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+1384 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+321 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4730 exists.
+Compare times: 7
+Use time: 0.00000009s
+
+3621 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+294 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1403 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4134 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3426 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3571 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+2839 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3948 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+179 not exists.
+Compare times: 14
+Use time: 0.00000012s
+
+1829 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+720 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4704 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1377 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2034 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1904 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+4122 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+795 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+2364 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4582 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2782 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+3891 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+2452 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3964 exists.
+Compare times: 9
+Use time: 0.00000009s
+
+2855 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3937 exists.
+Compare times: 13
+Use time: 0.00000013s
+
+150 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+3295 not exists.
+Compare times: 12
+Use time: 0.00000017s
+
+2257 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1148 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1067 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4394 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2522 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1413 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4659 exists.
+Compare times: 12
+Use time: 0.00000016s
+
+1920 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3029 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+2230 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4448 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3904 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+2613 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+963 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2072 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4225 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+1991 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3100 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+73 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+1182 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+3400 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4563 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3454 exists.
+Compare times: 9
+Use time: 0.00000008s
+
+1236 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+641 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+2859 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4904 exists.
+Compare times: 13
+Use time: 0.00000014s
+
+468 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+2616 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4807 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+2589 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3698 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+677 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4464 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2775 not exists.
+Compare times: 11
+Use time: 0.00000019s
+
+4993 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4636 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+629 not exists.
+Compare times: 14
+Use time: 0.00000018s
+
+3334 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+4380 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+1176 exists.
+Compare times: 11
+Use time: 0.00000015s
+
+67 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3394 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1230 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+2853 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3547 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3947 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+1849 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4067 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+4587 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2369 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1493 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+384 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+4820 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3738 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+3706 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1851 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1886 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+2747 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+1638 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4853 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1526 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4101 exists.
+Compare times: 7
+Use time: 0.00000010s
+
+3977 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3436 exists.
+Compare times: 10
+Use time: 0.00000009s
+
+1871 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2605 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+3965 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2856 exists.
+Compare times: 6
+Use time: 0.00000008s
+
+667 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+3967 not exists.
+Compare times: 12
+Use time: 0.00000009s
+
+640 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+1749 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+4022 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2913 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1804 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+1086 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2168 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+1136 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2245 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1867 exists.
+Compare times: 6
+Use time: 0.00000007s
+
+2976 exists.
+Compare times: 9
+Use time: 0.00000014s
+
+632 exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2653 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3762 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4871 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4338 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2831 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+3940 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+1722 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+3327 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+0 not exists.
+Compare times: 11
+Use time: 0.00000009s
+
+2798 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+4248 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+62 not exists.
+Compare times: 13
+Use time: 0.00000009s
+
+1957 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+848 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1416 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2525 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+307 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+3854 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+2745 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4984 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+1956 exists.
+Compare times: 9
+Use time: 0.00000008s
+
+3092 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+874 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1020 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3238 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2475 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4693 not exists.
+Compare times: 13
+Use time: 0.00000009s
+
+257 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1814 exists.
+Compare times: 8
+Use time: 0.00000008s
+
+2923 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+705 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+3772 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1554 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3775 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+4884 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2666 exists.
+Compare times: 10
+Use time: 0.00000014s
+
+1611 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+502 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+4628 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1797 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4327 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+1000 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3678 exists.
+Compare times: 8
+Use time: 0.00000009s
+
+4787 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+3786 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+459 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4707 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+1380 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+229 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+2447 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2393 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4611 exists.
+Compare times: 7
+Use time: 0.00000009s
+
+3739 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+981 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+780 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+2944 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+2302 exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1193 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+84 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2979 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4088 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+761 not exists.
+Compare times: 13
+Use time: 0.00000018s
+
+1843 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1194 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4521 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+3412 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1691 exists.
+Compare times: 10
+Use time: 0.00000016s
+
+3909 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1078 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+2701 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+989 not exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1846 exists.
+Compare times: 9
+Use time: 0.00000010s
+
+4091 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+764 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+3048 exists.
+Compare times: 9
+Use time: 0.00000014s
+
+4639 exists.
+Compare times: 9
+Use time: 0.00000011s
+
+1312 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+3696 exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1478 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4218 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2000 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+3604 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+277 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+1900 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4389 not exists.
+Compare times: 10
+Use time: 0.00000011s
+
+4416 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3307 exists.
+Compare times: 13
+Use time: 0.00000016s
+
+4474 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+3129 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4238 exists.
+Compare times: 11
+Use time: 0.00000010s
+
+1863 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4997 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+2779 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1156 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3425 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+98 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+639 exists.
+Compare times: 12
+Use time: 0.00000012s
+
+698 exists.
+Compare times: 11
+Use time: 0.00000008s
+
+4025 exists.
+Compare times: 8
+Use time: 0.00000010s
+
+3683 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+1465 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+2574 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4525 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1766 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+4888 exists.
+Compare times: 12
+Use time: 0.00000014s
+
+1693 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+584 not exists.
+Compare times: 14
+Use time: 0.00000015s
+
+4200 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+1982 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+1360 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+4687 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+3023 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+2888 not exists.
+Compare times: 12
+Use time: 0.00000011s
+
+724 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+1046 exists.
+Compare times: 10
+Use time: 0.00000011s
+
+2155 exists.
+Compare times: 4
+Use time: 0.00000006s
+
+3132 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+4755 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+3536 exists.
+Compare times: 13
+Use time: 0.00000013s
+
+2158 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+1 not exists.
+Compare times: 11
+Use time: 0.00000009s
+
+1110 exists.
+Compare times: 6
+Use time: 0.00000008s
+
+1159 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+221 exists.
+Compare times: 12
+Use time: 0.00000011s
+
+2439 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+4657 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+1264 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+4424 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+2299 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+1190 not exists.
+Compare times: 11
+Use time: 0.00000010s
+
+4576 not exists.
+Compare times: 13
+Use time: 0.00000012s
+
+140 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+3580 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+253 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3252 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4442 exists.
+Compare times: 10
+Use time: 0.00000010s
+
+2492 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+2026 not exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3135 not exists.
+Compare times: 12
+Use time: 0.00000567s
+
+4048 exists.
+Compare times: 11
+Use time: 0.00000016s
+
+721 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+1830 not exists.
+Compare times: 13
+Use time: 0.00000015s
+
+3659 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+4768 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+2550 exists.
+Compare times: 9
+Use time: 0.00000014s
+
+3632 exists.
+Compare times: 6
+Use time: 0.00000007s
+
+2157 exists.
+Compare times: 9
+Use time: 0.00000012s
+
+4375 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+3834 not exists.
+Compare times: 14
+Use time: 0.00000014s
+
+1622 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+2731 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+524 not exists.
+Compare times: 13
+Use time: 0.00000011s
+
+273 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+3850 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+4959 exists.
+Compare times: 11
+Use time: 0.00000014s
+
+1632 exists.
+Compare times: 10
+Use time: 0.00000012s
+
+2863 not exists.
+Compare times: 13
+Use time: 0.00000014s
+
+3972 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+1004 exists.
+Compare times: 10
+Use time: 0.00000013s
+
+4257 exists.
+Compare times: 13
+Use time: 0.00000012s
+
+2521 not exists.
+Compare times: 11
+Use time: 0.00000014s
+
+303 not exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1605 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4932 exists.
+Compare times: 11
+Use time: 0.00000012s
+
+3567 not exists.
+Compare times: 13
+Use time: 0.00000013s
+
+1349 not exists.
+Compare times: 11
+Use time: 0.00000012s
+
+4478 exists.
+Compare times: 11
+Use time: 0.00000011s
+
+1151 not exists.
+Compare times: 12
+Use time: 0.00000013s
+
+4305 not exists.
+Compare times: 14
+Use time: 0.00000013s
+
+978 exists.
+Compare times: 9
+Use time: 0.00000017s
+
+2716 not exists.
+Compare times: 12
+Use time: 0.00000012s
+
+583 not exists.
+Compare times: 14
+Use time: 0.00000016s
+
+4215 exists.
+Compare times: 6
+Use time: 0.00000013s
+
+2643 exists.
+Compare times: 8
+Use time: 0.00000011s
+
+3752 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
+4340 not exists.
+Compare times: 12
+Use time: 0.00000010s
+
+344 not exists.
+Compare times: 12
+Use time: 0.00000015s
+
+3373 exists.
+Compare times: 7
+Use time: 0.00000011s
+
+3171 exists.
+Compare times: 11
+Use time: 0.00000013s
+
+2062 not exists.
+Compare times: 12
+Use time: 0.00000017s
+
+953 not exists.
+Compare times: 13
+Use time: 0.00000016s
+
+4055 not exists.
+Compare times: 12
+Use time: 0.00000014s
+
