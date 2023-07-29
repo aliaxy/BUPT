@@ -2,21 +2,21 @@
 
 ## Homework
 
-- [ch1](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch1.md)
+- [ch1](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch1.md)(100)
 
-- [ch2](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch2.md)
+- [ch2](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch2.md)(100)
 
-- [ch3_4](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch3_4.md)
+- [ch3_4](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch3_4.md)(100)
 
-- [ch5](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch5.md)
+- [ch5](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch5.md)(97)
 
-- [ch6](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch6.md)
+- [ch6](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch6.md)(95)
 
-- [ch7](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch7.md)
+- [ch7](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch7.md)(100)
 
-- [ch9](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch9.md)
+- [ch9](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch9.md)(100)
 
-### demo
+## demo
 
 - [sqlist](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/homework/sqlist_demo)
 
