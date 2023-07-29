@@ -16,13 +16,13 @@
 
 - [ch9](https://github.com/Aliaxy/BUPT/blob/main/2022-2023-1/数据结构/homework/ch9.md)(100)
 
-## demo
+## Demo
 
-- [sqlist](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/homework/sqlist_demo)
+- [sqlist](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/demo/sqlist_demo)
 
-- [linklist](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/homework/linklist_demo)
+- [linklist](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/demo/linklist_demo)
 
-- [bitree](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/homework/bitree_demo)
+- [bitree](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/数据结构/demo/bitree_demo)
 
 ## Lab
 
