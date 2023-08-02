@@ -1,0 +1,43 @@
+\begin{thebibliography}{1}
+\providecommand{\bibauthor}[1]{#1}
+\providecommand{\bibeditor}[1]{#1}
+\providecommand{\bibtranslator}[1]{#1}
+\providecommand{\bibtitle}[1]{#1}
+\providecommand{\bibbooktitle}[1]{#1}
+\providecommand{\bibjournal}[1]{#1}
+\providecommand{\bibmark}[1]{#1}
+\providecommand{\bibcountry}[1]{#1}
+\providecommand{\bibpatentid}[1]{#1}
+\providecommand{\bibedition}[1]{#1}
+\providecommand{\biborganization}[1]{#1}
+\providecommand{\bibaddress}[1]{#1}
+\providecommand{\bibpublisher}[1]{#1}
+\providecommand{\bibinstitution}[1]{#1}
+\providecommand{\bibschool}[1]{#1}
+\providecommand{\bibvolume}[1]{#1}
+\providecommand{\bibnumber}[1]{#1}
+\providecommand{\bibpages}[1]{#1}
+\providecommand{\bibmodifydate}[1]{#1}
+\providecommand{\bibcitedate}[1]{#1}
+\providecommand{\bibyear}[1]{#1}
+\providecommand{\bibdate}[1]{#1}
+\providecommand{\biburl}[1]{\url{#1}}
+
+\bibitem{张敏2015贝特朗悖论之争的终结}
+\bibauthor{张敏\@, 何小亚}\@.
+  \bibtitle{贝特朗悖论之争的终结}\bibmark{[J]}\@.
+  \bibjournal{数学教育学报}\@,
+  \bibyear{2015}\bibnumber{(3)}\thinspace{}\textnormal{: }\bibpages{4}\@.
+
+\bibitem{冯变英2008贝特朗悖论与概率论的公理化}
+\bibauthor{冯变英\@, 王平}\@.
+  \bibtitle{贝特朗悖论与概率论的公理化}\bibmark{[J]}\@.
+  \bibjournal{运城学院学报}\@, \bibyear{2008}\@,
+  \bibvolume{26}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{2}\@.
+
+\bibitem{北京邮电大学理学院数学系概率教研室2010概率论与随机过程}
+\bibauthor{北京邮电大学理学院数学系概率教研室\@, 史悦\@,
+  孙洪祥}\@. \bibtitle{概率论与随机过程}\bibmark{[J]}\@.
+  \bibjournal{北京邮电大学出版社}\@, \bibyear{2010}\@.
+
+\end{thebibliography}

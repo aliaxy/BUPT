@@ -34,5 +34,5 @@
 
 ## Thesis
 
-- [课程论文]()
+- [课程论文](https://github.com/Aliaxy/BUPT/tree/main/2022-2023-1/矩阵理论与方法/thesis)
 
