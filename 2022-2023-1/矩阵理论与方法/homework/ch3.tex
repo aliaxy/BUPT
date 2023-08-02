@@ -1,0 +1,333 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, extarrows}
+\usepackage{graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第三次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.2 \quad 线性空间变换及其矩阵}
+
+{\centering{\subsubsection*{定义}}}
+
+\paragraph*{1.14}
+\begin{equation*}
+    T(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \xlongequal{def} = (T\bm{x}_1,T\bm{x}_2,\cdots,T\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A} \tag{1.2.12} \label{0}
+\end{equation*}
+其中
+\[
+    A = \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots &        & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{bmatrix}
+\]
+矩阵$\bm{A}$的第$i$列恰是$T\bm{x}_i$的坐标$(i = 1, 2, \cdots, n)$.
+
+式\eqref{0}中的矩阵$\bm{A}$称为$T$在$V^n$的基$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$下的矩阵，简称为$\bm{A}$为$\bm{T}$的\textbf{矩阵.}
+
+\paragraph*{1.15} 设$\bm{A},\bm{B}$为数域$K$上的两个个$n$阶矩阵，如果存在$K$上的$n$阶可逆矩阵$\bm{P}$，使得
+$\bm{B} = \bm{P}^{-1} \bm{AP}$，则称\textbf{$A$相似于$B$}，记为$A \sim B.$
+
+{\centering{\subsubsection*{定理}}}
+
+\paragraph*{1.9} 设$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$是数域$K$上的线性空间$V^n$的一个基，线性变换$T_1, T_2$在该基下的矩阵
+依次是$\bm{A}, \bm{B}$.则有如下结论：
+\begin{enumerate}
+    \item[(1)] $(T_1 + T_2)(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)(\bm{A} + \bm{B})$
+    \item[(2)] $(kT_1)(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)(k\bm{A})$
+    \item[(3)] $(T_1T_2)(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)\bm{AB}$
+    \item[(4)] $T_1^{-1}(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A}^{-1}$
+\end{enumerate}
+
+\paragraph*{证} 因为
+\begin{gather*}
+    T_1 (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A} \\
+    T_2 (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{B}
+\end{gather*}
+所以
+\begin{gather*}
+    (T + T_2)(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = T_1(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) + T_2 (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = \\
+    (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A} + (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{B} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) (\bm{A} + \bm{B}) \\
+    (kT_1)(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = k(T_1(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)) =  \\
+    k(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) (k\bm{A}) \\
+    T_1(T_2(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)) = T_1((\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)\bm{B}) =\\
+    T_1(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)\bm{B} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)\bm{AB}
+\end{gather*}
+上面诸式证明了$T_1 + T_2$，$T_1T_2$及$kT_1$在基$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$下的矩阵依次是$\bm{A} + \bm{B}$，$\bm{AB}$及$k\bm{A}$.
+为了证明结论$(4)$，设$T_1$的逆变换是$T_2$，于是有
+\[
+    T_1T_2 = T_2T_1 = T_e
+\]
+则由结论$(3)$有
+\[
+    \bm{AB} = \bm{BA} = \bm{I}
+\]
+即$T_1$的逆变换在所给基下的矩阵是$\bm{B} = \bm{A}^{-1}$.
+
+\paragraph*{推论} 设$f(t) = a_0t^m + a_1t^{m - 1} + \cdots + a_{m - 1} t + a_m$是纯量$t$的多项式，$T$为线性空间$V^n$的线性变换，且对$V^n$的基$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$有
+\[
+    T(\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n)\bm{A}
+\]
+则$V^n$的线性变换$f(T)$在所论基下的矩阵是
+\begin{equation*}
+    f(\bm{A}) = a_0 \bm{A}^m + a_1 \bm{A}^{m - 2} + \cdots + a_{m - 1} \bm{A} + a_m \bm{I} \tag{1.2.15} \label{1}
+\end{equation*}
+式\eqref{1} 被称为\textbf{方阵$A$的多项式.}它在以后的理论研究中占有重要地位.
+
+\paragraph*{1.10} 设线性变换$T$在线性空间$V^n$的基$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$下的矩阵是$\bm{A}$，向量$\bm{x}$在该基下的坐标是$\bm{\alpha}$，则$T\bm{x}$在该基下的坐标是
+\begin{equation*}
+    \bm{\beta} = \bm{A\alpha} \tag{1.2.16} \label{2}
+\end{equation*}
+
+\paragraph*{证} 由假设由$\bm{x} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{\alpha}$，而
+\[
+    T\bm{x} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{\alpha} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{A\alpha}
+\]
+另一方面由$T\bm{x} = (\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n) \bm{\beta}.$由于$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_n$线性无关，故得式\eqref{2}.证毕.
+
+{\centering{\subsubsection*{例题}}}
+
+\paragraph*{P23}
+在矩阵空间$R^{2\times 2}$中，给定矩阵
+\[ A =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}, \qquad
+    T_1(X) = AX, \; (\forall X \in R^{2\times 2})
+\]
+求：$T(X) = f(T_1)(X)$.
+\paragraph*{解1：}
+\begin{flalign*}
+     & \qquad \quad A = P^{-1}\Lambda P = \dfrac{1}{2} \begin{bmatrix}
+                                                           1 & -1 \\
+                                                           1 & 1
+                                                       \end{bmatrix} \begin{bmatrix}
+                                                                         1 & 0  \\
+                                                                         0 & -1
+                                                                     \end{bmatrix} \begin{bmatrix}
+                                                                                       1  & 1 \\
+                                                                                       -1 & 1
+                                                                                   \end{bmatrix} & \\
+     & \qquad \quad f(A) = \dfrac{1}{2} \begin{bmatrix}
+                                            1 & -1 \\
+                                            1 & 1
+                                        \end{bmatrix} f(\begin{bmatrix}
+                                                            1 & 0  \\
+                                                            0 & -1
+                                                        \end{bmatrix}) \begin{bmatrix}
+                                                                           1  & 1 \\
+                                                                           -1 & 1
+                                                                       \end{bmatrix}
+\end{flalign*}
+
+\paragraph*{解2：}
+找到一组$R^{2\times 2}$的一组基
+\begin{gather*}
+    X_1 = \begin{bmatrix}
+        1 & 0 \\
+        1 & 0
+    \end{bmatrix}, \; X_2 = \begin{bmatrix}
+        0 & 1 \\
+        0 & 1
+    \end{bmatrix}, \; X_3 = \begin{bmatrix}
+        -1 & 0 \\
+        1  & 0
+    \end{bmatrix}, \; X_4 = \begin{bmatrix}
+        0 & -1 \\
+        0 & 1
+    \end{bmatrix} \\
+    X = (X_1, X_2, X_3, X_4)\alpha \qquad \alpha = \dfrac{1}{2}(x_1 + x_3, x_2 + x_4, -x_1 + x_3, -x_2 + x_4)^T \\
+    T_1(X_1, X_2, X_3, X_4) = (X_1, X_2, X_3, X_4) \begin{bmatrix}
+        1 &   &    &    \\
+          & 1 &    &    \\
+          &   & -1 &    \\
+          &   &    & -1
+    \end{bmatrix} \\
+    T_1(X) = T_1(X_1, X_2, X_3, X_4)\alpha = (X_1, X_2, X_3, X_4) diag(1,1,-1,-1)\alpha \\
+    T_1^k(X) = T_1^k(X_1, X_2, X_3, X_4)\alpha = (X_1, X_2, X_3, X_4)diag(1,1,(-1)^k,(-1)^k)\alpha \\
+    f(T_1)(X) = f(T_1)(X_1, X_2, X_3, X_4)\alpha = (X_1, X_2, X_3, X_4)f(diag(1,1,(-1)^k,(-1)^k))\alpha
+\end{gather*}
+
+\paragraph*{1.17} 如果$\bm{B} = \bm{P}^{-1} \bm{AP}$，且$f(t)$是数域$K$上的多项式，则矩阵多项式$f(\bm{B})$与$f(\bm{A})$之间
+有关系式$f(\bm{B})  = \bm{P}^{-1}f(\bm{A}) \bm{P}$.
+
+\paragraph*{解} 对于正整数$k$，易知$\bm{B}^k = \bm{P}^{-1} \bm{A}^k \bm{P}$.令
+\[
+    f(t) = a_0t^m + a_1t^{m - 1} + \cdots + a_{m - 1} t + a_m
+\]
+则有
+\begin{align*}
+    f(\bm{B}) & = a_0 \bm{B}^m + a_1 \bm{B}^{m - 2} + \cdots + a_{m - 1} \bm{B} + a_m \bm{I}                                                                                      \\
+              & =  a_0 (\bm{P}^{-1} \bm{A}^m \bm{P}) + a_1 (\bm{P}^{-1} \bm{A}^{m - 1} \bm{P}) + \cdots + a_{m - 1} (\bm{P}^{-1} \bm{A} \bm{P}) + a_m (\bm{P}^{-1} \bm{I} \bm{P}) \\
+              & =  \bm{P}^{-1}(a_0  \bm{A}^m + a_1 \bm{A}^{m - 1} + \cdots + a_{m - 1}\bm{A} + a_m \bm{I}) \bm{P} = \bm{P}^{-1} f(\bm{A}) \bm{P}
+\end{align*}
+
+
+{\centering{\subsubsection*{习题}}}
+
+\paragraph*{1.2.3} 在 $P_n$ 中，$T_1f(t) = f^{'}(t)$, $T_2f(t) = tf(t)$.证明$T_1T_2 - T_2T_1 = T_e$.
+
+\paragraph*{证}
+\begin{align*}
+    (T_1T_2 - T_2T_1)(f(t)) & = T_1T_2(f(t)) - T_2T_1(f(t))     \\
+                            & = T_1(T_2(f(t))) - T_2(T_1(f(t))) \\
+                            & = T_1(tf(t)) - T_2(f^{'}(t))      \\
+                            & = f(t) + tf^{'}(t) - tf^{'}(t)    \\
+                            & = f(t)                            \\
+                            & = T_e(f(t))
+\end{align*}
+
+\paragraph*{1.2.4} 在$R^3$中，设$\bm{x} = (\xi_1, \xi_2, \xi_3)$，定义$T\bm{x} = (2\xi_1 - \xi_2, \xi_2 + \xi_3, \xi_1)$，试求$T$在基$\bm{e}_1 = (1, 0, 0)$，
+$\bm{e}_2 = (0,1,0)$，$\bm{e}_3 = (0,0,1)$下的矩阵.
+
+\paragraph*{解} 已知$T\bm{x} = (2\xi_1 - \xi_2, \xi_2 + \xi_3, \xi_1)$，则
+\begin{gather*}
+    T(\bm{e}_1) = (1, 0, 1) = \bm{e}_1 \bm{A} \\
+    T(\bm{e}_2) = (-1, 1, 0) = \bm{e}_2 \bm{A} \\
+    T(\bm{e}_3) = (0, 1, 0) = \bm{e}_3 \bm{A}
+\end{gather*}
+解得
+\[
+    \bm{A} = \begin{bmatrix}
+        2 & -1 & 0 \\
+        0 & 1  & 1 \\
+        1 & 0  & 0
+    \end{bmatrix}
+\]
+
+\paragraph*{1.2.5} 如果$\bm{x}_1,\bm{x}_2$是二维线性空间$V^2$的基，$T_1,T_2$是$V^2$的线性变换，$T_1\bm{x}_1 = \bm{y}_1$,$T_1\bm{x}_2 = \bm{y}_2$，
+且$T_2(\bm{x}_1 + \bm{x}_2) = \bm{y}_1 + \bm{y}_2, T_2(\bm{x}_1 - \bm{x}_2) = \bm{y}_1 + \bm{y}_2$，试证明：$T_1 = T_2$.
+
+\paragraph*{证} 已知$T_1\bm{x}_1 = \bm{y}_1$，$T_1\bm{x}_2 = \bm{y}_2$ \\
+由
+\begin{gather*}
+    T_2(\bm{x}_1 + \bm{x}_2) = \bm{y}_1 + \bm{y}_2  \\
+    T_2(\bm{x}_1 - \bm{x}_2) = \bm{y}_1 - \bm{y}_2
+\end{gather*}
+得
+\[
+    \begin{cases}
+        T_2\bm{x}_1 = T_1\bm{x}_1 \\
+        T_2\bm{x}_2 = T_1\bm{x}_2
+    \end{cases}
+\]
+即$T_1 = T_2$.证毕.
+
+\paragraph*{1.2.8} 在$R^{2\times 2}$中定义线性变换
+\[
+    T_1\bm{X} = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} \bm{X}, \qquad T_2\bm{X} = \bm{X}\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}, \qquad T_3\bm{X} = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} \bm{X} \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+\]
+求$T_1, T_2, T_3$在基$\bm{E}_{11}, \bm{E}_{12}, \bm{E}_{21}, \bm{E}_{22}$下的矩阵.
+
+\paragraph*{解} 计算基的基像组， 有
+\begin{gather*}
+    T(\bm{E}_{11}) = \bm{A_1}\bm{E}_{11} = \begin{bmatrix}
+        a & 0 \\
+        c & 0
+    \end{bmatrix} = a\bm{E}_{11} + 0\bm{E}_{12} + c\bm{E}_{21} + 0\bm{E}_{22} \\
+    T(\bm{E}_{12}) = \bm{A_1}\bm{E}_{12} = \begin{bmatrix}
+        0 & a \\
+        0 & c
+    \end{bmatrix} = 0\bm{E}_{11} + a\bm{E}_{12} + 0\bm{E}_{21} + c\bm{E}_{22} \\
+    T(\bm{E}_{21}) = \bm{A_1}\bm{E}_{21} = \begin{bmatrix}
+        b & 0 \\
+        d & 0
+    \end{bmatrix} = b\bm{E}_{11} + 0\bm{E}_{12} + d\bm{E}_{21} + 0\bm{E}_{22} \\
+    T(\bm{E}_{22}) = \bm{A_1}\bm{E}_{22} = \begin{bmatrix}
+        0 & b \\
+        0 & d
+    \end{bmatrix} = 0\bm{E}_{11} + b\bm{E}_{12} + 0\bm{E}_{21} + d\bm{E}_{22}
+\end{gather*}
+故$T$在基下的矩阵为
+\[
+    A_1 = \begin{bmatrix}
+        a & 0 & b & 0 \\
+        0 & a & 0 & b \\
+        c & 0 & d & 0 \\
+        0 & c & 0 & d
+    \end{bmatrix}
+\]
+同理可得
+\[
+    A_2 = \begin{bmatrix}
+        a & c & 0 & 0 \\
+        b & d & 0 & 0 \\
+        0 & 0 & a & c \\
+        0 & 0 & b & d
+    \end{bmatrix}
+\]
+有线性变换性质有
+\begin{gather*}
+    T_3 = T_1T_2 \\
+    A_3 = A_1A_3
+\end{gather*}
+
+\paragraph*{例1.15} 在矩阵空间$R^{2\times 2}$中，给定矩阵
+\[
+    B = \begin{bmatrix}
+        0 & 1 \\
+        4 & 0
+    \end{bmatrix}
+\]
+线性变换为$T(\bm{X})=\bm{XB}\;(\forall \bm{X} \in R^{2\times 2})$, $R^{2\times 2}$的两个基为$\bm{E}_{11},\bm{E}_{12}, \bm{E}_{21}, \bm{E}_{22}$. \\
+求$T$在此基下的矩阵.
+
+\paragraph*{解} 计算基的基像组，有
+\begin{gather*}
+    T(\bm{E}_{11}) = \bm{E}_{11}\bm{B} = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix} = 0\bm{E}_{11} + 1\bm{E}_{12} + 0\bm{E}_{21} + 0\bm{E}_{22} \\
+    T(\bm{E}_{12}) = \bm{E}_{12}\bm{B} = \begin{bmatrix}
+        4 & 0 \\
+        0 & 0
+    \end{bmatrix} = 4\bm{E}_{11} + 0\bm{E}_{12} + 0\bm{E}_{21} + 0\bm{E}_{22} \\
+    T(\bm{E}_{21}) = \bm{E}_{21}\bm{B} = \begin{bmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{bmatrix} = 0\bm{E}_{11} + 0\bm{E}_{12} + 0\bm{E}_{21} + 1\bm{E}_{22} \\
+    T(\bm{E}_{22}) = \bm{E}_{22}\bm{B} = \begin{bmatrix}
+        0 & 0 \\
+        4 & 0
+    \end{bmatrix} = 0\bm{E}_{11} + 0\bm{E}_{12} + 4\bm{E}_{21} + 0\bm{E}_{22}
+\end{gather*}
+故$T$在基下的矩阵为
+\[
+    A_1 = \begin{bmatrix}
+        0 & 4 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 4 \\
+        0 & 0 & 1 & 0
+    \end{bmatrix}
+\]
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第一次作业}\vspace{-3em}}
+% \title{\textbf{矩阵论 \quad 第一次作业}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.1 \quad 线性空间}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\textbf{定义 1.1} \quad 设 $V$ 是一个非空集合，它的元素用 \bm{$x,y,z$} 等表示，并称之为向量；$K$是一个
+数域，它的元素用 $k,l,m$ 等表示.如果 $V$ 满足条件：\par
+（1）在 $V$ 中定义一个加法运算，即当 \bm{$x,y$}$\in V$ 时，有唯一的和 \bm{$x + y$}$\in V$ 且加法
+运算满足以下性质：\par
+1） 结合律 \bm{$x + (y + z) = (x + y) + z$}; \par
+2） 交换律 \bm{$x + y = y + x$}; \par
+3） 存在\textbf{零元素 0}，使 \bm{$x + 0 = x$}; \par
+4） 存在\textbf{负元素}， 即对任一向量 \bm{$x$}$\in V$，存在向量$ \bm{y} \in V$，使 $\bm{x + y = 0}$，则称$\bm{y}$ 为 $\bm{x}$ 的负
+元素，记为$\bm{-x}$ ，于是有 $\bm{x + (- x) = 0}$. \par
+（2） 在 $V$ 中定义数乘（数与向量的乘法）运算，即当 \bm{$x$}$\in V$，$k \in K$ 时，有唯一的乘积
+$k\bm{x} \in V$，且数乘运算满足以下性质： \par
+5） 数因子分配律 $k(\bm{x + y} = k \bm{x} + k \bm{y})$; \par
+6） 分配律 $(k + l) \bm{x} = k \bm{x} + l \bm{x}$; \par
+7） 结合律 $k(l \bm{x}) = (kl) \bm{x}$； \par
+8） $1 \cdot \bm{x} = \bm{x}$ \\
+则称 $V$ 为数域 $K$ 上的\textbf{线性空间}或\textbf{向量空间}. \par
+
+$V$中所定义的加法及数乘运算统称为 $V$ 的线性运算.在不致产生混淆时，将数域 $K$ 上的
+线性空间简称为线性空间.数 $k$ 与向量 $\bm{x}$ 的乘积$k\bm{x}$也可写成$\bm{x}k$. \par
+
+需要指出，不管$V$的元素如何，当$K$为实数域$\mathbb{R}$时，则称$V$为实线性空间；当$K$为复
+数域$\mathbb{C}$时，就称$V$为复线性空间.
+
+\textbf{定义 1.3} \quad 设 $V$ 是数域$K$上的线性空间，$\bm{x}_1\bm{,x}_2\bm{, \cdots, x}_r(r \geqslant 1)$是属于$V$的任意$r$个向
+量，如果它满足 \\
+（1）$\bm{x}_1\bm{,x}_2\bm{, \cdots, x}_r$ 线性无关； \par
+（2）$V$ 中任一向量 $\bm{x}$ 都是$\bm{x}_1\bm{,x}_2\bm{, \cdots, x}_r$的线性组合. \\
+则称$\bm{x_1,x_2, \cdots, x_r}$ 为 $V$ 的一个\textbf{基}或\textbf{基底}，并称$\bm{x}_i(i = 1,2,\cdots,r)$为\textbf{基向量}.
+
+\textbf{定义 1.4} \quad 称线性空间 $V^n$ 的一个基$\bm{x}_1\bm{,x}_2\bm{, \cdots, x}_n$为$V^n$的一个\textbf{坐标系}.设向量 $\bm{x} \in V^n$，
+它在该基下的线性表示式为 \\
+\centerline{$\bm{x = \xi_1x_1 + \xi_2x_2 + \cdots + \xi_nx_n}$}
+则称$\bm{\xi}_1\bm{,\xi}_2\bm{, \cdots, \xi}_n$ 为 $\bm{x}$在该坐标系中的\textbf{坐标}或\textbf{分量}，记为 \\
+\centerline{$(\xi_1, \xi_2 ,\bm{\cdots},\xi_n)^T$} \par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\textbf{例 1.3} \quad 在集合$P_n$中，按照通常意义定义多项式加法及实数与多项式乘法，则$P_n$对
+这两种运算是封闭的，因为，如果$f(t)\in P_n$，$g(t) \in P_n$，则$f(t) + g(t) \in P_n$；若$k \in \mathbb{R}$，则
+$kf(t)\in P_n$，易验证对$P_n$的这两种运算，也满足交换律与结合律.
+
+\textbf{例 1.4} \quad 在所有$n$阶实矩阵的集合$\mathbf{R}^{n\times n}$（或复矩阵的集合$\mathbf{C}^{n\times n}$中，如果 $\mathbf{A} + \mathbf{B} \in \mathbf{R}^{n \times n}$
+（或$\mathbf{C}^{n \times n}$），则$\mathbf{A + B} \in \mathbf{R}^{n \times n}$（或$\mathbf{C}^{n \times n}$）；如果 $k \in \mathbb{R}$ 或 $\mathbb{C}$，则$k \mathbf{A} \in \mathbf{R}^{n \times n}$ （或 $\mathbf{C}^{n \times n}$）.即集
+合对于这两种运算是封闭的.加法与数乘矩阵也都满足诸算律.
+
+\textbf{例 1.5} \quad 设$\mathbb{R^{+}}$为所有正实数组成的数集，其加法与数乘运算分别定义为 \\
+\centerline{$m \oplus n = mn$，\quad $k \circ m = m^k $}
+证明$\mathbb{R^{+}}$是$\mathbb{R}$是上的线性空间. \par
+
+\textbf{证} \quad 设$m,n\in \mathbb{R^+}, \quad k \in R$，则有 \\
+\centerline{$m \oplus n = mn \in \mathbb{R^+}$，\quad $k \circ m = m^k \in \mathbb{R^+}$}
+即$\mathbb{R^+}$对所定义的加法运算“$\oplus$”与数乘运算“$\circ$”是封闭的，且有 \par
+
+（1）$(m \oplus n) \oplus p = (mn) \oplus p = mnp = m \oplus (np) = $ \\
+\centerline{$m \oplus (n \oplus p)$} \par
+（2）$m \oplus n = mn = nm = n \oplus m$ \par
+（3）1是零元素，因为$m \oplus 1 = m \times 1 = m$ \par \ \par
+（4）$m$的负元素是$\dfrac{1}{m}$，因为$m \oplus \dfrac{1}{m} = m \oplus \dfrac{1}{m} = 1$ \par \ \par
+（5）$k \circ (m \oplus n) = k \circ (mn) = (mn)^k = $ \\
+\centerline{$m^kn^k = (k \circ m) \oplus (k \circ n)$} \par
+（6）$(k + l) \circ m = m^{k + l} = m^km^l = (k \circ m) \oplus (l \circ m)$ \par
+（7）$k \circ (l \circ m) = k \circ m^l = m^{lk} = m^{kl} = (kl) \circ m$ \par
+（8）$1 \circ m = m^1 = m$ \\
+成立，故$\mathbb{R^+}$是实线性空间. \par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\textbf{习题 1.1.6} \quad 求$P_2$中向量$1+t+t^2$对基：$1, t - 1, (t - 2)(t - 1)$的坐标.
+
+\textbf{解}
+\begin{align*}
+    1 + t + t^2 & = a \cdot 1 + b(t - 1) + c(t - 1)(t - 2) \\
+    1 + t + t^2 & = (a - b + 2c) + (b - 3c)t + ct^2        \\
+                & \begin{cases}
+                      a - b + 2c = 1 \\
+                      b - 3c = 1     \\
+                      c = 1
+                  \end{cases} \Rightarrow
+    \begin{cases}
+        a = 3 \\
+        b = 4 \\
+        c = 1
+    \end{cases}
+\end{align*}
+因此，向量$1+t+t^2$对基：$1, t - 1, (t - 2)(t - 1)$的坐标为$(3, 4, 1)^T$.
+
+\textbf{习题 1.1.11} \quad 求$\mathbf{R}^4$的两个子空间
+$$
+    \begin{cases}
+        V_1 = \{(\xi_1, \xi_2, \xi_3, \xi_4) \ | \ \xi_1 - \xi_2 + \xi_3 - \xi_4 = 0 \} \\
+        V_2 = \{(\xi_1, \xi_2, \xi_3, \xi_4) \ | \ \xi_1 + \xi_2 + \xi_3 + \xi_4 = 0 \} \\
+    \end{cases}
+$$
+的交$V_1 \cap V_2$的基.
+
+\textbf{解}
+\begin{align*}
+    A = \begin{bmatrix}
+            1 & -1 & 1 & -1 \\
+            1 & 1  & 1 & 1
+        \end{bmatrix} \rightarrow
+    \begin{bmatrix}
+        1 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 1
+    \end{bmatrix} \quad
+    r(A) = 2,\ n - r(A) = 2
+\end{align*}
+因此，$V_1 \cap V_2$基的维数是2.
+$$
+    \begin{cases}
+        \xi_1 + \xi_3 = 0 \\
+        \xi_2 + \xi_4 = 0
+    \end{cases} \rightarrow
+    (1, 0, -1, 0)^T ,\quad  (0, 1, 0, -1)^T
+$$
+所以，$V_1 \cap V_2$的基为$\{(1, 0, -1, 0)^T ,\quad  (0, 1, 0, -1)^T\}$
+
+
+\end{document}

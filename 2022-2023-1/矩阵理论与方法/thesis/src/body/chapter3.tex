@@ -1,0 +1,393 @@
+\section{矩阵函数的求法研究}
+
+本章探讨第一个问题, 已知 $\bm{A}$, 怎样计算矩阵函数值得问题.
+
+\subsection{待定系数法}
+
+\subsubsection{待定系数法求矩阵函数的步骤推导}
+
+设 $n$ 阶矩阵 $\bm{A}$ 的特征多项式为 $\varphi(\lambda) = \det(\lambda \bm{I} - \bm{A})$. 如果首1多项式
+$$
+    \psi(\lambda) =\lambda^m + b_1 \lambda^{m-1} + \cdots + b_{m-1}\lambda + b_m \quad (1 \leqslant m \leqslant n)
+$$
+满足 $\psi(\bm{A}) = \bm{O}$ 且 $\psi(\lambda)$ 整除 $\varphi(\lambda)$(矩阵 $\bm{A}$ 的最小多项式与特征多项式均满足这些条件). 那么, $\psi(\lambda)$ 的零点就是 $\bm{A}$ 的特征值. 记 $\psi(\lambda)$ 的互异零点为 $\lambda_1, \lambda_2, \cdots, \lambda_s$, 相应的重数为 $r_1, r_2, \cdots, r_s$, 且 $r_1 + r_2 + \cdots + r_s = m$, 则有
+$$
+    \psi^{(l)}(\lambda_i) = 0 \quad (l = 0, 1, \cdots, r_i - 1; i = 1, 2, \cdots, s)
+$$
+这里, $\psi^{(l)}(\lambda)$ 表示 $\psi(\lambda)$ 的 $l$ 阶导数(下同). 设
+$$
+    f(z) = \sum\limits_{k = 0}^\infty c_k z^k = \psi(z)g(z) + r(z)
+$$
+其中 $r(z)$ 是次数低于 $m$ 的多项式, 于是可由
+$$
+    f^{(l)}(\lambda_i) = r^{l}(\lambda_i) \quad (l = 0, 1, \cdots, r_i - 1; i = 1, 2, \cdots, s)
+$$
+确定出 $r(z)$. 利用 $\psi(\bm{A}) = \bm{O}$, 可得
+$$
+    f(\bm{A}) = \sum\limits_{k=0}^\infty c_k\bm{A}^k = r(\bm{A})
+$$
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 3.1} 设 $\bm{A} = \begin{bmatrix}
+    2 & 0 & 0 \\
+    1 & 1 & 1 \\
+    1 & -1 & 3
+\end{bmatrix}$, 求 $e^{\bm{A}}$ 与 $e^{t\bm{A}}(t \in \mathbb{R})$.
+
+\paragraph*{解} $\varphi(\lambda) - \det(\lambda \bm{I} - \bm{A}) = (\lambda - 2)^3$, 容易求得 $\bm{A}$ 的最小多项式 $m(\lambda) = (\lambda - 2)^2$, 取 $\psi(\lambda) =
+(\lambda - 2)^2$.
+\par (1) 取 $f(\lambda) = e^\lambda$, 设 $f(\lambda) = \psi(\lambda)g(\lambda) + (a + b\lambda)$, 则有
+\begin{equation*}
+    \begin{cases}
+        f(2) = e^2 \\
+        f'(2) = e^2
+    \end{cases} \Rightarrow
+    \begin{cases}
+        a + 2b = e^2 \\
+        b = e^2
+    \end{cases}
+\end{equation*}
+解此方程组可得 $a = -e^2, b = e^2$. 于是 $r(\lambda) = e^2(\lambda - 1)$, 从而
+$$
+    e^{\bm{A}} = f(\bm{A}) = r(\bm{A}) = e^2(\bm{A} - \bm{I}) = e^2\begin{bmatrix}
+        1 & 0  & 0 \\
+        1 & 0  & 1 \\
+        1 & -1 & 2
+    \end{bmatrix}
+$$
+\par (2) 取 $f(\lambda) = e^{t\lambda}$, 设 $f(\lambda) = \psi(\lambda)g(\lambda) + (a + b\lambda)$, 则有
+$$
+    \begin{cases}
+        f(2) = e^{2t} \\
+        f'(2) = te^{2t}
+    \end{cases} \Rightarrow
+    \begin{cases}
+        a + 2b = e^{2t} \\
+        b = te^{2t}
+    \end{cases}
+$$
+解此方程组可得 $a = (1 - 2t)e^{2t}, b = te^{2t}$. 于是 $r(\lambda) = e^{2t}[(1 - 2t) + t\lambda]$, 从而
+$$
+    e^{t\bm{A}} = f(\bm{A}) = r(\bm{A}) = e^{2t}[(1 - 2t)\bm{I} + t\bm{A}] = e^{2t} \begin{bmatrix}
+        1 & 0   & 0     \\
+        t & 1-t & t     \\
+        t & -t  & 1 + t
+    \end{bmatrix}
+$$
+
+\subsection{数项级数求和法}
+
+\subsubsection{数项级数求和法求矩阵函数的步骤推导}
+
+设首1多项式 $\psi(\lambda) =\lambda^m + b_1 \lambda^{m-1} + \cdots + b_{m-1}\lambda + b_m \quad (1 \leqslant m \leqslant n) $且满足 $\psi(\bm{A}) = \bm{O}$, 即
+$$
+    \bm{A}^m + b_1 \bm{A}^{m-1} + \cdots + b_{m-1}\bm{A} + b_m\bm{I} = \bm{O}
+$$
+或者
+\begin{equation}
+    \bm{A}^m = k_0\bm{I} + k_1\bm{A} + \cdots + k_{m-1}\bm{A}^{m-1} \quad (k_i = -b_{m-i})
+    \tag{3.2.1}
+\end{equation}
+由此可以求出
+$$
+    \begin{cases}
+        \bm{A}^{m+1} & = k_0^{(1)} \bm{I} + k_1^{(1)} \bm{A} + \cdots + k_{m-1}^{(1)}\bm{A}^{m-1} \\
+                     & \cdots                                                                     \\
+        \bm{A}^{m+l} & = k_0^{(l)} \bm{I} + k_1^{(l)} \bm{A} + \cdots + k_{m-1}^{(l)}\bm{A}^{m-1} \\
+                     & \cdots
+    \end{cases}
+$$
+于是有
+\begin{align*}
+    f(\bm{A}) = & \sum\limits_{k = 0}^{\infty} c_k \bm{A}^k = (c_0 \bm{I} + c_1 \bm{A} + \cdots + c_{m-1}\bm{A}^{m-1}) +             \\
+                & c_m(k_0\bm{I} + k_1\bm{A} + \cdots + k_{m-1}\bm{A}^{m-1}) + \cdots +                                               \\
+                & c_{m + l}(k_0^{(l)}\bm{I} + k_1^{(l)}\bm{A} + \cdots + k_{m-1}^{l}\bm{A}^{m-1}) + \cdots =                         \\
+                & (c_0 + \sum_{l=0}^\infty c_{m + l}k^{(l)}_0)\bm{I} + (c_1 + \sum_{l=0}^\infty c_{m + l}k_1^{(l)})\bm{A} + \cdots + \\
+                & (c_{m-1} + \sum_{l=0}^{\infty} c_{m+l}k_{m-1}^{(l)})\bm{A}^{m-1}
+\end{align*}
+这表明, 利用上式可以将一个矩阵幂级数的求和问题, 转换为 $m$ 个数项级数的求和问题.
+当式(3.2.1)中只有少数几个系数不为零时, 上式中需要计算的数项级数也只有少数几
+个.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 3.2} 设 $\bm{A} = \begin{bmatrix}
+        \pi & 0    & 0 & 0 \\
+        0   & -\pi & 0 & 0 \\
+        0   & 0    & 0 & 1 \\
+        0   & 0    & 0 & 0
+    \end{bmatrix}$, 求 $\sin \bm{A}$.
+
+\paragraph*{解} $\varphi(\lambda) = \det(\lambda\bm{I} - \bm{A}) = \lambda^4 - \pi^2\lambda^2$. 由于 $\varphi(\bm{A}) = \bm{O}$, 所以 $\bm{A}^4 = \pi^2\bm{A}^2, \bm{A}^5 = \pi^2\bm{A}^3, \bm{A}^7 = \pi^4\bm{A}^3, \cdots$. 于是有
+\begin{align*}
+    \sin\bm{A} = & \bm{A} - \dfrac{1}{3!}\bm{A}^3 + \dfrac{1}{5!}\bm{A}^5 - \dfrac{1}{7!}\bm{A}^7 + \dfrac{1}{9!}\bm{A}^9 - \cdots =               \\
+                 & \bm{A} - \dfrac{1}{3!}\bm{A}^3 + \dfrac{1}{5!}\pi^2\bm{A}^3 - \dfrac{1}{7!}\pi^4\bm{A}^3 + \dfrac{1}{9}\pi^6\bm{A}^3 - \cdots = \\
+                 & \bm{A} + (-\dfrac{1}{3!} + \dfrac{1}{5!}\pi^2 - \dfrac{1}{7!}\pi^4 + \dfrac{1}{9!}\pi^6 - \cdots)\bm{A}^3 =                     \\
+                 & \bm{A} + \dfrac{\sin\pi - \pi}{\pi^3} \bm{A}^3 = \bm{A} - \pi^{-2}\bm{A}^3 = \begin{bmatrix}
+                                                                                                    0 & 0 & 0 & 0 \\
+                                                                                                    0 & 0 & 0 & 0 \\
+                                                                                                    0 & 0 & 0 & 1 \\
+                                                                                                    0 & 0 & 0 & 0
+                                                                                                \end{bmatrix}
+\end{align*}
+
+\subsection{对角型法}
+
+\subsubsection{对角型法求矩阵函数的步骤推导}
+
+设 $\bm{A}$ 相似于对角矩阵 $\Lambda$, 即有可逆矩阵 $\bm{P}$, 使得
+$$
+    \bm{P}^{-1}\bm{AP} = \begin{bmatrix}
+        \lambda_1 &        &           \\
+                  & \ddots &           \\
+                  &        & \lambda_n
+    \end{bmatrix}
+$$
+则有 $\bm{A} = \bm{P\Lambda P}^{-1}, \bm{A}^2 = \bm{P\Lambda}^2\bm{P}^{-1}, \cdots$, 于是可得
+$$
+    \sum\limits_{k=0}^N c_k\bm{A}^k = \sum\limits_{k=0}^N c_k\bm{P\Lambda}^k\bm{P}^{-1} = \bm{P \cdot} \sum\limits_{k = 0}^N c_k \bm{\Lambda}^k\bm{P}^{k-1} = \bm{P} \begin{bmatrix}
+        \sum\limits_{k = 0}^N c_k \lambda_1^k &        &                                    \\
+                                              & \ddots &                                    \\
+                                              &        & \sum\limits_{k=0}^N c_k\lambda_n^k
+    \end{bmatrix}\bm{P}^{-1}
+$$
+从而
+$$
+    f(\bm{A}) = \sum\limits_{k=0}^\infty c_k \bm{A}^k = \bm{P} \begin{bmatrix}
+        \sum\limits_{k = 0}^N c_k \lambda_1^k &        &                                    \\
+                                              & \ddots &                                    \\
+                                              &        & \sum\limits_{k=0}^N c_k\lambda_n^k
+    \end{bmatrix}\bm{P}^{-1} = \bm{P} \begin{bmatrix}
+        f(\lambda_1) &        &              \\
+                     & \ddots &              \\
+                     &        & f(\lambda_n)
+    \end{bmatrix} \bm{P}^{-1}
+$$
+这表明, 当 $\bm{A}$ 与对角矩阵相似时, 可以将矩阵幂级数的求和问题转化为求相似变换矩阵
+的问题.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 3.3} 设 $\bm{A} = \begin{bmatrix}
+    4 & 6 & 0 \\
+    -3 & -5 & 0 \\
+    -3 & -6 & 0
+\end{bmatrix}$, 分别求 $e^{\bm{A}}, e^{t\bm{A}}(t\in \mathbb{R})$ 及 $\cos\bm{A}$.
+
+\paragraph*{解} $\varphi(\lambda) = \det(\lambda\bm{I} - \bm{A}) = (\lambda + 2)(\lambda - 1)^2$. 对应
+$\lambda_1 = -1$ 的特征向量 $\bm{p}_1 = (-1, 1, 1)^T$; 对应 $\lambda_2 = \lambda_3 = 1$ 的两个线性无关的特征向量 $\bm{p}_2 = (-2,1,0)^T, \bm{p}_3 = (0, 0, 1)^T$. 构造矩阵
+$$
+    \bm{P} = (\bm{p}_1, \bm{p}_2, \bm{p}_3) = \begin{bmatrix}
+        -1 & -2 & 0 \\
+        1  & 1  & 0 \\
+        1  & 0  & 1
+    \end{bmatrix}
+$$
+则有
+$$
+    \bm{P}^{-1} = \begin{bmatrix}
+        1  & 2  & 0 \\
+        -1 & -1 & 0 \\
+        -1 & -2 & 1
+    \end{bmatrix}, \ \bm{P}^{-1}\bm{AP} = \begin{bmatrix}
+        -2 &   &   \\
+           & 1 &   \\
+           &   & 1
+    \end{bmatrix}
+$$
+利用上述公式, 求得
+\begin{align*}
+    e^{\bm{A}}  & = \bm{P}\begin{bmatrix}
+                              e^{-2} &   &   \\
+                                     & e &   \\
+                                     &   & e
+                          \end{bmatrix} \bm{P}^{-1} =
+    \begin{bmatrix}
+        2e - e^{-2} & 2e -2e^{-2}  & 0 \\
+        e^{-2} -e   & 2e^{-2} - e  & 0 \\
+        e^{-2} - e  & 2e^{-2} - 2e & e
+    \end{bmatrix}                    \\
+    e^{t\bm{A}} & = \bm{P}\begin{bmatrix}
+                              e^{-2t} &     &     \\
+                                      & e^t &     \\
+                                      &     & e^t
+                          \end{bmatrix} \bm{P}^{-1} =
+    \begin{bmatrix}
+        2e^t - e^{-2t} & 2e^t -2e^{-2t} & 0   \\
+        e^{-2t} -e^t   & 2e^{-2t} - e^t & 0   \\
+        e^{-2t} - e^t  & 2e^{-2} - 2e^t & e^t
+    \end{bmatrix}             \\
+    \cos\bm{A}  & = \bm{P}\begin{bmatrix}
+                              \cos(-2) &       &       \\
+                                       & \cos1 &       \\
+                                       &       & \cos1
+                          \end{bmatrix} \bm{P}^{-1} =
+\end{align*}
+\begin{gather*}
+    \begin{bmatrix}
+        2\cos1 - \cos2 & 2\cos1 - 2\cos2 & 0     \\
+        \cos2 - \cos1  & 2\cos2 - \cos1  & 0     \\
+        \cos2 - \cos1  & 2\cos2 - 2\cos1 & \cos1
+    \end{bmatrix}
+\end{gather*}
+
+\paragraph*{例 3.4} 设 $\bm{A} = \begin{bmatrix}
+    2 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+\end{bmatrix}$, 求 $e^{\bm{A}}, e^{t\bm{A}}(t\in \mathbb{R}), \sin\bm{A}$.
+
+\paragraph*{解} $\varphi(\lambda) = \det(\lambda\bm{I} - \bm{A}) = (\lambda + 1)(\lambda - 1)(\lambda - 2)$. 对应 $\lambda_1 = -1$ 的特征向量 $\bm{p}_1 = (1, -3, 3)^T$,
+对应 $\lambda_2 = 1$ 的特征向量 $\bm{p}_2 = (-1, 1, 1)^T$, 对应 $\lambda_3 = -2$ 的特征向量 $\bm{p}_3 = (1, 3, 2)^T$. 构造矩
+阵
+$$
+    \bm{P} = (\bm{p}_1, \bm{p}_2, bm{p}_3) = \begin{bmatrix}
+        1  & -1 & 1 \\
+        -3 & 1  & 0 \\
+        3  & 1  & 0
+    \end{bmatrix}
+$$
+则有
+$$
+    \bm{P}^{-1} = \dfrac{1}{6}\begin{bmatrix}
+        0 & -1 & 1 \\
+        0 & 3  & 3 \\
+        6 & 4  & 2
+    \end{bmatrix}, \ \bm{P}^{-1}\bm{AP} = \begin{bmatrix}
+        -1 &   &   \\
+           & 1 &   \\
+           &   & 2
+    \end{bmatrix}
+$$
+求得
+\begin{align*}
+    e^{\bm{A}}  & = \bm{P}\begin{bmatrix}
+                              e^{-1} &   &     \\
+                                     & e &     \\
+                                     &   & e^2
+                          \end{bmatrix} \bm{P}^{-1} = \dfrac{1}{6}
+    \begin{bmatrix}
+        6e^2 & 4e^2 -3e - e^{-1} & 2e^2 - 3e + e^{-1} \\
+        0    & 3e + 3e^{-1}      & 3e - 3e^{-1}       \\
+        0    & 3e - 3e^{-1}      & 3e + 3e^{-1}
+    \end{bmatrix}                  \\
+    e^{t\bm{A}} & = \bm{P}\begin{bmatrix}
+                              e^{-t} &     &        \\
+                                     & e^t &        \\
+                                     &     & e^{2t}
+                          \end{bmatrix} \bm{P}^{-1} = \dfrac{1}{6}
+    \begin{bmatrix}
+        6e^{2t} & 4e^{2t} -3e^t - e^{-t} & 2e^{2t} - 3e^t + e^{-t} \\
+        0       & 3e^t + 3e^{-t}         & 3e^t - 3e^{-t}          \\
+        0       & 3e^t - 3e^{-t}         & 3e^t + 3e^{-t}
+    \end{bmatrix}     \\
+    \sin\bm{A} &= \bm{P}\begin{bmatrix}
+                           \sin(-1) &       &       \\
+                                    & \sin1 &       \\
+                                    &       & \sin2
+                       \end{bmatrix} \bm{P}^{-1} = \dfrac{1}{6}
+    \begin{bmatrix}
+        6\sin2 & 4\sin2 - 2\sin1 & 2\sin2 - 4\sin1 \\
+        0      & 0               & 6\sin1          \\
+        0      & 6\sin1          & 0
+    \end{bmatrix}
+\end{align*}
+
+\subsection{若尔当标准型法}
+
+\subsubsection{若尔当标准型法求矩阵函数的步骤推导}
+
+设 $\bm{A}$ 的 Jordan 标准形为 $\bm{J}$, 则有可逆矩阵 $\bm{P}$, 使得
+$$
+    \bm{P}^{-1}\bm{AP} = \bm{J} = \begin{bmatrix}
+        \bm{J}_1 &        &          \\
+                 & \ddots &          \\
+                 &        & \bm{J}_s
+    \end{bmatrix}
+$$
+其中
+$$
+    \bm{J}_i = \begin{bmatrix}
+        \lambda_i & 1      &           &           \\
+                  & \ddots & \ddots    &           \\
+                  &        & \lambda_i & 1         \\
+                  &        &           & \lambda_i
+    \end{bmatrix}_{m_i \times m_i}
+$$
+可求得
+\begin{align*}
+    f(\bm{J}_i) = & \sum\limits_{k = 0}^\infty c_k \bm{J}_i^k = \sum\limits_{k = 0}^\infty c_k
+    \begin{bmatrix}
+        \lambda_i^k & C_k^1 \lambda_i^{k-1} & \cdots & C_k^{m_i - 1}\lambda_i^{k-m_i+1} \\
+                    & \lambda_i^k           & \ddots & \vdots                           \\
+                    &                       & \ddots & C_k^1\lambda_i^{k-1}             \\
+                    &                       &        & \lambda_i^k
+    \end{bmatrix}   =                                                                   \\
+                  & \begin{bmatrix}
+                        f(\lambda_i) & \dfrac{1}{1!}f'(\lambda_i) & \cdots & \dfrac{1}{(m_i - 1)!}f^{m_i - 1}(\lambda_i) \\
+                                     & f(\lambda_i)               & \ddots & \vdots                                      \\
+                                     &                            & \ddots & \dfrac{1}{1!} f'(\lambda_i)                 \\
+                                     &                            &        & f(\lambda_i)
+                    \end{bmatrix}                                  \\
+    f(\bm{A}) =   & \sum_{k=0}^\infty c_k\bm{A}^k = \sum_{k=0}^\infty c_k \bm{PJ}^k\bm{P}^{-1} = \bm{P}(\sum_{k=0}^\infty c_k \bm{J}^k) \bm{P}^{-1} =
+\end{align*}
+
+\begin{align*}
+     & \bm{P}
+    \begin{bmatrix}
+        \sum_{k=0}^\infty c_k \bm{J}_1^k &        &                                  \\
+                                         & \ddots &                                  \\
+                                         &        & \sum_{k=0}^\infty c_k \bm{J}_s^k
+    \end{bmatrix}
+    \bm{P}^{-1} = \bm{P}
+    \begin{bmatrix}
+        f(\bm{J}_1) &        &             \\
+                    & \ddots &             \\
+                    &        & f(\bm{J}_s)
+    \end{bmatrix} \bm{P}^{-1}
+\end{align*}
+
+这表明, 矩阵幂级数的求和问题可以转化为求矩阵的 Jordan 标准形及相似变换矩
+阵的问题.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 3.5} 设 $\bm{A} = \begin{bmatrix}
+    \pi & 0    & 0 & 0 \\
+    0   & -\pi & 0 & 0 \\
+    0   & 0    & 0 & 1 \\
+    0   & 0    & 0 & 0
+\end{bmatrix}$, 求 $\sin \bm{A}$.
+
+\paragraph*{解} 矩阵 $\bm{A}$ 是一个 Jordan 标准形, 它的三个 Jordan 块为
+$$
+    \bm{J} = \pi, \ \bm{J}_2 = -\pi, \ \bm{J}_3 = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}
+$$
+可以求得
+\begin{gather*}
+    \sin \bm{J}_1 = \sin \pi = 0, \ \sin \bm{J}_2 = \sin(-\pi) = 0 \\
+    \sin \bm{J}_3 = \begin{bmatrix}
+        \sin0 & \dfrac{1}{1!}\cos0 \\
+        0 & \sin0
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}
+\end{gather*}
+取 $\bm{P} = \bm{I}$, 可得
+$$
+    \sin\bm{A} = \begin{bmatrix}
+        \sin\bm{J}_1 &              &              \\
+                     & \sin\bm{J}_2 &              \\
+                     &              & \sin\bm{J}_3
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}
+$$

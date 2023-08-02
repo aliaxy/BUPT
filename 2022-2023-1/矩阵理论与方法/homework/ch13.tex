@@ -1,0 +1,223 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第十三次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第4章 \quad 矩阵分解}
+
+\subsection*{4.1 \quad Gauss消去法与矩阵的三角分解}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 4.1} 如果方阵$\bm{A}$可以分解成一个下三角矩阵$\bm{L}$和一个上三角矩阵$\bm{U}$的乘积, 则称$\bm{A}$
+可做\textbf{三角分解}或\textbf{LU(LR)分解}. 如果方阵$\bm{A}$可分解成$\bm{A} = \bm{LDU}$, 其中$\bm{L}$是单位下三角矩阵,
+$\bm{D}$是对角矩阵, $\bm{U}$是单位上三角矩阵, 则称$\bm{A}$可做\textbf{LDU分解}.
+
+\paragraph*{定义 4.2} 设矩阵$\bm{A}$有唯一的LDU分解. 若把$\bm{A} = \bm{LDU}$中的$\bm{D}$与$\bm{U}$结合起来, 并且用$\bm{\hat{U}}$
+来表示, 就得到唯一的分解为
+\[
+    \bm{A} = \bm{L(DU)} = \bm{L\hat{U}}
+\]
+称为$\bm{A}$的\textbf{Doolittle分解}; 若把$\bm{A} = \bm{LDU}$中的$\bm{L}$和$\bm{D}$结合起来, 并且用$\bm{\hat{L}}$来表示, 就得到
+唯一的分解为
+\[
+    \bm{A} = \bm{(LD)U} = \bm{\hat{L}U}
+\]
+称为$\bm{A}$的\textbf{Crout分解}.
+
+\paragraph*{定义 4.3} 称$\bm{A} = \bm{L\widetilde{D}}^2\bm{L}^T = (\bm{L\widetilde{D}})(\bm{L\widetilde{D}})^T = \bm{GG}^T$为实对称正定矩阵的\textbf{Cholesky分解(平方根分解、对称三角分解)}. \\
+这里$\bm{G} = \bm{L\widetilde{D}}$是下三角矩阵.
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 4.1} 求矩阵$\bm{A}$的LDU分解, 其中
+\[
+    \bm{A} = \begin{bmatrix}
+        2 & -1 & 3 \\
+        1 & 2  & 1 \\
+        2 & 4  & 2
+    \end{bmatrix}
+\]
+
+\paragraph*{解} 因为$\Delta_1 = 2$, $\Delta_2 = 5$, 所以$\bm{A}$有唯一的LDU分解. 构造矩阵
+\[
+    \bm{L}_1 = \begin{bmatrix}
+        1            &   &   \\
+        \dfrac{1}{2} & 1 &   \\
+        1            & 0 & 1
+    \end{bmatrix}, \quad \bm{L}_1^{-1} = \begin{bmatrix}
+        1             &   &   \\
+        -\dfrac{1}{2} & 1 &   \\
+        -1            & 0 & 1
+    \end{bmatrix}
+\]
+计算, 得
+\[
+    \bm{L}_1^{-1}\bm{A}^{(0)} = \begin{bmatrix}
+        2 & -1           & 3             \\
+        0 & \dfrac{5}{2} & -\dfrac{1}{2} \\
+        0 & 5            & -1
+    \end{bmatrix} = \bm{A}^{(1)}
+\]
+对$\bm{A}^{(1)}$构造矩阵, 有
+\[
+    \bm{L}_2 = \begin{bmatrix}
+        1 &   &   \\
+        0 & 1 &   \\
+        0 & 2 & 1
+    \end{bmatrix}, \quad \bm{L}_2^{-1} = \begin{bmatrix}
+        1 &    &   \\
+        0 & 1  &   \\
+        0 & -2 & 1
+    \end{bmatrix}
+\]
+计算, 得
+\[
+    \bm{L}_2^{-1}\bm{A}^{(1)} = \begin{bmatrix}
+        2 & -1            & 3             \\
+        0 & -\dfrac{5}{2} & -\dfrac{1}{2} \\
+        0 & 0             & 0
+    \end{bmatrix} = \begin{bmatrix}
+        2 & 0            & 0 \\
+        0 & \dfrac{5}{2} & 0 \\
+        0 & 0            & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & -\dfrac{1}{2} & \dfrac{3}{2}  \\
+        0 & 1             & -\dfrac{1}{5} \\
+        0 & 0             & 1
+    \end{bmatrix} = \bm{A}^{(2)}
+\]
+于是
+\[
+    \bm{L} = \bm{L}_1\bm{L}_2 = \begin{bmatrix}
+        1            &   &   \\
+        \dfrac{1}{2} & 1 &   \\
+        1            & 2 & 1
+    \end{bmatrix}
+\]
+于是得$\bm{A}^{(0)} = \bm{A}$的LDU分解为
+\[
+    \bm{A} = \bm{L}_1\bm{L}_2\bm{A}^{(2)} = \begin{bmatrix}
+        1            & 0 & 0 \\
+        \dfrac{1}{2} & 1 & 0 \\
+        1            & 2 & 1
+    \end{bmatrix}\begin{bmatrix}
+        2 & 0            & 0 \\
+        0 & \dfrac{5}{2} & 0 \\
+        0 & 0            & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & -\dfrac{1}{2} & \dfrac{3}{2}  \\
+        0 & 1             & -\dfrac{1}{5} \\
+        0 & 0             & 1
+    \end{bmatrix}
+\]
+
+\paragraph*{例 4.2} 求矩阵$\bm{A}$的Gholesky分解, 其中
+\[
+    \bm{A} = \begin{bmatrix}
+        5  & -2 & 0  \\
+        -2 & 3  & -1 \\
+        0  & -1 & 1
+    \end{bmatrix}
+\]
+
+\paragraph*{解} 容易验证$\bm{A}$是对称正定矩阵, 有
+\begin{gather*}
+    g_{11} = \sqrt{a_{11}} = \sqrt{5} \\
+    g_{21} = \dfrac{a_{21}}{g_{11}} = -\dfrac{2}{\sqrt{5}}, \quad g_{22} = (a_{22} - g_{21}^2)^{1/2} = \sqrt{\dfrac{11}{5}} \\
+    g_{31} = \dfrac{a_{31}}{g_{11}} = 0, \quad g_{32} = \dfrac{a_{32} - g_{31}g_{21}}{g_{22}} = -\sqrt{\dfrac{5}{11}} \\
+    g_{33} = (a_{33} - g_{31}^2 - g_{32}^2)^{1/2} = \sqrt{\dfrac{6}{11}}
+\end{gather*}
+从而
+\[
+    \bm{A} = \begin{bmatrix}
+        \sqrt{5}             & 0                     & 0                    \\
+        -\dfrac{2}{\sqrt{5}} & \sqrt{\dfrac{11}{5}}  & 0                    \\
+        0                    & -\sqrt{\dfrac{5}{11}} & \sqrt{\dfrac{6}{11}}
+    \end{bmatrix} \begin{bmatrix}
+        \sqrt{5} & -\dfrac{2}{\sqrt{5}} & 0                     \\
+        0        & \sqrt{\dfrac{11}{5}} & -\sqrt{\dfrac{5}{11}} \\
+        0        & 0                    & \sqrt{\dfrac{6}{11}}
+    \end{bmatrix}
+\]
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 4.1.1} 求矩阵$\bm{A}$的LDU分解和Doolittle分解, 其中
+\[
+    \bm{A} = \begin{bmatrix}
+        5  & 2  & -4 & 0 \\
+        2  & 1  & -2 & 1 \\
+        -4 & -2 & 5  & 0 \\
+        0  & 1  & 0  & 2
+    \end{bmatrix}
+\]
+
+\paragraph*{解}
+\[
+    \bm{A} = \begin{bmatrix}
+        1             &    &   &   \\
+        \dfrac{2}{5}  & 1  &   &   \\
+        -\dfrac{4}{5} & -2 & 1 &   \\
+        0             & 5  & 2 & 1
+    \end{bmatrix} \begin{bmatrix}
+        5 &              &   &    \\
+          & \dfrac{1}{5} &   &    \\
+          &              & 1 &    \\
+          &              &   & -7
+    \end{bmatrix} \begin{bmatrix}
+        1 & \dfrac{2}{5} & -\dfrac{4}{5} & 0 \\
+          & 1            & -2            & 5 \\
+          &              & 1             & 2 \\
+          &              &               & 1
+    \end{bmatrix}
+\]
+
+\paragraph*{习题 4.1.4} 求对称正定矩阵$\bm{A}$的Cholesky分解, 其中
+\[
+    \bm{A} = \begin{bmatrix}
+        5  & 2  & -4 \\
+        2  & 1  & -2 \\
+        -4 & -2 & 5
+    \end{bmatrix}
+\]
+
+\paragraph*{解} 容易验证$\bm{A}$是对称正定矩阵, 有
+\begin{gather*}
+    g_{11} = \sqrt{a_{11}} = \sqrt{5} \\
+    g_{21} = \dfrac{a_{21}}{g_{11}} = \dfrac{2}{\sqrt{5}}, \quad g_{22} = (a_{22} - g_{21}^2)^{1/2} = \sqrt{\dfrac{1}{5}} \\
+    g_{31} = \dfrac{a_{31}}{g_{11}} = -\dfrac{4}{\sqrt{5}}, \quad g_{32} = \dfrac{a_{32} - g_{31}g_{21}}{g_{22}} = -\dfrac{2}{\sqrt{5}} \\
+    g_{33} = (a_{33} - g_{31}^2 - g_{32}^2)^{1/2} = 1
+\end{gather*}
+从而
+\[
+    \bm{A} = \begin{bmatrix}
+        \sqrt{5}             &                      &   \\
+        \dfrac{2}{\sqrt{5}}  & \dfrac{1}{\sqrt{5}}  &   \\
+        -\dfrac{4}{\sqrt{5}} & -\dfrac{2}{\sqrt{5}} & 1
+    \end{bmatrix} \begin{bmatrix}
+        \sqrt{5} & \dfrac{2}{\sqrt{5}} & -\dfrac{4}{\sqrt{5}} \\
+                 & \dfrac{1}{\sqrt{5}} & -\dfrac{2}{\sqrt{5}} \\
+                 &                     & 1
+    \end{bmatrix}
+\]
+
+\end{document}

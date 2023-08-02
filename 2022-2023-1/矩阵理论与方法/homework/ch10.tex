@@ -1,0 +1,93 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第十次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第2章 \quad 范数理论及其应用}
+
+\subsection*{2.3 \quad 范数的一些应用}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{P94 条件数} 设 $\bm{A} \in \bm{C}^{n\times n}$可逆，$\bm{B} \in \bm{C}^{n\times n}$，且对$\bm{C}^{n\times n}$上的某种矩阵范数$\left\lVert \bm{\cdot} \right\rVert $，
+有$\left\lVert \bm{A}^{-1}\bm{B} \right\rVert < 1$，则有以下结论：
+\begin{enumerate}
+    \item[(1)] $\bm{A} + \bm{B}$可逆；
+    \item[(2)] 记$\bm{F} = \bm{I} - (\bm{I} + \bm{A}^{-1}\bm{B}^{-1})$，则$\left\lVert F \right\rVert \leqslant \dfrac{\left\lVert \bm{A}^{-1}\bm{B} \right\rVert}{1 -\left\lVert \bm{A}^{-1}\bm{B} \right\rVert}$；
+    \item[(3)] $\dfrac{\left\lVert \bm{A}^{-1} (\bm{A} + \bm{B})^{-1} \right\rVert}{\left\lVert \bm{A}^{-1} \right\rVert} \leqslant \dfrac{\left\lVert \bm{A}^{-1}\bm{B} \right\rVert}{\left\lVert 1 - \bm{A}^{-1}\bm{B} \right\rVert}$.
+\end{enumerate}
+若令${\rm cond} (A) = \left\lVert \bm{A} \right\rVert \left\lVert \bm{A}^{-1} \right\rVert$，$d_A = \left\lVert \delta\bm{A} \right\rVert\left\lVert \bm{A}^{-1} \right\rVert$，则当$\left\lVert \bm{A}^{-1} \right\rVert\left\lVert \delta\bm{A} \right\rVert < 1$时，有
+\begin{gather*}
+    \left\lVert \bm{I} - (\bm{I} - \bm{A}^{-1}\delta \bm{A})^{-1} \right\rVert \leqslant \dfrac{d_A {\rm cond}(A)}{1 - d_A {\rm cond}(A)} \\
+    \dfrac{\left\lVert \bm{A}^{-1} - (\bm{A} + \delta \bm{A})^{-1} \right\rVert}{\left\lVert \bm{A}^{-1} \right\rVert} \leqslant \dfrac{d_A {\rm cond}(A)}{1 - d_A {\rm cond}(A)}
+\end{gather*}
+称${\rm cond}(A)$为矩阵$\bm{A}$的\textbf{条件数}，它是求矩阵逆的摄动的一个重要量，一般说来，条件数愈大，$(\bm{A} + \delta\bm{A})^{-1}$与$\bm{A}^{-1}$的相对误差就愈大.
+
+\paragraph*{定义 2.5} 设$\bm{A} \in \bm{C}^{n\times n}$的$n$个特征值为$\lambda_1,\lambda_2,\cdots,\lambda_n$，称
+\[
+    \rho(\bm{A}) = \max \left\lvert \lambda_i \right\rvert
+\]
+为$\bm{A}$的\textbf{谱半径}.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 2.9} 设$\bm{A} \in \bm{C}^{n\times n}$，则对$\bm{C}^{n\times n}$上任何一种矩阵范数$\left\lVert \bm{\cdot} \right\rVert$，都有
+\[
+    \rho(\bm{A}) \leqslant \left\lvert \bm{A} \right\rvert
+\]
+
+\paragraph*{定理 2.10} 设$\bm{A} \in \bm{C}^{n\times n}$，对任意得整数$\varepsilon$，存在某种矩阵范数$\left\lvert \bm{\cdot} \right\rvert _M$，使得
+\[
+    \left\lvert \bm{A} \right\rvert _M \leqslant \rho(\bm{A}) + \varepsilon
+\]
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{2.10} 试用矩阵
+\[
+    \bm{A} = \begin{bmatrix}
+        1 - j & 3     \\
+        2     & 1 + j
+    \end{bmatrix} \quad (j = \sqrt{-1})
+\]
+验证\textbf{定理 2.9}中对三种常见范数的正确性.
+
+\paragraph*{解} 因为$\det (\lambda\bm{I} - \bm{A}) = (\lambda - 1)^2 - 5$，所以$\lambda_1(\bm{A}) = 1 + \sqrt{5}, \lambda_2(\bm{A}) = 1 - \sqrt{5}$，从而
+\[
+    \rho(\bm{A}) = 1 + \sqrt{5}
+\] \par
+又$\left\lvert A \right\rvert _1 = \left\lvert \bm{A} \right\rvert _\infty = 3 + \sqrt{2}$，而
+\[
+    \bm{A}^H\bm{A} = \begin{bmatrix}
+        6      & 5 + 5j \\
+        5 - 5j & 11
+    \end{bmatrix},\ \det(\lambda\bm{I} - \bm{A}^{H}\bm{A}) = \lambda^2 - 17\lambda + 16
+\]
+由此得$\lambda_1(\bm{A}^H\bm{A}) = 16, \lambda_2(\bm{A}^H\bm{A}) = 1$，则有
+\[
+    \left\lvert A \right\rvert _2 = \sqrt{\lambda_1(\bm{A}^H\bm{A})} = 4
+\]
+易见
+\[
+    \rho(\bm{A}) < \left\lvert \bm{A} \right\rvert _1,\rho(\bm{A}) < \left\lvert \bm{A} \right\rvert _2,\rho(\bm{A}) < \left\lvert \bm{A} \right\rvert _\infty
+\]
+
+\end{document}

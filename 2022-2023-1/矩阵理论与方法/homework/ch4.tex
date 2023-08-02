@@ -1,0 +1,670 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论\quad 第四次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.1 \quad 线性空间}
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{1.1.8} 设$\mathbf{R}^4$中两个基为 \\
+(\uppercase\expandafter{\romannumeral1}): $\bm{x}_1 = \bm{e}_1 \bm{,}\bm{x}_2 = \bm{e}_2\bm{,}\bm{x}_3 = \bm{e}_3\bm{,}\bm{x}_4 = \bm{e}_4\bm{;}$ \\
+(\uppercase\expandafter{\romannumeral2}): $\bm{y}_1 = (2,1,-1,1) \bm{,}\bm{y}_2 = (0,3,1,0)\bm{,}\bm{y}_3 = (5,3,2,1)\bm{,}\bm{y}_4 = (6,6,1,3)\bm{;}$
+\begin{enumerate}
+    \item[(1)] 求由基(\uppercase\expandafter{\romannumeral1})改变为(\uppercase\expandafter{\romannumeral2})的过渡矩阵；
+    \item[(2)] 求向量$\bm{x} = (\xi_1, \xi_2, \xi_3, \xi_4)$对基(\uppercase\expandafter{\romannumeral2})的坐标；
+    \item[(3)] 求对两个基由相同坐标的非零向量.
+\end{enumerate}
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)] 设过渡矩阵为$T$，则
+        \[
+            Y = XT \rightarrow T = X^{-1}Y
+        \]
+        由题意，有
+        \[
+            X = X^{-1} = \begin{bmatrix}
+                1 & 0 & 0 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                0 & 0 & 0 & 1
+            \end{bmatrix}, \quad Y = \begin{bmatrix}
+                2  & 0 & 5 & 3 \\
+                1  & 3 & 3 & 6 \\
+                -1 & 1 & 2 & 1 \\
+                1  & 0 & 1 & 3
+            \end{bmatrix}
+        \]
+        得
+        \[
+            T = X^{-1}Y = \begin{bmatrix}
+                2  & 0 & 5 & 6 \\
+                1  & 3 & 3 & 6 \\
+                -1 & 1 & 2 & 1 \\
+                1  & 0 & 1 & 3
+            \end{bmatrix}
+        \]
+    \item[(2)]
+        \[
+            \bm{x} = X(\xi_1, \xi_2, \xi_3,\xi_4)^T = YT^{-1}(\xi_1, \xi_2, \xi_3,\xi_4)^T
+        \]
+        又
+        \[
+            T^{-1} = \begin{bmatrix}
+                \frac{4}{9}   & \frac{1}{3}  & -1           & -\frac{11}{9}  \\
+                \frac{1}{27}  & \frac{4}{9}  & -\frac{1}{3} & -\frac{23}{27} \\
+                \frac{1}{3}   & 0            & 0            & -\frac{2}{3}   \\
+                -\frac{7}{27} & -\frac{1}{9} & \frac{1}{3}  & \frac{26}{27}
+            \end{bmatrix}
+        \]
+        所以
+        \[
+            X = \begin{bmatrix}
+                \dfrac{4}{9}x_1 + \dfrac{1}{3}x_2 -x_3 - \dfrac{11}{9}x_4          \\
+                \dfrac{1}{27}x_1 + \dfrac{4}{9}x_2 - \dfrac{1}{3} - \dfrac{23}{27} \\
+                \dfrac{1}{3}x_1 - \dfrac{2}{3}_4                                   \\
+                -\dfrac{7}{27}x_1 - \dfrac{1}{9}x_2 + \dfrac{1}{3}x_3 + \dfrac{26}{27}x_4
+            \end{bmatrix}^T
+        \]
+    \item[(3)] 设$\eta = (k_1, k_2, k_3, k_4)$
+        \[
+            \eta = X \begin{bmatrix}
+                k_1 \\
+                k_2 \\
+                k_3 \\
+                k_4
+            \end{bmatrix} = Y \begin{bmatrix}
+                k_1 \\
+                k_2 \\
+                k_3 \\
+                k_4
+            \end{bmatrix} = XT \begin{bmatrix}
+                k_1 \\
+                k_2 \\
+                k_3 \\
+                k_4
+            \end{bmatrix}
+        \]
+        因此，
+        \[
+            (T - E) \begin{bmatrix}
+                k_1 \\
+                k_2 \\
+                k_3 \\
+                k_4
+            \end{bmatrix} = \bm{0}, \quad T - E = \begin{bmatrix}
+                1  & 0 & 5 & 6 \\
+                1  & 2 & 3 & 6 \\
+                -1 & 1 & 1 & 1 \\
+                1  & 0 & 1 & 2
+            \end{bmatrix}
+        \]
+        得
+        \[
+            \begin{cases}
+                k_1 + 5k_3 + 6k_4 = 0        \\
+                k_1 + 2k_2 + 3k_3 + 6k_4 = 0 \\
+                k_1 - k_2 - k_3 - k_4 = 0    \\
+                k_1 + k_3 + 2k_4 = 0
+            \end{cases}
+        \]
+        解得$\eta = k(1,1,1,-1)$，$k$为任意实数.
+\end{enumerate}
+
+\paragraph*{1.1.9} 设线性空间$V$中的向量组$\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m$与向量组$\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m$满足关系式
+\[
+    (\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m) = (\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m) \bm{P}
+\]
+其中$\bm{P}$是$m$阶矩阵，证明：若以下三个条件
+\begin{enumerate}
+    \item[(a)] 向量组$\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m$线性无关；
+    \item[(b)] 向量组$\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m$线性无关；
+    \item[(c)] 矩阵$\bm{P}$可逆.
+\end{enumerate}
+中的任意两个成立时，其余的一个也成立.
+
+\paragraph*{证}
+\begin{enumerate}
+    \item[(1)] 若(a)(b)成立\\
+        由于$\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m$线性无关，则
+        \[
+            r(P) = r(\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m)
+        \]
+        又因为$\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m$线性无关，所以
+        \[
+            r(P) = r(\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m) = n
+        \]
+        因此，矩阵$P$可逆.
+    \item[(2)] 若(a)(c)成立，有
+        \[
+            \begin{vmatrix}
+                P
+            \end{vmatrix} \neq 0, \quad \begin{vmatrix}
+                (\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m)
+            \end{vmatrix} \neq 0
+        \]
+        则
+        \[
+            \begin{vmatrix}
+                (\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m)
+            \end{vmatrix} = \begin{vmatrix}
+                P
+            \end{vmatrix} \begin{vmatrix}
+                (\bm{x}_1,\bm{x}_2,\bm{\cdots},\bm{x}_m)
+            \end{vmatrix} \neq 0
+        \]
+        因此，向量组$\bm{y}_1,\bm{y}_2,\bm{\cdots},\bm{y}_m$线性无关.
+    \item[(3)] 同理可证，若(b)(c)成立，题意也成立.
+\end{enumerate}
+
+\subsection*{1.2 \quad 线性变换及其矩阵}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{1.16} 设$T$是数域$K$上的线性空间$V^n$的线性变换，且对$K$中某一数$\lambda_0$，存在非零向量
+$\bm{x} \in V^n$，使得
+\[
+    T\bm{x} = \lambda_0 \bm{x} \tag{1.2.18} \label{1}
+\]
+成立，则称$\lambda_0$为$T$的\textbf{特征值}，$\bm{x}$为$T$的属于$\lambda_0$的\textbf{特征向量}.
+
+\[
+    (\lambda_0 \bm{I} - \bm{A})\begin{bmatrix}
+        \xi_1  \\
+        \xi_2  \\
+        \vdots \\
+        \xi_n
+    \end{bmatrix} = \bm{0} \tag{1.2.20}
+\]
+
+\paragraph*{1.17} 设$\bm{A} = (a_{ij}{m\times n})$是数域$K$上的$n$阶矩阵，$\lambda$是参数，$\bm{A}$的\textbf{特征矩阵}$\lambda \bm{I} - \bm{A}$的行列式
+\[
+    \det(\lambda \bm{I} - \bm{A}) = \begin{vmatrix}
+        \lambda - a_{11} & -a_{12}          & \cdots & -a_{1n}          \\
+        -a_{21}          & \lambda - a_{22} & \cdot  & -a_{2n}          \\
+        \vdots           & \vdots           &        & \vdots           \\
+        -a_{n1}          & -a_{n2}          & \cdots & \lambda - a_{nn}
+    \end{vmatrix}
+    \tag{1.2.22} \label{2}
+\]
+称为矩阵$\bm{A}$的\textbf{特征多项式}，它是$K$上的一个$n$次多项式，记为$\varphi(\lambda)$，$\varphi(\lambda)$的根（或零点）$\lambda_0$
+称为$\bm{A}$\textbf{特征值（根）}；而相应于方程组\eqref{2}的非零解向量$(\xi_1, \xi_2, \cdots , \xi_n)^T$称为$\bm{A}$\textbf{的属于特征值$\lambda_0$的特征向量}.
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{1.7} 在$\mathbf{R}^n$中，已知向量$\bm{x}$在基$\bm{e}_1,\bm{e}_2, \cdots ,\bm{e}_n$下的坐标为$(\xi_1, \xi_2, \cdots , \xi_n)^T$，求当该基改变为
+\[
+    \left.
+    \begin{matrix}
+        \bm{y}_1 = (1,1,\cdots,1,1) \\
+        \bm{y}_2 = (0,1,\cdots,1,1) \\
+        \cdots \cdots               \\
+        \bm{y}_n = (0,0,\cdots,0,1)
+    \end{matrix}
+    \right\}
+\]
+时，向量$\bm{x}$在新基下的坐标$(\eta_1, \eta_2, \cdots , \eta_n)^T$.
+
+\paragraph*{解} 由题意，得
+\[
+    (\bm{y}_1, \bm{y}_2, \cdots, \bm{y}_n) = (\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_n) \begin{bmatrix}
+        1      \quad      & 0           & \bm{\cdots} & 0           \\
+        1      \quad      & 1           & \bm{\cdots} & 0           \\
+        \bm{\vdots} \quad & \bm{\vdots} &             & \bm{\vdots} \\
+        1      \quad      & 1           & \bm{\cdots} & 1           \\
+    \end{bmatrix}
+\]
+于是过渡矩阵为
+\[
+    \bm{C} = \begin{bmatrix}
+        1           & 0           & \bm{\cdots} & 0           \\
+        1           & 1           & \bm{\cdots} & 0           \\
+        \bm{\vdots} & \bm{\vdots} &             & \bm{\vdots} \\
+        1           & 1           & \bm{\cdots} & 1
+    \end{bmatrix}
+\]
+不难求得
+\[
+    \bm{C}^{-1} = \begin{bmatrix}
+        1           & 0           & 0           & \bm{\cdots} & 0           & 0           \\
+        -1          & 1           & 0           & \bm{\cdots} & 0           & 0           \\
+        0           & -1          & 1           & \bm{\cdots} & 0           & 0           \\
+        \bm{\vdots} & \bm{\vdots} & \bm{\vdots} &             & \bm{\vdots} & \bm{\vdots} \\
+        0           & 0           & 0           & \bm{\cdots} & -1          & 1
+    \end{bmatrix}
+\]
+由$\beta = \bm{C}^{-1}\alpha$得$\bm{x}$在新基$\bm{y}_1,\bm{y}_2,\cdots,\bm{y}_n$下的坐标为
+\[
+    \begin{bmatrix}
+        \eta_1      \\
+        \eta_2      \\
+        \bm{\vdots} \\
+        \eta_n
+    \end{bmatrix} = \begin{bmatrix}
+        1           & 0           & 0           & \bm{\cdots} & 0           & 0           \\
+        -1          & 1           & 0           & \bm{\cdots} & 0           & 0           \\
+        0           & -1          & 1           & \bm{\cdots} & 0           & 0           \\
+        \bm{\vdots} & \bm{\vdots} & \bm{\vdots} &             & \bm{\vdots} & \bm{\vdots} \\
+        0           & 0           & 0           & \bm{\cdots} & -1          & 1
+    \end{bmatrix} \begin{bmatrix}
+        \xi_1       \\
+        \xi_2       \\
+        \bm{\vdots} \\
+        \xi_n
+    \end{bmatrix}
+\]
+也就是
+\[
+    \begin{cases}
+        \eta_1 = \xi_1 \\
+        \eta_i = \xi_i - \xi_{i - 1} \quad (i = 2,3,\bm{\cdots}, n)
+    \end{cases}
+\]
+
+\paragraph*{1.8} 已知矩阵$\mathbf{R}^{2\times 2} $的两个基 \par
+(\uppercase\expandafter{\romannumeral1})
+\[
+    \bm{A}_1 = \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}, \quad \bm{A}_2 = \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}, \quad \bm{A}_3 = \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}, \quad \bm{A}_4 = \begin{bmatrix}
+        0  & 1 \\
+        -1 & 0
+    \end{bmatrix}
+\]
+(\uppercase\expandafter{\romannumeral2})
+\[
+    \bm{B}_1 = \begin{bmatrix}
+        1 & 1 \\
+        1 & 1
+    \end{bmatrix}, \quad \bm{B}_2 = \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}, \quad \bm{B}_3 = \begin{bmatrix}
+        1 & 1 \\
+        0 & 0
+    \end{bmatrix}, \quad \bm{B}_4 = \begin{bmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{bmatrix}
+\]
+求由基(\uppercase\expandafter{\romannumeral1})改变为(\uppercase\expandafter{\romannumeral2})的过渡矩阵.
+
+\paragraph*{解} 为了计算简单，采用中介基方法，引进$\mathbf{R}^{2\times 2}$的简单基\par
+(\uppercase\expandafter{\romannumeral3})
+\[
+    \bm{E}_{11} = \begin{bmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{bmatrix}, \quad \bm{E}_{12} = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}, \quad \bm{E}_{21} = \begin{bmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{bmatrix}, \quad \bm{E}_{22} = \begin{bmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{bmatrix}
+\]
+直接写出由基(\uppercase\expandafter{\romannumeral3})改变为基(\uppercase\expandafter{\romannumeral1})的过渡矩阵为
+\[
+    \bm{C}_1 = \begin{bmatrix}
+        1 & 1  & 0 & 0  \\
+        0 & 0  & 1 & 1  \\
+        0 & 0  & 1 & -1 \\
+        1 & -1 & 0 & 0
+    \end{bmatrix}
+\]
+即
+\[
+    (\bm{A}_1, \bm{A}_2, \bm{A}_3, \bm{A}_4) = (\bm{E}_1, \bm{E}_2, \bm{E}_3, \bm{E}_4)\bm{C}_1
+\]
+再写出由基(\uppercase\expandafter{\romannumeral3})改变为基(\uppercase\expandafter{\romannumeral2})的过渡矩阵为
+\[
+    \bm{C}_2 = \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 0 \\
+        1 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+即
+\[
+    (\bm{B}_1, \bm{B}_2, \bm{B}_3, \bm{B}_4) = (\bm{E}_1, \bm{E}_2, \bm{E}_3, \bm{E}_4)\bm{C}_2
+\]
+所以有
+\[
+    (\bm{B}_1, \bm{B}_2, \bm{B}_3, \bm{B}_4) = (\bm{A}_1, \bm{A}_2, \bm{A}_3, \bm{A}_4)\bm{C}^{-1}\bm{C}_2
+\]
+于是得由基(\uppercase\expandafter{\romannumeral1})改变为(\uppercase\expandafter{\romannumeral2})的过渡矩阵为
+\[
+    \bm{C} = \bm{C_1^{-1}C_2} = \dfrac{1}{2} \begin{bmatrix}
+        1 & 0 & 0  & 1  \\
+        1 & 0 & 0  & -1 \\
+        0 & 1 & 1  & 0  \\
+        0 & 1 & -1 & 0
+    \end{bmatrix} \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 0 \\
+        1 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0
+    \end{bmatrix} = \dfrac{1}{2} \begin{bmatrix}
+        2 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 1 \\
+        2 & 2 & 1 & 0 \\
+        0 & 0 & 1 & 0
+    \end{bmatrix}
+\]
+
+\paragraph*{1.18} 设
+\[
+    B = \begin{bmatrix}
+        1 & 1 \\
+        0 & 1
+    \end{bmatrix}
+\]
+线性空间
+\[
+    V = \{X = (\bm{X}_{ij})_{2\times 2} | x_{11} + x_{22} = 0, \, x_{ij} \in R\}
+\]
+中的线性变换为$T(\bm{X}) = \bm{B}^T\bm{X} - \bm{X}^T\bm{B}\, (\forall \bm{X} \in \bm{V})$，求$T$的特征值与特征向量.
+
+\paragraph*{解} 设
+\[
+    \bm{X} = \begin{bmatrix}
+        x_{11} & x_{12} \\
+        x_{21} & x_{22}
+    \end{bmatrix} \in V
+\]
+则有
+\begin{align*}
+    \bm{X} & = \begin{bmatrix}
+                   x_{11} & x_{12}  \\
+                   x_{21} & -x_{11}
+               \end{bmatrix} = \begin{bmatrix}
+                                   x_{11} & 0       \\
+                                   0      & -x_{11}
+                               \end{bmatrix} + \begin{bmatrix}
+                                                   0 & x_{12} \\
+                                                   0 & 0
+                                               \end{bmatrix} + \begin{bmatrix}
+                                                                   0      & 0 \\
+                                                                   x_{21} & 0
+                                                               \end{bmatrix}      \\
+           & = x_{11} \begin{bmatrix}
+                          1 & 0  \\
+                          0 & -1
+                      \end{bmatrix} + x_{12} \begin{bmatrix}
+                                                 0 & 1 \\
+                                                 0 & 0
+                                             \end{bmatrix} + x_{21} \begin{bmatrix}
+                                                                        0 & 0 \\
+                                                                        1 & 0
+                                                                    \end{bmatrix}
+\end{align*}
+这表示$\bm{X} \in V$可由
+\[
+    \bm{X}_1 \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}, \quad \bm{X}_2 = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}, \quad \bm{X}_3 = \begin{bmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{bmatrix}
+\]
+线性表示.容易验证$\bm{X}_1, \bm{X}_2, \bm{X}_3$线性无关，故$\bm{X}_1, \bm{X}_2, \bm{X}_3$构成$V$的一个基，且$X$在该基下的
+坐标为$(x_{11},x_{12},x_{21})^T$.由线性变换公式求得
+\begin{gather*}
+    T(\bm{X}_1) = \begin{bmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{bmatrix} = 0\bm{X}_1 - 1\bm{X}_2 + 1\bm{X}_3 \\
+    T(\bm{X}_2) = \begin{bmatrix}
+        0  & 1 \\
+        -1 & 0
+    \end{bmatrix} = 0\bm{X}_1 + 1\bm{X}_2 - 1\bm{X}_3 \\
+    T(\bm{X}_3) = \begin{bmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{bmatrix} = 0\bm{X}_1 - 1\bm{X}_2 + 1\bm{X}_3
+\end{gather*}
+故$T$在该基下的矩阵为
+\[
+    \bm{A} = \begin{bmatrix}
+        0  & 0  & 0  \\
+        -1 & 1  & -1 \\
+        1  & -1 & 1
+    \end{bmatrix}
+\]
+解得
+\[
+    \lambda_1 = \lambda_2 = 0, \quad \alpha_1 = \begin{bmatrix}
+        1 \\
+        1 \\
+        0
+    \end{bmatrix}, \quad \alpha_2 = \begin{bmatrix}
+        0 \\
+        1 \\
+        1
+    \end{bmatrix}; \quad \lambda_3 = 2, \quad \alpha_3 = \begin{bmatrix}
+        0 \\
+        1 \\
+        -1
+    \end{bmatrix}
+\]
+那么，$T$的特征值$\lambda_1 = \lambda_2 = 0$对应的线性无关的特征向量为
+\[
+    \bm{Y}_1 = (\bm{X}_1, \bm{X}_2, \bm{X}_3) \alpha_1 = \begin{bmatrix}
+        1 & 1  \\
+        0 & -1
+    \end{bmatrix}, \quad \bm{Y}_2  = (\bm{X}_1, \bm{X}_2, \bm{X}_3) \alpha_2 = \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+\]
+全体特征向量为$k_1\bm{Y}_1 + k_2\bm{Y_2}(k_1, k_2 \in R$ 不同时为零$)$;$T$的特征值$\lambda_3 = 2$的线性无关的特征
+向量为
+\[
+    \bm{Y}_3 = (\bm{X}_1, \bm{X}_2, \bm{X}_3) \alpha_3 = \begin{bmatrix}
+        0  & 1 \\
+        -1 & 0
+    \end{bmatrix}
+\]
+全体特征向量为$k_3\bm{Y}_3(0\neq k_3 \in R).$
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{1.2.7} 已知$R^3$的线性变换$T$在基$\bm{x}_1 = (-1,1,1),\bm{x}_2 = (1,0,-1), \bm{x}_3 = (0,1,1)$下的矩阵是
+\[
+    \begin{bmatrix}
+        1  & 0 & 1 \\
+        1  & 1 & 0 \\
+        -1 & 2 & 1
+    \end{bmatrix}
+\]
+求$T$在基$\bm{e}_1 = (1,0,0),\bm{e}_2 = (0,1,0),\bm{e}_3 = (0,0,1)$下的矩阵.
+
+\paragraph*{解} 由题意，可得
+\[
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix} = \begin{bmatrix}
+        -1 & 1  & 0 \\
+        1  & 0  & 1 \\
+        1  & -1 & 1
+    \end{bmatrix} \bm{C}
+\]
+解得
+\[
+    \bm{C}^{-1} = \begin{bmatrix}
+        -1 & 1  & 0 \\
+        1  & 0  & 1 \\
+        1  & -1 & 1
+    \end{bmatrix}, \quad \bm{C}^ = \begin{bmatrix}
+        -1 & 1 & -1 \\
+        0  & 1 & -1 \\
+        1  & 0 & 1
+    \end{bmatrix}
+\]
+由$\bm{B} = \bm{C}^{-1}\bm{AC}$得，
+\begin{align*}
+    \bm{B} & = \begin{bmatrix}
+                   -1 & 1  & 0 \\
+                   1  & 0  & 1 \\
+                   1  & -1 & 1
+               \end{bmatrix}\begin{bmatrix}
+                                1  & 0 & 1 \\
+                                1  & 1 & 0 \\
+                                -1 & 2 & 1
+                            \end{bmatrix}\begin{bmatrix}
+                                             -1 & 1 & -1 \\
+                                             0  & 1 & -1 \\
+                                             1  & 0 & 1
+                                         \end{bmatrix} \\
+           & = \begin{bmatrix}
+                   0  & 1 & -1 \\
+                   0  & 2 & 2  \\
+                   -1 & 1 & 2
+               \end{bmatrix} \begin{bmatrix}
+                                 -1 & 1  & 0 \\
+                                 1  & 0  & 1 \\
+                                 1  & -1 & 1
+                             \end{bmatrix}             \\
+           & = \begin{bmatrix}
+                   -1 & 1 & -2 \\
+                   2  & 2 & 0  \\
+                   3  & 0 & 2
+               \end{bmatrix}
+\end{align*}
+
+\paragraph*{1.2.11} 给定$R^3$得两个基
+\begin{gather*}
+    \bm{x}_1 = (1,0,1), \quad \bm{x}_2 = (2,1,0), \quad \bm{x}_3 = (1,1,1) \\
+    \bm{y}_1 = (1,2,-1), \quad \bm{y}_2 = (2,2,-1), \quad \bm{y}_3 = (2,-1,-1)
+\end{gather*}
+定义线性变换
+\[
+    T\bm{x}_i = y_i \quad (i = 1,2,3)
+\]
+\begin{enumerate}
+    \item[(1)] 写出由基$\bm{x}_1, \bm{x}_2, \bm{x}_3$到基$\bm{y}_1, \bm{y}_2, \bm{y}_3$得过渡矩阵.
+    \item[(2)] 写出$T$在基$\bm{x}_1, \bm{x}_2, \bm{x}_3$下得矩阵.
+    \item[(3)] 写出$T$在基$\bm{y}_1, \bm{y}_2, \bm{y}_3$下得矩阵.
+\end{enumerate}
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)] 由$(\bm{y}_1, \bm{y}_2, \bm{y}_3) = (\bm{x}_1, \bm{x}_2, \bm{x}_3) \bm{C}$得，
+        \begin{gather*}
+            \begin{bmatrix}
+                1  & 2  & 2  \\
+                2  & 2  & -1 \\
+                -1 & -1 & -1
+            \end{bmatrix} = \begin{bmatrix}
+                1 & 2 & 1 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1
+            \end{bmatrix} \bm{C}
+        \end{gather*}
+        解得
+        \[
+            \bm{C} = \dfrac{1}{2} \begin{bmatrix}
+                -4 & -3 & 3  \\
+                2  & 3  & 3  \\
+                2  & 1  & -5
+            \end{bmatrix}
+        \]
+    \item[(2)] 由于$T(\bm{x}_1, \bm{x}_2, \bm{x}_3) = ((\bm{y}_1, \bm{y}_2, \bm{y}_3)) = (\bm{x}_1, \bm{x}_2, \bm{x}_3) \bm{C}$ \\
+        那么假设$T$在该基下的矩阵为$\bm{A}$，有$\bm{A} = \bm{C}$
+    \item[(3)] 那么假设$T$在该基下的矩阵为$\bm{B}$，有
+        \begin{align*}
+            \bm{B} & = \bm{C}^{-1} A \bm{C} \\
+                   & = \bm{C}^{-1}\bm{CC}   \\
+                   & = \bm{C}
+        \end{align*}
+\end{enumerate}
+
+\paragraph*{1.2.12} 设$T$是数域$\mathbb{C}$上线性空间$V^3$的线性变换，已知$T$在$V^3$的基$\bm{x}_1, \bm{x}_2, \bm{x}_3$下的矩阵
+\[
+    \bm{A} = \begin{bmatrix}
+        3  & 1  & 0  \\
+        -4 & -1 & 0  \\
+        4  & -8 & -2
+    \end{bmatrix}
+\]
+求$T$的特征值与特征向量.
+
+\paragraph*{解} 由题意
+\[
+    |\lambda E - A| = \begin{vmatrix}
+        \lambda - 3 & -1          & 0           \\
+        4           & \lambda + 1 & 0           \\
+        -4          & 8           & \lambda + 2
+    \end{vmatrix} = (\lambda + 2)(\lambda - 1)^2
+\]
+当$\lambda = -2$时，
+\[
+    -2E - A = \begin{bmatrix}
+        -5 & -1 & 0 \\
+        4  & -1 & 0 \\
+        -4 & 8  & 0
+    \end{bmatrix} \to \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+\]
+解得特征向量为$\alpha_1 = (0,0,1)^T$. \\
+当$\lambda = 1$时，有
+\[
+    E - A = \begin{bmatrix}
+        -2 & -1 & 0 \\
+        4  & 2  & 0 \\
+        -4 & 8  & 3
+    \end{bmatrix} \rightarrow \begin{bmatrix}
+        2 & 1  & 0 \\
+        0 & 10 & 3 \\
+        0 & 0  & 0
+    \end{bmatrix}
+\]
+解得特征向量为$\alpha_2 = (3,6,-20)^T$. \\
+那么，$T$得特征值$\lambda = -2$时对应得线性无关的特征向量为
+\[
+    \bm{Y}_1 = \bm{x}_3
+\]
+全体特征向量为$k\bm{Y}_1，k\neq 0$；$T$的特征值$\lambda_2 = \lambda_3 = 1$对应的线性无关的特征向量为
+\[
+    \bm{Y}_2 = 3\bm{x}_1 - 6\bm{x}_2 + 20\bm{x}_3
+\]
+全体特征向量为$k\bm{Y}_2，k\neq 0.$
+
+\end{document}

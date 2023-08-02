@@ -1,0 +1,445 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第五次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.2 \quad 线性变换及其矩阵}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 1.19} 首项系数是$1$（简称首$1$），次数最小，且以矩阵$A$为根$\lambda$的多项式，称为$A$的\textbf{最
+    小多项式，}常用$m(\lambda)$表示. \par
+根据定理$1.18$，显然$A$的最小多项式$m(\lambda)$的次数不大于它的特征多项式$\varphi(\lambda)$的次数. \par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 1.17} 任意$n$阶矩阵与三角矩阵相似.
+
+\paragraph*{定理 1.18(Hamilton-Cayley)} $n$阶矩阵$A$是其特征多项式的矩阵根（零点），即令
+\[
+    \varphi(\lambda) = \det(\lambda I - A) = \lambda^n + a_1\lambda^{n-1} + \cdots + a_{n-1}\lambda + a_n
+\]
+则有
+\[
+    \varphi(A) = A^n + a_1A^{n-1} + \cdots + a_{n-1}A + A_nI = O
+\]
+
+\paragraph*{定理 1.20} 矩阵$A$的最小多项式$m(\lambda)$与其特征多项式$\varphi(\lambda)$的零点相同（不计重数）.
+\paragraph*{证} 有定理$1.18$知$\varphi(A) = O$，再知$m(\lambda)$能够整除$\varphi(\lambda)$，所以$m(\lambda)$的零点是
+$\varphi(\lambda)$的零点. \par
+又设$\lambda_0$是$\varphi(\lambda)$的一个零点，也是$A$的一个特征值，那么有非零向量$\bm{x}\in C^n$，使得
+\[
+    A\bm{x} = \lambda_0 \bm{x} \qquad or \qquad m(A)\bm{x} = m(\lambda_0) \bm{x}
+\]
+因为$m(A) = O$，所以$m(\lambda_0)\bm{x} = 0$，从而$m(\lambda_0) = 0$，故$\varphi(\lambda)$的零点也是$m(\lambda)$的零点.
+
+\paragraph*{定理 1.21} 设$n$阶矩阵$A$的特征多项式为$\varphi(\lambda)$，特征矩阵$\lambda I - A$的全体$n - 1$阶子式的最
+大公因式为$d(\lambda)$，则$A$的最小多项式为
+\[
+    m(\lambda) = \dfrac{\varphi(\lambda)}{d(\lambda)}
+\]
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例题 1.20} 计算矩阵多项式$A^{100} + 2A^{50}$，其中
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & 1  & -1 \\
+        1 & 1  & 1  \\
+        0 & -1 & 2
+    \end{bmatrix}
+\end{equation*}
+
+\paragraph*{解} 令$\phi(\lambda) = \lambda^{100} + 2\lambda^{50}$，可求得$A$的特征多项式为
+\[
+    \varphi(\lambda) = \det(\lambda I - A) = (\lambda - 1)^2(\lambda-2)
+\]
+用$\varphi(\lambda)$除$\phi(\lambda)$。可得
+\[
+    \phi(\lambda) = \varphi(\lambda)q(\lambda) + b_0 + b_1 \lambda + b_2\lambda^2
+\]
+将$\lambda = 1, 2$分别代入上式，则有
+\begin{equation*}
+    \begin{cases}
+        b_0 + b_1 + b_2 = 3 \\
+        b_0 + 2b_1 + 4b_2 = 2^{100} + 2^{51}
+    \end{cases}
+\end{equation*}
+对$\phi(\lambda)$求导，得到
+\[
+    \phi^{'}(\lambda) = [2(\lambda - 1)(\lambda - 2) + (\lambda - 1)^2]q(\lambda) + \varphi(\lambda)q^{'}(\lambda) + b_1 + 2b_2 \lambda
+\]
+将$\lambda = 1$代入上式，可得
+\[
+    b_1 + 2b_2 = \varphi^{'}(1) = 200
+\]
+从而求得
+\[
+    \begin{cases}
+        b_0 = 2^{100} + 2^{51} - 400 \\
+        b_1 = 606 - 2^{101} - 2^{52} \\
+        b_2 = -203 + 2^{100} + 2^{51}
+    \end{cases}
+\]
+故
+\[
+    A^{100} + 2A^{50} = b_0 I + b_1 A + b_2 A^2
+\]
+
+\paragraph*{例题 1.21} 求矩阵
+\begin{equation*}
+    A = \begin{bmatrix}
+        3  & -3 & 2  \\
+        -1 & 5  & -2 \\
+        -1 & 3  & 0
+    \end{bmatrix}
+\end{equation*}
+的最小多项式.
+
+\paragraph*{解} 设$f(\lambda) = \lambda + k\ (k \in R)$，由于$f(A) = A + kI \neq O$，所以任何一次多项式都不是$A$的最
+小多项式，注意到$A$的特征多项式
+\[
+    \varphi(\lambda) = (\lambda - 2)^2(\lambda - 4)
+\]
+且对于它的二次因式
+\[
+    \phi(\lambda) = (\lambda - 2)(\lambda - 4) = \lambda^2 - 6 \lambda + 8
+\]
+有
+\[
+    \phi(A) = A^2 - 6A + 8I = O
+\]
+故，$m(\lambda) = \phi(\lambda).$
+\par \ \par
+
+\centerline{\large{\textbf{ppt例题}}} \ \par
+
+\paragraph*{P5} 设$\bm{x}_1,\ \bm{x}_2$为线性空间$V$一组基，线性变换$T$在这组基下的矩阵为
+\begin{equation*}
+    A = \begin{bmatrix}
+        2  & 1 \\
+        -1 & 0
+    \end{bmatrix}
+\end{equation*}
+$\bm{y}_1,\ \bm{y}_2$为$V$的另一组基，且
+\begin{equation*}
+    (\bm{y}_1,\ \bm{y}_2) = (\bm{x}_1,\ \bm{x_2}) \begin{bmatrix}
+        1  & -1 \\
+        -1 & 2
+    \end{bmatrix}
+\end{equation*}
+\begin{enumerate}
+    \item[(1)] 求$T$在$\bm{y}_1,\ \bm{y}_2$下的矩阵$B.$
+    \item[(2)] 求$A^k.$
+\end{enumerate}
+
+\paragraph*{解}
+\begin{enumerate}
+    \paragraph*{解}
+    \item[(1)] $T$在基$\bm{y}_1,\ \bm{y}_2$下的矩阵
+        \begin{align*}
+            B & = \begin{bmatrix}
+                      1  & -1 \\
+                      -1 & 2
+                  \end{bmatrix}^{-1} \begin{bmatrix}
+                                         2  & 1 \\
+                                         -1 & 0
+                                     \end{bmatrix} \begin{bmatrix}
+                                                       1  & -1 \\
+                                                       -1 & 2
+                                                   \end{bmatrix}            \\
+              & = \begin{bmatrix}
+                      2 & 1 \\
+                      1 & 1
+                  \end{bmatrix} \begin{bmatrix}
+                                    2  & 1 \\
+                                    -1 & 0
+                                \end{bmatrix} \begin{bmatrix}
+                                                  1  & -1 \\
+                                                  -1 & 2
+                                              \end{bmatrix} = \begin{bmatrix}
+                                                                  1 & 1 \\
+                                                                  0 & 1
+                                                              \end{bmatrix}
+        \end{align*}
+    \item[(2)] 由$B = C^{-1} A C$，有$A=CBC^{-1}$，于是$A^k=CB^kC^{-1}$
+        \begin{align*}
+            A^k & = \begin{bmatrix}
+                        1  & -1 \\
+                        -1 & 2
+                    \end{bmatrix}\begin{bmatrix}
+                                     1 & 1 \\
+                                     0 & 1
+                                 \end{bmatrix}^k \begin{bmatrix}
+                                                     1  & -1 \\
+                                                     -1 & 2
+                                                 \end{bmatrix}^{-1}           \\
+                & = \begin{bmatrix}
+                        1  & -1 \\
+                        -1 & 2
+                    \end{bmatrix}\begin{bmatrix}
+                                     1 & k \\
+                                     0 & 1
+                                 \end{bmatrix} \begin{bmatrix}
+                                                   2 & 1 \\
+                                                   1 & 1
+                                               \end{bmatrix} = \begin{bmatrix}
+                                                                   k + 1 & k      \\
+                                                                   -k    & -k + 1
+                                                               \end{bmatrix}
+        \end{align*}
+\end{enumerate}
+
+\paragraph*{P17} 设
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & 0  & 2 \\
+        0 & -1 & 1 \\
+        0 & 1  & 0
+    \end{bmatrix}
+\end{equation*}
+求\ $2A^8 - 3A^5 + A^4 + A^2 -4I.$
+
+\paragraph*{解} $A$的特征多项式\ $\varphi(\lambda) = |\lambda I - A| = \lambda^3 - 2\lambda + 1$ \\
+用$\varphi(\lambda)$去除$2\lambda^8-3\lambda^5 + \lambda^4 + \lambda^2 - 4\lambda = g(\lambda)$，得
+\[
+    g(\lambda) = \varphi(\lambda)(2\lambda^5 + 4\lambda^3 - 5\lambda^2 + 9\lambda - 14) + (24\lambda^2 - 37\lambda + 10)
+\]
+\begin{flalign*}
+    \because   \quad & \varphi(A) = 0                                     & \\
+    \therefore \quad & 2A^8 - 3A^5 + A^4 + A^2 - 4I = 24 A^2 - 37 A + 10I & \\
+                     & = \begin{bmatrix}
+                             -3 & 48  & -26 \\
+                             0  & 95  & -61 \\
+                             0  & -61 & 34
+                         \end{bmatrix}
+\end{flalign*}
+
+\paragraph*{P22} 求
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & 1 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+\end{equation*}
+的最小多项式.
+
+\paragraph*{解} $A$的特征多项式为
+\[
+    \varphi(\lambda) = |\lambda I - A| = \begin{vmatrix}
+        \lambda - 1 & -1          & 0           \\
+        0           & \lambda - 1 & 0           \\
+        0           & 0           & \lambda - 1
+    \end{vmatrix} = (\lambda - 1)^3
+\]
+又$A - I \neq 0$，
+\begin{align*}
+    (A - I)^2 & = A^2 - 2A + I                                   \\
+              & = \begin{bmatrix}
+                      1 & 2 & 0 \\
+                      0 & 1 & 0 \\
+                      0 & 0 & 1
+                  \end{bmatrix} - \begin{bmatrix}
+                                      2 & 2 & 0 \\
+                                      0 & 2 & 0 \\
+                                      0 & 0 & 2
+                                  \end{bmatrix} + \begin{bmatrix}
+                                                      1 & 0 & 0 \\
+                                                      0 & 1 & 0 \\
+                                                      0 & 0 & 1
+                                                  \end{bmatrix}
+\end{align*}
+因此，$A$的最小多项式为$(\lambda - 1)^2.$
+
+\paragraph*{P30} 试用初等变换化多项式矩阵
+\begin{equation*}
+    A(\lambda) = \begin{bmatrix}
+        -\lambda + 1  & 2 \lambda - 1           & \lambda    \\
+        \lambda       & \lambda^2               & -\lambda   \\
+        \lambda^2 + 1 & \lambda^2 + \lambda - 1 & -\lambda^2
+    \end{bmatrix}
+\end{equation*}
+为标准形.
+
+\paragraph*{解}
+\begin{align*}
+    A(\lambda) & \xrightarrow[{[3]+[1]}]{} \begin{bmatrix}
+                                               -\lambda + 1  & 2 \lambda - 1           & 1 \\
+                                               \lambda       & \lambda^2               & 0 \\
+                                               \lambda^2 + 1 & \lambda^2 + \lambda - 1 & 1
+                                           \end{bmatrix} \xrightarrow[{[3]\leftrightarrow[1]}]{} \\
+               & \begin{bmatrix}
+                     1 & 2 \lambda - 1           & -\lambda+1    \\
+                     0 & \lambda^2               & \lambda       \\
+                     1 & \lambda^2 + \lambda - 1 & \lambda^2 + 1
+                 \end{bmatrix} \xrightarrow[(3) - (1)]{}                                     \\
+               & \begin{bmatrix}
+                     1 & 2 \lambda - 1       & -\lambda+1          \\
+                     0 & \lambda^2           & \lambda             \\
+                     1 & \lambda^2 - \lambda & \lambda^2 + \lambda
+                 \end{bmatrix} \xrightarrow[{[3] + (\lambda - 1)[1]}]{[2] - (2\lambda - 2)[1]}   \\
+               & \begin{bmatrix}
+                     1 & 0                   & 0                   \\
+                     0 & \lambda^2           & \lambda             \\
+                     0 & \lambda^2 - \lambda & \lambda^2 + \lambda
+                 \end{bmatrix} \xrightarrow[{[2]\leftrightarrow[3]}]{}                           \\
+               & \begin{bmatrix}
+                     1 & 0                   & 0                   \\
+                     0 & \lambda             & \lambda^2           \\
+                     0 & \lambda^2 + \lambda & \lambda^2 + \lambda
+                 \end{bmatrix} \xrightarrow[{[3]-\lambda[2]}]{}                                  \\
+               & \begin{bmatrix}
+                     1 & 0                   & 0                    \\
+                     0 & \lambda             & 0                    \\
+                     0 & \lambda^2 + \lambda & -\lambda^3 - \lambda
+                 \end{bmatrix} \xrightarrow[{(3)-(\lambda+1)(2)}]{(-1)[3]}                       \\
+               & \begin{bmatrix}
+                     1 & 0       & 0                   \\
+                     0 & \lambda & 0                   \\
+                     0 & 0       & \lambda^3 + \lambda
+                 \end{bmatrix}
+\end{align*}
+最后所得矩阵是$A(\lambda)$的标准形，此时,$d_1(\lambda) = 1$，$d_2(\lambda)=\lambda$，$d_3(\lambda) = \lambda^3 + \lambda.$
+
+\paragraph*{P35} 求矩阵
+\begin{equation*}
+    A = \begin{bmatrix}
+        -1 & 1 & 0 \\
+        -4 & 3 & 0 \\
+        1  & 0 & 2
+    \end{bmatrix}
+\end{equation*}
+的最小多项式.
+
+\paragraph*{解} 求$\lambda I - A$的初等因子组.由于
+\begin{align*}
+    \lambda I - A = & \begin{bmatrix}
+                          \lambda + 1 & -1          & 0         \\
+                          4           & \lambda - 3 & 0         \\
+                          -1          & 0           & \lambda-2
+                      \end{bmatrix} \to                      \\
+                    & \begin{bmatrix}
+                          -1          & 0                              & 0           \\
+                          \lambda - 3 & (\lambda + 1)(\lambda - 3) + 4 & 0           \\
+                          0           & -1                             & \lambda - 2
+                      \end{bmatrix} \to \\
+                    & \begin{bmatrix}
+                          1 & 0               & 0           \\
+                          0 & (\lambda - 1)^2 & 0           \\
+                          0 & -1              & \lambda - 2
+                      \end{bmatrix} \to                          \\
+                    & \begin{bmatrix}
+                          1 & 0               & 0                        \\
+                          0 & (\lambda - 1)^2 & (\lambda-2)(\lambda-1)^2 \\
+                          0 & -1              & 0
+                      \end{bmatrix} \to             \\
+                    & \begin{bmatrix}
+                          1 & 0 & 0                         \\
+                          0 & 1 & 0                         \\
+                          0 & 0 & (\lambda -2)(\lambda-1)^2
+                      \end{bmatrix}
+\end{align*}
+不变因子为$d_1(\lambda)=1$，$d_2(\lambda) = 2$，$d_3(\lambda) = (\lambda -2)(\lambda-1)^2.$\\
+最后一个不变因子就是$A$的最小多项式：$m(\lambda) = d_3(\lambda)$\\
+有$m(A) = 0.$
+
+\paragraph*{P38} 求矩阵
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & -1 & 2 \\
+        3 & -3 & 6 \\
+        2 & -2 & 4
+    \end{bmatrix}
+\end{equation*}
+的最小多项式.
+
+\paragraph*{解}
+\begin{align*}
+    \lambda I - A = & \begin{bmatrix}
+                          \lambda - 1 & 1           & -2          \\
+                          -3          & \lambda + 3 & -6          \\
+                          -2          & 2           & \lambda - 4
+                      \end{bmatrix} \to                 \\
+                    & \begin{bmatrix}
+                          \lambda - 1           & 1 & -2       \\
+                          -\lambda^2 - 2\lambda & 0 & 2\lambda \\
+                          -2\lambda             & 0 & \lambda
+                      \end{bmatrix} \to  \begin{bmatrix}
+                                             1 & -2       & \lambda-1             \\
+                                             0 & 2\lambda & -\lambda^2 - 2\lambda \\
+                                             0 & \lambda  & -2\lambda
+                                         \end{bmatrix} \to \\
+                    & \begin{bmatrix}
+                          1 & 0        & 0                    \\
+                          0 & 2\lambda & -\lambda^2 -2\lambda \\
+                          0 & \lambda  & -2\lambda
+                      \end{bmatrix} \to  \begin{bmatrix}
+                                             1 & 0       & 0                     \\
+                                             0 & 0       & -\lambda^2 - 2\lambda \\
+                                             0 & \lambda & -2\lambda
+                                         \end{bmatrix} \to  \\
+                    & \begin{bmatrix}
+                          1 & 0       & 0                     \\
+                          0 & 0       & -\lambda^2 + 2\lambda \\
+                          0 & \lambda & 0
+                      \end{bmatrix} \to \begin{bmatrix}
+                                            1 & 0       & 0                    \\
+                                            0 & \lambda & 0                    \\
+                                            0 & 0       & \lambda(\lambda - 2)
+                                        \end{bmatrix}
+\end{align*}
+不变因子为$d_1(\lambda)=1$，$d_2(\lambda) = \lambda$，$d_3(\lambda) = \lambda(\lambda -2).$\\
+最后一个不变因子就是$A$的最小多项式：$m(\lambda) = \lambda(\lambda -2)$\\
+有$m(A) = 0.$
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{1.2.14} 计算$2A^8 - 3A^5 + A^4 + A^2 - 4I$，其中
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & 0  & 2 \\
+        0 & -1 & 1 \\
+        0 & 1  & 0
+    \end{bmatrix}
+\end{equation*}
+
+\paragraph*{解}
+\[
+    \varphi(\lambda) = \det(\lambda I -A) = \lambda^3 - 2\lambda + 1
+\]
+有
+\[
+    A^3 -2A + I = 0
+\]
+那么
+\begin{align*}
+      & 2A^8 - 3A^5 + A^4 + A^2 - 4I                                      \\
+    = & (A^3 -2A + I)(2A^5 + 4A^3 - 5A^2 + 9A -14 I) +(24A^2 - 37A + 10I) \\
+    = & 24A^2 -37A + 10I                                                  \\
+    = & \begin{bmatrix}
+            -3 & 48  & -26 \\
+            0  & 95  & -61 \\
+            0  & -61 & 34
+        \end{bmatrix}
+\end{align*}
+
+\end{document}

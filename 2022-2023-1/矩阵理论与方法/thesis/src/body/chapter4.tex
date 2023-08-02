@@ -1,0 +1,1103 @@
+\section{矩阵分解方法研究}
+
+本章首先讨论以 Gauss 消去法为基础导出的矩阵的三角(或 LU)分解, 然后论述
+20世纪60年代后根据 Givens 变换与 Householder 变换发展起来的矩阵的 QR 分解. 这
+些分解方法在计算数学领域扮演着十分重要的角色, 尤其是以 QR 分解所建立的 QR 方
+法, 已对数值线性代数理论的近代发展呢起了关键作用. 最后介绍在广义逆矩阵等理论
+中, 经常遇到的矩阵的满秩分解和奇异值分解, 它与 QR 方法都是求解各类最小二乘问
+题和最优化问题的重要数学工具.
+
+\subsection{矩阵的LU分解}
+
+\subsubsection{矩阵LU分解的步骤推导}
+
+设 $\bm{A}^{(0)} = \bm{A}$, 其元素 $a_{ij}^{(0)} = a_{ij} (i,j = 1, 2, \cdots, n)$. 记 $\bm{A}$ 的 $k$ 阶顺序主子式为 $\Delta_k(k = 1,2,\cdots,n)$. 如果 $\Delta_1 = a_{11}^{(0)} \neq 0$, 令 $c_{i1} = \dfrac{a_{i1}^{(0)}}{a_{11}^{(0)}} (i = 2, 3,\cdots, n)$, 并构造 Frobenius 矩阵
+$$
+    \bm{L}_1 = \begin{bmatrix}
+        1      &   &        &   \\
+        c_{21} & 1 &        &   \\
+        \vdots &   & \ddots &   \\
+        c_{n1} &   &        & 1
+    \end{bmatrix},\ \bm{L}_1^{-1} = \begin{bmatrix}
+        1       &   &        &   \\
+        -c_{21} & 1 &        &   \\
+        \vdots  &   & \ddots &   \\
+        -c_{n1} &   &        & 1
+    \end{bmatrix}
+$$
+计算
+$$
+    \bm{L}_1^{-1}\bm{A}^{(0)} = \begin{bmatrix}
+        a_{11}^{(0)} & a_{12}^{(0)} & \cdots & a_{1n}^{(0)} \\
+                     & a_{22}^{(1)} & \cdots & a_{2n}^{(1)} \\
+                     & \vdots       &        & \vdots       \\
+                     & a_{n2}^{(1)} & \cdots & a_{nn}^{(1)}
+    \end{bmatrix} = \bm{A}^{(1)}
+$$
+由此可见, $\bm{A}^{(0)} = \bm{A}$ 的第一列除主元 $a_{11}^{(0)}$ 外, 其余元素全被化为零. 上式还可写为
+$$
+    \bm{A}^{(0)} = \bm{L}_1\bm{A}^{(1)}
+$$
+因为倍加初等变换不改变矩阵行列式的值, 所以由 $\bm{A}^{(1)}$ 得 $\bm{A}$ 得二阶顺序主子式为
+$$
+    \delta_2 = a_{11}^{(0)}a_{22}^{(1)}
+$$
+\par 如果 $\delta_2 \neq 0$, 则 $a_{22}^{(1)} \neq 0$. 令 $c_{i2} = \dfrac{a_{i2}^{(1)}}{a_{22}^{(1)}}(i=3,4,\cdots, n)$, 并构造 Frobenius 矩阵
+$$
+    \bm{L}_2 = \begin{bmatrix}
+        1 &        &   &        &   \\
+          & 1      &   &        &   \\
+          & c_{32} & 1 &        &   \\
+          & \vdots &   & \ddots &   \\
+          & c_{n2} &   &        & 1
+    \end{bmatrix}, \ \bm{L}_2^{-1} = \begin{bmatrix}
+        1 &         &   &        &   \\
+          & 1       &   &        &   \\
+          & -c_{32} & 1 &        &   \\
+          & \vdots  &   & \ddots &   \\
+          & -c_{n2} &   &        & 1
+    \end{bmatrix}
+$$
+由此可见, $\bm{A}^{(2)}$ 的前两列中主元以下的元素全为零. 上式还可写为
+$$
+    \bm{A}^{(1)} = \bm{L}_2\bm{A}^{(2)}
+$$
+因为倍加初等变换不改变矩阵行列式的值, 所以由 $\bm{A}^{(2)}$ 得 $\bm{A}$ 的三阶顺序主子式为
+$$
+    \Delta_3 = a_{11}^{(0)}a_{22}^{(1)}a_{33}^{(3)}
+$$
+如果可以一直进行下去, 则在第 $n - 1$ 步之后便有
+$$
+    \bm{A}^{(n - 1)} = \begin{bmatrix}
+        a_{11}^{(0)} & a_{12}^{(0)} & \cdots & a_{1,n-1}^{(0)}          & a_{1n}^{(0)}        \\
+                     & a_{22}^{(1)} & \cdots & a_{2, n-1}^{(1)}         & a_{2, n}^{(1)}      \\
+                     &              & \ddots & \vdots                   & \vdots            & \\
+                     &              &        & a_{n - 1, n - 1}^{(n-2)} & a_{n-1,n}^{(n-2)}   \\
+                     &              &        &                          & a_{nn}^{(n-1)}
+    \end{bmatrix}
+$$
+\par 这种对 $\bm{A}$ 的元素进行的消元过程叫做 Gauss 消元过程. Gauss 消元过程能够进行到底的条件是当且仅当
+$$
+    \Delta_r \neq 0 \ (r = 1,2,\cdots, n - 1)
+$$
+\par 当上述条件满足时, 有
+$$
+    \bm{A} = \bm{A}^{(0)} = \bm{L}_1\bm{A}^{(1)} = \bm{L}_1\bm{L}_2\bm{A}^{(2)} = \cdots = \bm{L}_1\bm{L}_2\cdots\bm{L}_{n-1}\bm{A}^{(n-1)}
+$$
+容易求出
+$$
+    \bm{L} = \bm{L}_1\bm{L}_2\cdots\bm{L}_{n-1} = \begin{bmatrix}
+        1         &           &        &           &   \\
+        c_{21}    & 1         &        &           &   \\
+        \vdots    & \vdots    & \ddots &           &   \\
+        c_{n-1,1} & c_{n-1,2} & \cdots & 1         &   \\
+        c_{n,1}   & c_{n,2}   & \cdots & c_{n,n-1} & 1
+    \end{bmatrix}
+$$
+这是一个对角元素都是1的下三角矩阵, 称为单位下三角矩阵. 若令 $\bm{A}^{(n-1)} = \bm{U}(或 \bm{R})$, 则
+得
+$$
+    \bm{A} = \bm{LU}
+$$
+
+\par 需要指出, 一个方阵得 LU 分解并不唯一. 但有如下阐述.
+
+\par 设 $\bm{A} = (a_{ij})_{n\times n}$ 是 $n$ 阶矩阵, 则当且仅当 $\bm{A}$ 的顺序主子式 $\Delta_k \neq 0(k=1,2,\cdots, n-1)$
+时, $\bm{A}$ 可唯一地分解为 $\bm{A} = \bm{LDU}$, 其中 $\bm{L}$ 是单位下三角矩阵, $\bm{U}$ 是单位上三角矩阵, 且
+$$
+    \bm{D} = \mathrm{diag}(d_1, d_2, \cdots, d_n)
+$$
+其中 $d_k = \dfrac{\Delta_k}{\Delta_{k-1}}(k = 1,2,\cdots, n; \Delta_0 = 1)$.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 4.1} 求矩阵 $\bm{A}$ 的 LDU 分解, 其中
+$$
+    \bm{A}  \begin{bmatrix}
+        2 & -1 & 3 \\
+        1 & 2  & 1 \\
+        2 & 4  & 2
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 因为 $\Delta_1 = 2, \Delta_2 = 5$, 所以 $\bm{A}$ 有唯一的 LDU 分解. 构造矩阵
+$$
+    \bm{L}_1 = \begin{bmatrix}
+        1            &   &   \\
+        \dfrac{1}{2} & 1 &   \\
+        1            & 0 & 1
+    \end{bmatrix}, \ \bm{L}_1^{-1} = \begin{bmatrix}
+        1             &   &   \\
+        -\dfrac{1}{2} & 1 &   \\
+        -1            & 0 & 1
+    \end{bmatrix}
+$$
+计算, 得
+$$
+    \bm{L}_1^{-1}\bm{A}^{(0)} = \begin{bmatrix}
+        2 & -1           & 3             \\
+        0 & \dfrac{5}{2} & -\dfrac{1}{2} \\
+        0 & 5            & -1
+    \end{bmatrix} = \bm{A}^{(1)}
+$$
+对 $\bm{A}^{(1)}$ 构造矩阵, 有
+$$
+    \bm{L}_2 = \begin{bmatrix}
+        1 &   &   \\
+        0 & 1 &   \\
+        0 & 2 & 1
+    \end{bmatrix},\ \bm{L}_2^{-1} = \begin{bmatrix}
+        1 &    &   \\
+        0 & 1  &   \\
+        0 & -2 & 1
+    \end{bmatrix}
+$$
+计算, 得
+$$
+    \bm{L}_2^{-1}\bm{A}^{(1)} =\begin{bmatrix}
+        2 & -1           & 3             \\
+        0 & \dfrac{5}{2} & -\dfrac{1}{2} \\
+        0 & 0            & 0
+    \end{bmatrix} = \begin{bmatrix}
+        2 & 0            & 0 \\
+        0 & \dfrac{5}{2} & 0 \\
+        0 & 0            & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & -\dfrac{1}{2} & \dfrac{3}{2}  \\
+        0 & 1             & -\dfrac{1}{5} \\
+        0 & 0             & 1
+    \end{bmatrix}
+$$
+求出
+$$
+    \bm{L} = \bm{L}_1\bm{L}_2 = \begin{bmatrix}
+        1            &   &   \\
+        \dfrac{1}{2} & 1 &   \\
+        1            & 2 & 1
+    \end{bmatrix}
+$$
+于是得 $\bm{A}^{(0)} = \bm{A}$ 的 LDU 分解为
+$$
+    \bm{A} = \bm{L}_1\bm{L}_2\bm{A}^{(2)} = \begin{bmatrix}
+        1            & 0 & 0 \\
+        \dfrac{1}{2} & 1 & 0 \\
+        1            & 2 & 1
+    \end{bmatrix}\begin{bmatrix}
+        2 & 0            & 0 \\
+        0 & \dfrac{5}{2} & 0 \\
+        0 & 0            & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & -\dfrac{1}{2} & \dfrac{3}{2}  \\
+        0 & 1             & -\dfrac{1}{5} \\
+        0 & 0             & 1
+    \end{bmatrix}
+$$
+
+\subsection{矩阵的QR分解}
+
+\paragraph[]{Givens变换与Householder变换} \
+
+\par 设实数 $c$ 与 $s$ 满足 $c^2 + s^2 = 1$, 称
+$$
+    \bm{T}_{ij} = \begin{bmatrix}
+        \bm{I} &    &        &   &        \\
+               & c  &        & s &        \\
+               &    & \bm{I} &   &        \\
+               & -s &        & c &        \\
+               &    &        &   & \bm{I}
+    \end{bmatrix} (i < j)
+$$
+为 Givens 矩阵(初等旋转矩阵), 也可记作 $\bm{T}_{ij} = \bm{T}_{ij}(c,s)$. 由 Givens 矩阵确定的线性变换称为 Givens 变换(初等旋转变换).
+
+\par 有如下性质:
+\par (1) Givens 矩阵是正交矩阵, 且有
+\begin{gather*}
+    [\bm{T}_{ij}(c,s)]^{-1} = [\bm{T}_{ij}(c,s)]^T = \bm{T}_{ij}(c,-s) \\
+    \det[\bm{T}_{ij}(c,s)] = 1
+\end{gather*}
+\par (2) 设 $\bm{x} = (\xi_1, \xi_2, \cdots, \xi_n)^T, \bm{y} = \bm{T}_{ij}\bm{x} = (\eta_1, \eta_2, \cdots, \eta_n)^T$, 则有
+$$
+    \begin{cases}
+        \eta_i = c\xi_i + s\xi_j  \\
+        \eta_j = -s\xi_j + c\xi_j \\
+        \eta_k = \eta_k \ (k\neq i, j)
+    \end{cases}
+$$
+
+\par 设单位列向量 $\bm{u} \in R^n$, 称
+$$
+    \bm{H} = \bm{I} - 2\bm{uu}^T
+$$
+为 Householder 矩阵(初等反射矩阵). 由 Householder 矩阵确定的线性变换称为 Householder 变换(初等反射变换).
+
+\par Householder 矩阵具有下列性质:
+\par (1) $\bm{H}^T = \bm{H}$(对称矩阵);
+\par (2) $\bm{H}^T\bm{H} = \bm{I}$(正交矩阵);
+\par (3) $\bm{H}^2 = \bm{I}$(对合矩阵);
+\par (4) $\bm{H}^{-1} = \bm{H}$(自逆矩阵);
+\par (5) $\det\bm{H} = -1$.
+
+\subsubsection{矩阵QR分解的步骤推导}
+
+\par 如果实(复)可逆矩阵 $\bm{A}$ 能够化成正交(酉)矩阵 $\bm{Q}$ 和实(复)可逆上三角矩阵 $\bm{R}$
+的乘积, 即
+$$
+    \bm{A} = \bm{QR}
+$$
+则称其为 $\bm{A}$ 的 QR 分解.
+
+\paragraph[]{Schmidt 正交化方法} \
+
+\par 记矩阵 $\bm{A}$ 的 $n$ 个列向量依次为 $\bm{a}_1, \bm{a}_2, \cdots, \bm{a}_n$. 因为 $\bm{A}$ 可逆, 所以这 $n$ 个列向
+量线性无关. 将它们按 Schmidt 正交化方法正交化之, 可得到 $n$ 个标准正交列向量
+$\bm{p}_1,\bm{p}_2, \cdots, \bm{p}_n$.
+\par 对 $\bm{a}_1, \bm{a}_2, \cdots, \bm{a}_n$ 正交化, 可得
+$$
+    \begin{cases}
+        \bm{b}_1 = & \bm{a}_1                                                     \\
+        \bm{b}_2 = & \bm{a}_2 - k_{21}\bm{b}_1                                    \\
+        \cdots                                                                    \\
+        \bm{b}_n = & \bm{a}_n - k_{n,n-1}\bm{b}_{n-1} - \cdots - k_{n1}\bm{b}_{1}
+    \end{cases}
+$$
+其中 $k_{ij} = \dfrac{(\bm{a}_i, \bm{b}_j)}{(\bm{b}_j, \bm{b}_j)}\ (j < i)$, 将上式改写为
+$$
+    \begin{cases}
+        \bm{a}_1 = & \bm{b}_1                                                               \\
+        \bm{a}_2 = & k_{21}\bm{b}_1 + \bm{b}_2                                              \\
+        \cdots                                                                              \\
+        \bm{a}_n = & k_{n1}\bm{b}_1 + k_{n2}\bm{b}_2 +\cdots + k_{n,n-1}\bm{n-1} + \bm{b}_n
+    \end{cases}
+$$
+用矩阵形式表示为
+$$
+    (\bm{a}_1, \bm{a}_2, \cdots, \bm{a}_n) = (\bm{b}_1, \bm{b}_2, \cdots, \bm{b}_n)\bm{C}
+$$
+其中
+$$
+    \bm{C} = \begin{bmatrix}
+        1 & k_{21} & \cdots & k_{n1} \\
+          & 1      & \cdots & k_{n2} \\
+          &        & \ddots & \vdots \\
+          &        &        & 1
+    \end{bmatrix}
+$$
+再对 $\bm{b}_1, \bm{b}_2, \cdots, \bm{b}_n$ 单位化, 可得
+$$
+    \bm{q}_i = \dfrac{1}{\lvert \bm{b}_i \rvert}\bm{b}_i \ (i = 1,2,\cdots, n)
+$$
+于是有
+\begin{align*}
+    (\bm{a}_1, \bm{a}_2, \cdots, \bm{a}_n) = & (\bm{b}_1, \bm{b}_2, \cdots, \bm{b}_n)\bm{C} =                                                                           \\
+                                             & (\bm{q}_1, \bm{q}_2, \cdots, \bm{q}_n) \begin{bmatrix}
+                                                                                          \lvert \bm{b}_1 \rvert &                        &        &                        \\
+                                                                                                                 & \lvert \bm{b}_2 \rvert &        &                        \\
+                                                                                                                 &                        & \ddots &                        \\
+                                                                                                                 &                        &        & \lvert \bm{b}_n \rvert
+                                                                                      \end{bmatrix}
+\end{align*}
+令
+$$
+    \begin{cases}
+        \bm{Q} = & (\bm{q}_1, \bm{q}_2, \cdots, \bm{q}_n)                                                                    \\
+        \bm{R} = & \mathrm{diag}(\lvert \bm{b}_1 \rvert, \lvert \bm{b}_2\rvert, \cdots, \lvert \bm{b}_n \rvert) \cdot \bm{C}
+    \end{cases}
+$$
+则 $\bm{Q}$ 是正交(酉)矩阵, $R$ 是可逆上三角矩阵, 且有 $\bm{A} = \bm{QR}$.
+
+\paragraph[]{Givens 变换方法}
+
+\par 任何 $n$ 阶实可逆矩阵 $\bm{A} = (a_{ij})_{n\times n}$ 可通过左连乘初等旋转矩阵化为可
+逆上三角矩阵.
+
+\par 第1步: 由 $\det \bm{A} \neq 0$ 知, $\bm{A}$ 的第1列 $\bm{b}^{(1)} = (a_{11}, a_{21}, \cdots, a_{n1})^T \neq \bm{0}$. 则存在有限个
+Givens 矩阵的乘积, 记作 $\bm{T}_1$, 使得
+$$
+    \bm{T}_1 \bm{b}^{(1)} = \lvert \bm{b}^{(1)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in R^n)
+$$
+令 $a_{11}^{(1)} = \lvert \bm{b}^{(1)} \rvert$, 则有
+$$
+    \bm{T}_1\bm{A} =
+    \left [
+        \begin{array}{c|ccc}
+            a_{11}^{(1)} & a_{12}^{(1)} & \cdots       & a_{1n}^{(1)} \\ \hline
+            0            &              &              &              \\
+            \vdots       &              & \bm{A}^{(1)} &              \\
+            0            &              &              &
+        \end{array}
+        \right ]
+$$
+\par 第2步: 由 $\det\bm{A}^{(1)} \neq 0$ 知, $\bm{A}^{(1)}$ 的第1列 $\bm{b}^{(2)} = (a_{22}^{(1)}, a_{32}^{(1)}, \cdots, a_{n2}^{(1)})^T \neq \bm{0}$. 则存在有限
+个 Givens 矩阵的乘积, 记作 $\bm{T}_2$, 使得
+$$
+    \bm{T}_2\bm{b}^{(2)} = \lvert \bm{b}^{(2)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in R^{n-1})
+$$
+令 $a_{22}^{(2)} = \lvert \bm{b}^{(2)} \rvert$, 则有
+$$
+    \bm{T}_2\bm{A}^{(1)} =
+    \left [
+        \begin{array}{c|ccc}
+            a_{22}^{(2)} & a_{23}^{(2)} & \cdots       & a_{2n}^{(2)} \\ \hline
+            0            &              &              &              \\
+            \vdots       &              & \bm{A}^{(2)} &              \\
+            0            &              &              &
+        \end{array}
+        \right ]
+$$
+\par 第 $n-1$ 步: 由 $\det\bm{A}^{(n-2)} \neq 0$ 知, $\bm{A}^{(n-2)}$ 的第1列 $\bm{b}^{(n-1)} = (a_{n-1,n-1}^{(n-2)}, a_{n, n-1}^{(n-2)})^T \neq \bm{0}$. 则存在 Givens 矩阵 $\bm{T}_{n-1}$, 使得
+$$
+    \bm{T}_{n-1} \bm{b}^{(n-1)} = \lvert \bm{b}^{(n-1)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in \bm{R}^2)
+$$
+令 $a_{n-1,n-1}^{(n-1)} = \lvert \bm{b}^{(n-1)} \rvert$, 则有
+$$
+    \bm{T}_{n-1}\bm{A}^{(n-2)} = \begin{bmatrix}
+        a_{n-1,n-1}^{(n-1)} & a_{n-1,n}^{(n-1)} \\
+        0                   & a_{nn}^{(n-1)}
+    \end{bmatrix}
+$$
+\par 最后, 令
+$$
+    \bm{T} = \begin{bmatrix}
+        \bm{I}_{n-2} & \bm{O}       \\
+        \bm{O}       & \bm{T}_{n-1}
+    \end{bmatrix} \cdots \begin{bmatrix}
+        \bm{I}_2 & \bm{O}   \\
+        \bm{O}   & \bm{T}_3
+    \end{bmatrix} \begin{bmatrix}
+        1      & \bm{O}   \\
+        \bm{O} & \bm{T}_2
+    \end{bmatrix} \bm{T}_1
+$$
+则 $\bm{T}$ 是有限个 Givens 矩阵的乘积, 使得
+$$
+    \bm{TA} = \begin{bmatrix}
+        a_{11}^{(1)} & a_{12}^{(1)} & \cdots & a_{1,n-1}^{(1)}          & a_{1n}^{(1)}        \\
+                     & a_{22}^{(2)} & \cdots & a_{2, n-1}^{(2)}         & a_{2, n}^{(2)}      \\
+                     &              & \ddots & \vdots                   & \vdots            & \\
+                     &              &        & a_{n - 1, n - 1}^{(n-1)} & a_{n-1,n}^{(n-1)}   \\
+                     &              &        &                          & a_{nn}^{(n-1)}
+    \end{bmatrix}
+$$
+将 $\bm{TA}$ 记作 $\bm{R}$, 那么就有 $\bm{A} = \bm{QR}$, 其中 $\bm{Q} = \bm{T}^{-1}$. 因为 $\bm{T}$ 是有限个 Givens 矩阵的乘积,
+而 Givens 矩阵都是正交矩阵, 所以 $\bm{T}$ 是正交矩阵, 于是 $\bm{Q} = \bm{T}^{-1} = \bm{T}$ 也是正交矩阵.
+
+\paragraph[]{Householder 变换方法}
+
+\par 任何实可逆矩阵 $\bm{A} = (a_{ij})_{n\times n}$ 可通过左连乘 Householder 矩阵化为可逆上三角矩阵.
+
+\par 第1步: 由 $\det \bm{A} \neq 0$ 知, $\bm{A}$ 的第1列 $\bm{b}^{(1)} = (a_{11}, a_{21}, \cdots, a_{n1})^T \neq \bm{0}$. 则存在
+Householder 矩阵 $\bm{H}_1$, 使得
+$$
+    \bm{H}_1\bm{b}^{(1)} = \lvert \bm{b}^{(1)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in R^n)
+$$
+令 $a_{11}^{(1)} = \lvert \bm{b}^{(1)} \rvert$, 则有
+$$
+    \bm{H}_1\bm{A} =
+    \left [
+        \begin{array}{c|ccc}
+            a_{11}^{(1)} & a_{12}^{(1)} & \cdots       & a_{1n}^{(1)} \\ \hline
+            0            &              &              &              \\
+            \vdots       &              & \bm{A}^{(1)} &              \\
+            0            &              &              &
+        \end{array}
+        \right ]
+$$
+\par 第2步: 由 $\det\bm{A}^{(1)} \neq 0$ 知, $\bm{A}^{(1)}$ 的第1列 $\bm{b}^{(2)} = (a_{22}^{(1)}, a_{32}^{(1)}, \cdots, a_{n2}^{(1)})^T \neq \bm{0}$. 则存在
+Householder 矩阵 $\bm{H}_2$, 使得
+$$
+    \bm{H}_2\bm{b}^{(2)} = \lvert \bm{b}^{(2)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in R^{n-1})
+$$
+令 $a_{22}^{(2)} = \lvert \bm{b}^{(2)} \rvert$, 则有
+$$
+    \bm{H}_2\bm{A}^{(1)} =
+    \left [
+        \begin{array}{c|ccc}
+            a_{22}^{(2)} & a_{23}^{(2)} & \cdots       & a_{2n}^{(2)} \\ \hline
+            0            &              &              &              \\
+            \vdots       &              & \bm{A}^{(2)} &              \\
+            0            &              &              &
+        \end{array}
+        \right ]
+$$
+\par 第 $n-1$ 步: 由 $\det\bm{A}^{(n-2)} \neq 0$ 知, $\bm{A}^{(n-2)}$ 的第1列 $\bm{b}^{(n-1)} = (a_{n-1,n-1}^{(n-2)}, a_{n, n-1}^{(n-2)})^T \neq \bm{0}$. 则存
+在 Householder 矩阵 $\bm{H}_{n-1}$, 使得
+$$
+    \bm{H}_{n-1} \bm{b}^{(n-1)} = \lvert \bm{b}^{(n-1)} \rvert \bm{e}_1 \quad (\bm{e}_1 \in \bm{R}^2)
+$$
+令 $a_{n-1,n-1}^{(n-1)} = \lvert \bm{b}^{(n-1)} \rvert$, 则有
+$$
+    \bm{H}_{n-1}\bm{A}^{(n-2)} = \begin{bmatrix}
+        a_{n-1,n-1}^{(n-1)} & a_{n-1,n}^{(n-1)} \\
+        0                   & a_{nn}^{(n-1)}
+    \end{bmatrix}
+$$
+\par 最后, 令
+$$
+    \bm{S} = \begin{bmatrix}
+        \bm{I}_{n-2} & \bm{O}       \\
+        \bm{O}       & \bm{H}_{n-1}
+    \end{bmatrix} \cdots \begin{bmatrix}
+        \bm{I}_2 & \bm{O}   \\
+        \bm{O}   & \bm{H}_3
+    \end{bmatrix} \begin{bmatrix}
+        1      & \bm{O}   \\
+        \bm{O} & \bm{H}_2
+    \end{bmatrix} \bm{H}_1
+$$
+并注意到, 若 $\bm{H}_u$ 是 $n-l$ 阶 Householder 矩阵, 即
+$$
+    \bm{H}_u = \bm{I}_{n-l} = 2\bm{uu}^T \quad (\bm{u} \in R^{n-l}, \ \bm{u}^T\bm{u} = 1)
+$$
+令 $\bm{v} = \begin{bmatrix}
+        0 \\
+        \bm{u}
+    \end{bmatrix} \in R^n$, 则 $\bm{v}^T\bm{v} = \bm{u}^T\bm{u} = 1$, 且
+$$
+    \begin{bmatrix}
+        \bm{I}_l & \bm{O}   \\
+        \bm{O}   & \bm{H}_u
+    \end{bmatrix} = \begin{bmatrix}
+        \bm{I}_i & \bm{O}       \\
+        \bm{O}   & \bm{I}_{n-l}
+    \end{bmatrix} - 2 \begin{bmatrix}
+        \bm{O} & \bm{O}    \\
+        \bm{O} & \bm{uu}^T
+    \end{bmatrix} = \bm{I}_n - 2\begin{bmatrix}
+        \bm{0} \\
+        \bm{u}
+    \end{bmatrix} \begin{bmatrix}
+        \bm{0}^T \bm{u}^T
+    \end{bmatrix} = \bm{I}_n - 2\bm{vv}^T
+$$
+是 $n$ 阶 Householder 矩阵. 因此, $\bm{S}$ 是有限个 Householder 矩阵的乘积, 且使得
+$$
+    \bm{SA} = \begin{bmatrix}
+        a_{11}^{(1)} & a_{12}^{(1)} & \cdots & a_{1,n-1}^{(1)}          & a_{1n}^{(1)}        \\
+                     & a_{22}^{(2)} & \cdots & a_{2, n-1}^{(2)}         & a_{2, n}^{(2)}      \\
+                     &              & \ddots & \vdots                   & \vdots            & \\
+                     &              &        & a_{n - 1, n - 1}^{(n-1)} & a_{n-1,n}^{(n-1)}   \\
+                     &              &        &                          & a_{nn}^{(n-1)}
+    \end{bmatrix}
+$$
+将 $\bm{SA}$ 记作 $\bm{R}$, 那么就有 $\bm{A} = \bm{QR}$, 其中 $\bm{Q} = \bm{S}^{-1}$. 因为 $\bm{S}$ 是有限个 Householder 矩阵的
+乘积, 而 Householder 矩阵都是正交矩阵, 所以 $\bm{S}$ 是正交矩阵, 于是 $\bm{Q} = \bm{S}^{-1} = \bm{S}^T$ 也是
+正交矩阵.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 4.2} 用 Schmidt 正交化方法求矩阵 $\bm{A}$ 的 QR 分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & 2 \\
+        1 & 2 & 1
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 令 $\bm{a}_1 = (1, 2, 1)^T, \bm{a}_2 = (2, 1, 2)^T, \bm{a}_3 = (2, 2, 1)^T$, 正交可得
+\begin{align*}
+    \bm{b}_1 = & \bm{a}_1 = (1, 2, 1)^T                                                                      \\
+    \bm{b}_2 = & \bm{a}_2 - \bm{b}_1 = (1, -1, 1)^T                                                          \\
+    \bm{b}_3 = & \bm{a}_3 - \dfrac{1}{3}\bm{b}_2 - \dfrac{7}{6}\bm{b}_3 = (\dfrac{1}{2}, 0, -\dfrac{1}{2})^T
+\end{align*}
+构造矩阵
+\begin{align*}
+    \bm{Q} = & \begin{bmatrix}
+                   \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}  & \frac{1}{\sqrt{2}}  \\
+                   \frac{2}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & 0                   \\
+                   \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}  & -\frac{1}{\sqrt{2}}
+               \end{bmatrix} \\
+    \bm{R} = & \begin{bmatrix}
+                   \sqrt{6} &          &                    \\
+                            & \sqrt{3} &                    \\
+                            &          & \frac{1}{\sqrt{2}}
+               \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & \frac{7}{6} \\
+          & 1 & \frac{1}{3} \\
+          &   & 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+        \sqrt{6} & \sqrt{6} & \frac{7}{\sqrt{6}} \\
+                 & \sqrt{3} & \frac{1}{\sqrt{3}} \\
+                 &          & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+\end{align*}
+则有 $\bm{A} = \bm{QR}$.
+
+\paragraph*{例 4.3} 用初等旋转变换求矩阵 $\bm{A}$ 的 QR 分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        0 & 1 & 1 \\
+        1 & 1 & 0 \\
+        1 & 0 & 1
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 第1步: 对 $\bm{A}$ 的第1列 $\bm{b}^{(1)} = (0,1,1)^T$ 构造 $\bm{T}_1$, 使 $\bm{T}_1\bm{b}^{(1)} = \lvert \bm{b}^{(1)} \rvert \bm{e}_1$.
+\begin{gather*}
+    \bm{T}_{12} = \begin{bmatrix}
+        0  & 1 & 0 \\
+        -1 & 0 & 0 \\
+        0  & 0 & 1
+    \end{bmatrix}, \ \bm{T}_{12}\bm{b}^{(1)} = \begin{bmatrix}
+        1 \\
+        0 \\
+        1
+    \end{bmatrix} \\
+    \bm{T}_{13} = \begin{bmatrix}
+        \frac{1}{\sqrt{2}}  & 0 & \frac{1}{\sqrt{2}} \\
+        0                   & 1 & 0                  \\
+        -\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}
+    \end{bmatrix}, \ \bm{T}_{13}(\bm{T}_{12}\bm{b}^{(1)}) = \begin{bmatrix}
+        \sqrt{2} \\
+        0        \\
+        0
+    \end{bmatrix} \\
+    \bm{T}_1 = \bm{T}_{13}\bm{T}_{12} = \begin{bmatrix}
+        0  & \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{2}} \\
+        -1 & 0                   & 0                  \\
+        0  & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}, \ \bm{T}_1\bm{A} = \begin{bmatrix}
+        \sqrt{2} & \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{2}} \\
+        0        & -1                  & -1                 \\
+        0        & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+\end{gather*}
+\par 第2步: 对 $\bm{A}^{(1)} = \begin{bmatrix}
+        -1                  & -1                 \\
+        -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}$ 的第1列 $\bm{b}^{(2)} = \begin{bmatrix}
+        -1 \\
+        -\frac{1}{\sqrt{2}}
+    \end{bmatrix}$ 构造 $\bm{T}_2$, 使 $\bm{T}_2\bm{b}^{(2)} = \lvert \bm{b}^{(2)} \rvert \bm{e}_1$.
+
+\begin{gather*}
+    \bm{T}_{12} = \begin{bmatrix}
+        -\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} \\
+        \frac{1}{\sqrt{3}}  & -\sqrt{\frac{2}{3}}
+    \end{bmatrix}, \ \bm{T}_{12}\bm{b}^{(2)} = \begin{bmatrix}
+        \sqrt{\frac{3}{2}} \\
+        0
+    \end{bmatrix} \\
+    \bm{T}_2 = \bm{T}_{12},\ \bm{T}_2\bm{A}^{(1)} = \begin{bmatrix}
+        \sqrt{\frac{3}{2}} & \frac{1}{\sqrt{6}}  \\
+        0                  & -\frac{2}{\sqrt{3}}
+    \end{bmatrix}
+\end{gather*}
+最后, 令
+$$
+    \bm{T} = \begin{bmatrix}
+        1 &          \\
+          & \bm{T}_2
+    \end{bmatrix} \bm{T}_1 = \begin{bmatrix}
+        0                   & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        \frac{2}{\sqrt{6}}  & \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{6}} \\
+        -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}}
+    \end{bmatrix}
+$$
+则有 $\bm{A} = \bm{QR}$, 其中
+$$
+    \bm{Q} = \bm{T}^{T} = \begin{bmatrix}
+        0                  & \frac{2}{\sqrt{6}}  & -\frac{1}{\sqrt{3}} \\
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}  & \frac{1}{\sqrt{3}}  \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}}
+    \end{bmatrix}, \ \bm{R} =\begin{bmatrix}
+        \sqrt{2} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+                 & \frac{3}{\sqrt{6}} & \frac{1}{\sqrt{6}}  \\
+                 &                    & -\frac{2}{\sqrt{3}}
+    \end{bmatrix}
+$$
+
+\paragraph*{例 4.4} 用 Householder 变换求矩阵 $\bm{A}$ 的 QR 分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        3 & 14 & 9  \\
+        6 & 43 & 3  \\
+        6 & 22 & 15
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 对 $\bm{A}$ 的第1列, 构造 Householder 矩阵, 有
+\begin{gather*}
+    \bm{b}^{(1)} = \begin{bmatrix}
+        3 \\
+        6 \\
+        6
+    \end{bmatrix},\ \bm{b}^{1} - \lvert \bm{b}^{(1)} \rvert \bm{e}_1 = 6\begin{bmatrix}
+        -1 \\
+        1  \\
+        1
+    \end{bmatrix},\ \bm{u} = \dfrac{1}{\sqrt{3}}\begin{bmatrix}
+        -1 \\
+        1  \\
+        1
+    \end{bmatrix} \\
+    \bm{H}_1 = \bm{I} - 2\bm{uu}^T = \dfrac{1}{3}\begin{bmatrix}
+        1 & 2  & 2  \\
+        2 & 1  & -2 \\
+        2 & -2 & 1
+    \end{bmatrix},\ \bm{H}_1\bm{A} = \begin{bmatrix}
+        9 & 48  & 15 \\
+        0 & 9   & -3 \\
+        0 & -12 & 9
+    \end{bmatrix}
+\end{gather*}
+\par 对 $\bm{A}^{(1)} = \begin{bmatrix}
+        9   & -3 \\
+        -12 & 9
+    \end{bmatrix}$ 的第1列, 构造 Householder 矩阵, 有
+\begin{gather*}
+    \bm{b}^{(2)} = \begin{bmatrix}
+        9 \\
+        -12
+    \end{bmatrix},\ \bm{b}^{(2)} - \lvert \bm{b}^{(2)} \rvert \bm{e}_1 = 6\begin{bmatrix}
+        -1 \\
+        -2
+    \end{bmatrix},\ \bm{u} = \dfrac{1}{\sqrt{5}}\begin{bmatrix}
+        -1 \\
+        -2
+    \end{bmatrix} \\
+    \bm{H}_2 = \bm{I} - 2\bm{uu}^T = \dfrac{1}{5} \begin{bmatrix}
+        3  & -4 \\
+        -4 & -3
+    \end{bmatrix},\ \bm{H}_2\bm{A}^{(1)} = \begin{bmatrix}
+        15 & -9 \\
+        0  & -3
+    \end{bmatrix}
+\end{gather*}
+\par 最后, 令
+$$
+    \bm{S} = \begin{bmatrix}
+        1 &          \\
+          & \bm{H}_2
+    \end{bmatrix}\bm{H}_1 = \dfrac{1}{15}\begin{bmatrix}
+        5   & 10 & 10  \\
+        -2  & 11 & -10 \\
+        -14 & 2  & 5
+    \end{bmatrix}
+$$
+则有
+$$
+    \bm{Q} = \bm{S}^T = \dfrac{1}{15}\begin{bmatrix}
+        5  & -2  & -14 \\
+        10 & 11  & 2   \\
+        10 & -10 & 5
+    \end{bmatrix},\ \bm{R} = \begin{bmatrix}
+        9 & 48 & 15 \\
+          & 15 & -9 \\
+          &    & -3
+    \end{bmatrix},\ \bm{A} = \bm{QR}
+$$
+
+\subsection{矩阵的满秩分解}
+
+本节介绍将非零矩阵分解为列满秩矩阵与行满秩矩阵的乘积问题. 这种分解理论在
+广义逆矩阵的研究中有重要的作用.
+
+\subsubsection{矩阵满秩分解的步骤推导}
+
+\paragraph[]{基本原理} \
+
+\par 设 $\bm{A} \in C^{m\times n}_r (r > 0)$, 如果存在矩阵 $\bm{F} \in C^{m\times r}_r$ 和 $\bm{G} \in C^{r\times n}_r$, 使得
+$$
+    \bm{A} = \bm{FG}
+$$
+则称上式为矩阵 $\bm{A}$ 的满秩分解.
+
+\par $\mathrm{rank}\bm{A} = r$ 时, 根据矩阵的初等变换理论, 对 $\bm{A}$ 进行初等变换, 可将 $\bm{A}$ 化为阶梯形矩阵 $\bm{B}$, 即
+$$
+    \bm{A} \to \bm{B} = \begin{bmatrix}
+        \bm{G} \\
+        \bm{O}
+    \end{bmatrix}, \ \bm{G} \in C^{r\times n}_r
+$$
+于是存在有限个 $m$ 阶初等矩阵的乘积, 记作 $P$, 使得 $\bm{PA} = \bm{B}$, 或者 $\bm{A} = \bm{P}^{-1}\bm{B}$. 将 $\bm{P}^{-1}$ 分块为
+$$
+    \bm{P}^{-1} = \begin{bmatrix}
+        \bm{F} \ \vdots\  \bm{S}
+    \end{bmatrix}\ (\bm{F} \in C^{m\times r}_r, \ \bm{S} \in C^{m\times(m-r)}_{m-r})
+$$
+则有
+$$
+    \bm{A} = \bm{P}^{-1}\bm{B} = \begin{bmatrix}
+        \bm{F} \ \vdots\  \bm{S}
+    \end{bmatrix}\begin{bmatrix}
+        \bm{G} \\
+        \bm{O}
+    \end{bmatrix} = \bm{FG}
+$$
+其中 $\bm{F}$ 是列满秩矩阵, $\bm{G}$ 是行满秩矩阵.
+
+\paragraph[]{Hermite 标准形方法} \
+
+\par 设 $\bm{B} \in C^{m\times n}_r$, 且满足
+\par (1) $\bm{B}$ 的前 $r$ 行中每行至少含有一个非零元素, 且第一个非零元素是1, 而后 $m-r$ 行元素均为零;
+\par (2) 若 $\bm{B}$ 中第 $i$ 行的第一个非零元素1所在第 $j_i$ 列 $(i = 1,2,\cdots, r)$, 则 $j_1 < j_2 < \cdots < j_r$;
+\par (3) $\bm{B}$ 中的 $j_1, j_2, \cdots, j_r$ 列为单位矩阵 $\bm{I}_m$ 的前 $r$ 列.
+\\ 那么就称 $\bm{B}$ 为 Hermite 标准形.
+
+\par 设 $\bm{B} \in C^{m\times n}_r$, 且满足
+\par (1) $\bm{B}$ 的后 $m-r$ 行元素均为零;
+\par (2) $\bm{B}$ 中的 $j_1, j_2, \cdots, j_r$ 列为单位矩阵 $\bm{I}_m$ 的前 $r$ 列.
+\\ 那么就称 $\bm{B}$ 为拟 Hermite 标准形.
+
+\par 设 $\bm{A} \in C^{m\times n}_r (r > 0)$ 的(拟) Hermite 标准形为 $\bm{B}$, 那么, 在 $\bm{A}$ 的满秩分解式中, 可取
+$\bm{F}$ 为 $\bm{A}$ 的 $j_1, j_2, \cdots, j_r$ 列构成的 $m\times r$ 矩阵, $\bm{G}$ 为 $\bm{B}$ 的前 $r$ 行构成的 $r\times n$ 矩阵.
+
+\par 由 $\bm{A} \to \bm{B}$ 知, 存在 $m$ 阶可逆矩阵 $\bm{P}$, 使得 $\bm{PA} = \bm{B}$, 或者 $\bm{A} = \bm{P}^{-1}\bm{B}$. 则将 $\bm{P}$ 分块为
+$$
+    \bm{P}^{-1} = \begin{bmatrix}
+        \bm{F} \ \vdots\  \bm{S}
+    \end{bmatrix}\ (\bm{F} \in C^{m\times r}_r, \ \bm{S} \in C^{m\times(m-r)}_{m-r})
+$$
+可得满秩分解 $\bm{A} = \bm{FG}$, 其中 $\bm{G}$ 为 $\bm{B}$ 的前 $r$ 行构成的 $r\times n$ 矩阵.
+\par 下面确定列满秩矩阵 $\bm{F}$. 参照 $\bm{A}$ 的(拟) Hermite 标准形 $\bm{B}$, 构造 $n\times r$ 矩阵, 有
+$$
+    \bm{P} = (\bm{e}_{j_1}, \bm{e}_{j_2}, \cdots, \bm{e}_{j_r})
+$$
+其中 $\bm{e}_{j}$ 表示单位矩阵 $\bm{I}_n$ 的第 $j$ 个列向量, 则有
+$$
+    \bm{GP}_1 = \bm{I}_r, \ \bm{AP}_1 = (\bm{FG})\bm{P}_1 = \bm{F}(\bm{GP}_1) = \bm{F}
+$$
+即 $\bm{F}$ 为 $\bm{A}$ 的 $j_1, j_2, \cdots, j_r$ 列构成的矩阵.
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 4.5} 求矩阵 $\bm{A}$ 的满秩分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        -1 & 0 & 1  & 2 \\
+        1  & 2 & -1 & 1 \\
+        2  & 2 & -2 & 1
+    \end{bmatrix}
+$$
+
+\paragraph*{解}
+\begin{align*}
+    [\bm{A} \vdots \bm{I}] & = \begin{bmatrix}
+                                   -1 & 0 & 1  & 2  & \vdots & 1 & 0 & 0 \\
+                                   1  & 2 & -1 & 1  & \vdots & 0 & 1 & 0 \\
+                                   2  & 2 & -2 & -1 & \vdots & 0 & 0 & 1
+                               \end{bmatrix} \\
+                           & \to \begin{bmatrix}
+                                     -1 & 0 & 1 & 2 & \vdots & 1 & 0 & 0 \\
+                                     0  & 2 & 0 & 3 & \vdots & 1 & 1 & 0 \\
+                                     0  & 0 & 0 & 0 & \vdots & 0 & 0 & 1
+                                 \end{bmatrix}
+\end{align*}
+则有
+$$
+    \bm{B} = \begin{bmatrix}
+        -1 & 0 & 1 & 2 \\
+        0  & 2 & 0 & 3 \\
+        0  & 0 & 0 & 0
+    \end{bmatrix}, \quad
+    \bm{P} = \begin{bmatrix}
+        1 & 0  & 0 \\
+        1 & 1  & 0 \\
+        1 & -1 & 1
+    \end{bmatrix}
+$$
+可求得
+$$
+    \bm{P}^{-1} = \begin{bmatrix}
+        1  & 0 & 0 \\
+        -1 & 1 & 0 \\
+        -2 & 1 & 1
+    \end{bmatrix}
+$$
+于是有
+$$
+    \bm{A} = \begin{bmatrix}
+        1  & 0 \\
+        -1 & 1 \\
+        -2 & 1
+    \end{bmatrix} \begin{bmatrix}
+        -1 & 0 & 1 & 2 \\
+        0  & 2 & 0 & 3
+    \end{bmatrix}
+$$
+
+\paragraph*{例 4.6} 求矩阵 $\bm{A} = \begin{bmatrix}
+        0  & 0 & 1 \\
+        2  & 1 & 1 \\
+        2j & j & 0
+    \end{bmatrix}(j = \sqrt{-1})$ 的满秩分解.
+
+\paragraph*{解} 对 $\bm{A}$ 进行初等行变换, 可得
+$$
+    \bm{A} \to \begin{bmatrix}
+        1 & 1/2 & 0 \\
+        0 & 0   & 1 \\
+        0 & 0   & 0
+    \end{bmatrix} = \bm{B}
+$$
+其中 $\bm{B}$ 是 Hermite 标准形. 因为 $\bm{B}$ 的第1列和第3列构成 $\bm{I}_3$ 的前两列, 所以 $\bm{F}$ 为 $\bm{A}$
+的第1列和第3列构成的 $3\times 2$矩阵, 从而有
+$$
+    \bm{A} = \begin{bmatrix}
+        0  & 1 \\
+        2  & 1 \\
+        2j & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & 1/2 & 0 \\
+        0 & 0   & 1
+    \end{bmatrix}
+$$
+
+\subsection{矩阵的奇异值分解}
+
+\subsubsection{矩阵奇异值分解的步骤推导}
+
+\par 首先, 引入如下结论.
+\par (1) 设 $\bm{A} \in C^{m\times n}_r (r > 0)$, 则 $\bm{A}^H\bm{A}$ 是 Hermite 矩阵, 且其特征值均为非负实数;
+\par (2) $\mathrm{rank}(\bm{A}^H\bm{A}) = \mathrm{rank}\bm{A}$;
+\par (3) 设 $\bm{A} \in C^{m\times n}_r$, 则 $\bm{A} = \bm{O}$ 的充要条件是 $\bm{A}^H\bm{A} = \bm{O}$.
+
+\par 设 $\bm{A} \in C^{m\times n}_r (r > 0)$, $\bm{A}^H\bm{A}$ 的特征值为
+$$
+    \lambda_1 \geqslant \lambda_2 \geqslant \cdots \geqslant \lambda_r > \lambda_{r + 1} = \cdots = \lambda_n = 0
+$$
+则称 $\sigma_i = \sqrt{\lambda_i}(i =1,2,\cdots,n)$ 为 $\bm{A}$ 的奇异值; 当 $\bm{A}$ 为零矩阵时, 它的奇异值都是0.
+
+\par 设 $\bm{A} \in \bm{C}^{m\times n}_r(r > 0)$, 则存在 $m$ 阶酉矩阵 $\bm{U}$ 和 $n$ 阶酉矩阵 $\bm{V}$, 使得
+$$
+    \bm{U}^H\bm{AV} = \begin{bmatrix}
+        \bm{\Sigma} & \bm{O} \\
+        \bm{O}      & \bm{O}
+    \end{bmatrix}
+$$
+其中 $\Sigma = \mathrm{diag}(\sigma_1, \sigma_2, \cdots, \sigma_r)$, 而 $\sigma_i(i = 1,2,\cdots,r)$ 为矩阵 $\bm{A}$ 的全部非零奇异值.
+
+\par 记 Hermite 矩阵 $\bm{A}^H\bm{A}$ 的特征值为
+$$
+    \lambda_1 \geqslant \lambda_2 \geqslant \cdots \geqslant \lambda_r > \lambda_{r + 1} = \cdots = \lambda_n = 0
+$$
+则存在 $n$ 阶酉矩阵 $\bm{V}$, 使得
+$$
+    \bm{V}^H(\bm{A}^H\bm{A})\bm{V} = \begin{bmatrix}
+        \lambda_1 &        &           \\
+                  & \ddots &           \\
+                  &        & \lambda_n
+    \end{bmatrix} = \begin{bmatrix}
+        \bm{\Sigma}^2 & \bm{O} \\
+        \bm{O}        & \bm{O}
+    \end{bmatrix}
+$$
+将 $\bm{V}$ 分块为
+$$
+    \bm{V} = \begin{bmatrix}
+        \bm{V}_1 \ \vdots \ \bm{V}_2
+    \end{bmatrix},\ \bm{V}_1 \in C^{m\times r}_r,\ \bm{V}_2 \in C^{n\times(n - r)}_{n-r}
+$$
+并得到
+$$
+    \bm{A}^H\bm{AV} = \bm{V}\begin{bmatrix}
+        \bm{\Sigma}^2 & \bm{O} \\
+        \bm{O}        & \bm{O}
+    \end{bmatrix}
+$$
+则有
+$$
+    \bm{A}^H\bm{AV}_1 = \bm{V}_1\bm{\Sigma}^2,\ \bm{A}^H\bm{AV}_2 = \bm{O}
+$$
+根据第一式可得 $\bm{V}_1^H\bm{A}^H\bm{AV}_1 = \bm{\Sigma}^2$, 或者
+$$
+    (\bm{AV}_1\bm{\Sigma}^{-1})^H(\bm{AV}_1\bm{\Sigma}^{-1}) = \bm{I}
+$$
+根据第二式可得 $(\bm{AV}_2)^H(\bm{AV}_2) = \bm{O}$, 或者 $\bm{AV}_2 = \bm{O}$.
+\par 令 $\bm{U}_1 = \bm{AV}_1\bm{\Sigma}^{-1}$, 则 $\bm{U}_1^H\bm{U}_1 = \bm{I}_r$, 即 $\bm{U}_1$ 的 $r$ 个列是两两正交的单位向量, 记作
+$\bm{U}_1 = (\bm{u}_1, \bm{u}_2, \cdots, \bm{u}_r)$. 并且可将其扩充为 $C^m$ 的标准正交基, 记新添的向量为 $\bm{u}_{r + 1}, \cdots, \bm{u}_m$,
+并构造矩阵 $\bm{U}_2 = (\bm{u}_{r + 1}, \cdots, \bm{u}_m)$, 则
+$$
+    \bm{U} = \begin{bmatrix}
+        \bm{U}_1 \ \vdots \ \bm{U}_2
+    \end{bmatrix}
+$$
+是 $m$ 阶酉矩阵, 且有
+$$
+    \bm{U}_1^H\bm{U}_1 = \bm{I}_r,\ \bm{U}_2^H\bm{U}_1 = \bm{O}
+$$
+于是可得
+$$
+    \bm{U}^H\bm{AV} = \bm{U}^H\begin{bmatrix}
+        \bm{AV}_1 \ \vdots \ \bm{AV}_2
+    \end{bmatrix} = \begin{bmatrix}
+        \bm{U}_1^H \\
+        \bm{U}_2^H
+    \end{bmatrix} \begin{bmatrix}
+        \bm{U}_1\bm{\Sigma} \ \vdots \ \bm{O}
+    \end{bmatrix} = \begin{bmatrix}
+        \bm{Sigma} & \bm{O} \\
+        \bm{O}     & \bm{O}
+    \end{bmatrix}
+$$
+即得到矩阵 $\bm{A}$ 的奇异值分解
+$$
+    \bm{A} = \bm{U} \begin{bmatrix}
+        \bm{\Sigma} & \bm{O} \\
+        \bm{O}      & \bm{O}
+    \end{bmatrix} \bm{V}^H
+$$
+
+\subsubsection{举例展示求法}
+
+\paragraph*{例 4.7} 求矩阵 $\bm{A} = \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix}$ 的奇异值分解.
+
+\paragraph*{解} 计算
+$$
+    \bm{B} = \bm{A}^T\bm{A} = \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        1 & 1 & 2
+    \end{bmatrix}
+$$
+求得 $\bm{B}$ 的特征值为 $\lambda_1 = 3, \lambda_2 = 1, \lambda_3 = 0$, 对应的特征向量依次是
+$$
+    \bm{\xi}_1 = \begin{bmatrix}
+        1 \\
+        1 \\
+        2
+    \end{bmatrix}, \quad
+    \bm{\xi}_2 = \begin{bmatrix}
+        1  \\
+        -1 \\
+        0
+    \end{bmatrix}, \quad
+    \bm{\xi}_3 = \begin{bmatrix}
+        1 \\
+        1 \\
+        -1
+    \end{bmatrix}
+$$
+可得
+$$
+    \mathrm{rank}\bm{A} = 2, \bm{\Sigma} = \begin{bmatrix}
+        \sqrt{3} & 0 \\
+        0        & 1
+    \end{bmatrix}
+$$
+且正交矩阵为
+$$
+    \bm{V} = \begin{bmatrix}
+        \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{3}}  \\
+        \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}}  \\
+        \frac{2}{\sqrt{6}} & 0                   & -\frac{1}{\sqrt{3}}
+    \end{bmatrix}
+$$
+计算
+$$
+    \bm{U}_1 = \bm{AV}_1\bm{\Sigma}^{-1} = \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+        0                  & 0
+    \end{bmatrix}
+$$
+构造
+$$
+    \bm{U}_2 = \begin{bmatrix}
+        0 \\
+        0 \\
+        1
+    \end{bmatrix}, \quad
+    \bm{U} = \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0 \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 \\
+        0                  & 0                   & 1
+    \end{bmatrix}
+$$
+则 $\bm{A}$ 的奇异值分解为
+$$
+    \bm{A} = \bm{U}\begin{bmatrix}
+        \sqrt{3} & 0 & 0 \\
+        0        & 1 & 0 \\
+        0        & 0 & 0
+    \end{bmatrix}\bm{V}^T
+$$
+
+\subsubsection{利用奇异值分解求矩阵广义逆}
+
+\paragraph*{定义 4.1} 设矩阵 $\bm{A} \in C^{m\times n}$, 若矩阵 $\bm{X} \in C^{n\times m}$ 满足以下4个 Penrose 方程
+\begin{gather*}
+    (1) \bm{AXA} = \bm{A} \quad \quad  (2) \bm{XAX} = \bm{X} \\
+    (3) (\bm{AX})^H = \bm{AX} \quad (4) (\bm{XA})^H = \bm{XA}
+\end{gather*}
+则称 $\bm{X}$ 为 $\bm{A}$ 的 \textbf{Moore-Penrose逆}, 记为 $\bm{A}^+$.
+
+\paragraph*{定理 4.1} 对任意 $\bm{A} \in C^{m\times n}$, $\bm{A}^+$ 存在并且唯一.
+
+\paragraph*{定义 4.2} 设矩阵 $\bm{A} \in C^{m\times n}$, 矩阵 $\bm{X} \in C^{n\times m}$.
+\par (1) 若 $\bm{X}$ 满足 Penrose 方程中的第($i$)个方程, 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i\}$ -逆, 记作 $\bm{A}^{(i)}$, 全体
+$\{i\}$ -逆的集合记作 $\bm{A}\{i\}$. 这种广义逆矩阵共有四类;
+\par (2) 若 $\bm{X}$ 满足 Penrose 方程中的第$(i),(j)$ 个方程$(i\neq j)$, 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i,j\}$ -逆, 记作
+$\bm{A}^{(i,j)}$, 全体 $\{i,j\}$ -逆的集合记作 $\bm{A}\{i,j\}$. 这种广义逆矩阵共有6类;;
+\par (3) 若 $\bm{X}$ 满足 Penrose 方程中的第$(i),(j),(k)$ 个方程($i,j,k$互异), 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i,j,k\}$
+-逆, 记作 $\bm{A}^{(i,j,k)}$, 全体 $\{i,j,k\}$ -逆的集合记作 $\bm{A}\{i,j,k\}$. 这种广义逆矩阵共有4类;
+\par (4) 若 $\bm{X}$ 满足 Penrose 方程$(1) \sim (4)$, 则称 $\bm{X}$ 为 $\bm{A}$ 的 Moore-Penrose 逆 $\bm{A}^+$, 这种广义逆
+矩阵是唯一的.
+
+\par 设 $\bm{A} \in C^{m\times n}_r$, 其奇异值分解 $\bm{A} = \bm{UDV}^H$, 有 $\bm{A} = \bm{U}_r\Delta\bm{V}_r^H, \Delta = \mathrm{diag}(\sigma_1, \sigma_2, \cdots, \sigma_r)$, 则
+$$
+    \bm{A}^+ = \bm{V}_r\Delta^{-1}\bm{U}_r^h
+$$
+
+\paragraph*{例 4.8} 设 $\bm{A} = \begin{bmatrix}
+        -1 & 0 & 1  \\
+        2  & 0 & -2
+    \end{bmatrix}$, 求 $\bm{A}^+$.
+
+\paragraph*{解} 先求 $\bm{A}$ 的奇异值分解.
+$$
+    \bm{AA}^H = \begin{bmatrix}
+        2  & -4 \\
+        -4 & 8
+    \end{bmatrix} = \begin{bmatrix}
+        \frac{1}{\sqrt{5}}  & \frac{2}{\sqrt{5}} \\
+        -\frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}}
+    \end{bmatrix}\begin{bmatrix}
+        10 & 0 \\
+        0  & 0
+    \end{bmatrix}\begin{bmatrix}
+        \frac{1}{\sqrt{5}} & -\frac{2}{\sqrt{5}} \\
+        \frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}}
+    \end{bmatrix}
+$$
+令 $\bm{V}_1 = \frac{1}{\sqrt{10}}\begin{bmatrix}
+        \frac{1}{\sqrt{5}} & -\frac{2}{\sqrt{5}}
+    \end{bmatrix}\begin{bmatrix}
+        -1 & 0 & 1  \\
+        2  & 0 & -2
+    \end{bmatrix} = \begin{bmatrix}
+        -\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}
+    \end{bmatrix}$
+$$
+    \bm{A} = \begin{bmatrix}
+        \frac{1}{\sqrt{5}} \\
+        -\frac{2}{\sqrt{5}}
+    \end{bmatrix}\begin{bmatrix}
+        \sqrt{10}
+    \end{bmatrix}\begin{bmatrix}
+        -\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+$$
+则
+$$
+    \bm{A}^+ = \begin{bmatrix}
+        -\frac{1}{\sqrt{2}} \\
+        0                   \\
+        \frac{1}{\sqrt{2}}
+    \end{bmatrix}\begin{bmatrix}
+        \frac{1}{\sqrt{10}}
+    \end{bmatrix}\begin{bmatrix}
+        \frac{1}{\sqrt{5}} & -\frac{2}{\sqrt{5}}
+    \end{bmatrix} = \frac{1}{10}\begin{bmatrix}
+        -1 & 2  \\
+        0  & 0  \\
+        1  & -2
+    \end{bmatrix}
+$$

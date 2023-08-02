@@ -1,0 +1,254 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第十五次作业}\vspace{-3em}}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{第4章 \quad 矩阵分解}
+
+\subsection*{4.2 \quad 矩阵的 QR 分解}
+
+\paragraph*{定义 4.6} 如果实(复)可逆矩阵 $\bm{A}$ 能够化成正交(酉)矩阵 $\bm{Q}$ 和实(复)可逆上三角矩阵 $\bm{R}$
+的乘积, 即
+$$
+    \bm{A} = \bm{QR}
+$$
+则称其为 $\bm{A}$ 的 QR 分解.
+
+\paragraph*{定理 4.6} 设 $\bm{A}$ 是 $n$ 阶实(复)可逆矩阵, 则存在正交(酉)矩阵 $\bm{Q}$ 与实(复)可逆上三角矩阵
+$\bm{R}$, 使 $\bm{A}$ 有 QR 分解式. 除去相差一个对角元素的绝对值(模)全等于1的对角矩阵因子外, 分
+解式是唯一的.
+
+\paragraph*{定理 4.7} 设 $\bm{A}$ 是 $m \times n$ 实(复)矩阵, 且其 $n$ 个列线性无关, 则 $\bm{A}$ 有分解
+$$
+    \bm{A} = \bm{QR}
+$$
+其中 $\bm{Q}$ 是 $m\times n$ 实(复)矩阵, 且满足 $\bm{Q}^T\bm{Q} = \bm{I}(\bm{Q}^H\bm{Q} = \bm{I})$, $\bm{R}$ 是 $n$ 阶实(复)可逆上三角矩
+阵. 该分解除去相差一个对角元素的绝对值(模)全等于1的对角矩阵因子外是唯一的.
+
+\paragraph*{例题 4.6} 用 Schmidt 正交化方法求矩阵 $\bm{A}$ 的 QR 分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & 2 \\
+        1 & 2 & 1
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 令 $\bm{a}_1 = (1, 2, 1)^T, \bm{a}_2 = (2, 1, 2)^T, \bm{a}_3 = (2, 2, 1)^T$, 正交可得
+\begin{align*}
+    \bm{b}_1 = & \bm{a}_1 = (1, 2, 1)^T                                                                      \\
+    \bm{b}_2 = & \bm{a}_2 - \bm{b}_1 = (1, -1, 1)^T                                                          \\
+    \bm{b}_3 = & \bm{a}_3 - \dfrac{1}{3}\bm{b}_2 - \dfrac{7}{6}\bm{b}_3 = (\dfrac{1}{2}, 0, -\dfrac{1}{2})^T
+\end{align*}
+构造矩阵
+\begin{align*}
+    \bm{Q} = & \begin{bmatrix}
+                   \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}  & \frac{1}{\sqrt{2}}  \\
+                   \frac{2}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & 0                   \\
+                   \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}  & -\frac{1}{\sqrt{2}}
+               \end{bmatrix} \\
+    \bm{R} = & \begin{bmatrix}
+                   \sqrt{6} &          &                    \\
+                            & \sqrt{3} &                    \\
+                            &          & \frac{1}{\sqrt{2}}
+               \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & \frac{7}{6} \\
+          & 1 & \frac{1}{3} \\
+          &   & 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+        \sqrt{6} & \sqrt{6} & \frac{7}{\sqrt{6}} \\
+                 & \sqrt{3} & \frac{1}{\sqrt{3}} \\
+                 &          & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+\end{align*}
+则有 $\bm{A} = \bm{QR}$.
+
+\paragraph*{习题 4.2.1} 用 Schmidt 正交化方法求矩阵 $\bm{A}$ 的 QR 分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        0 & 1 & 1 \\
+        1 & 1 & 0 \\
+        1 & 0 & 1
+    \end{bmatrix}
+$$
+
+\paragraph*{解} 令 $\bm{a}_1 = (0,1,1)^T, \bm{a}_2 = (1,1,0)^T, \bm{a}_3 = (1,0,1)^T$, 正交化可得
+\begin{align*}
+    \bm{b}_1 & =  \bm{a}_1 = (0, 1, 1)^T                                                                                \\
+    \bm{b}_2 & =  \bm{a}_2 - \dfrac{1}{2}\bm{b}_1 = (1, \dfrac{1}{2}, -\dfrac{1}{2})^T                                  \\
+    \bm{b}_3 & =  \bm{a}_3 - \dfrac{1}{2}\bm{b}_1 - \dfrac{1}{3}\bm{b}_2 = (\dfrac{2}{3}, \dfrac{2}{3}, \dfrac{2}{3})^T
+\end{align*}
+\begin{align*}
+    \bm{Q} = & \begin{bmatrix}
+                   0                  & \frac{2}{\sqrt{6}}  & \frac{1}{\sqrt{3}}  \\
+                   \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}  & -\frac{1}{\sqrt{3}} \\
+                   \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+               \end{bmatrix} \\
+    \bm{R} = & \begin{bmatrix}
+                   \sqrt{2} &                    &                    \\
+                            & \frac{\sqrt{6}}{2} &                    \\
+                            &                    & \frac{2}{\sqrt{3}}
+               \end{bmatrix}
+    \begin{bmatrix}
+        1 & \frac{1}{2} & \frac{1}{3} \\
+          & 1           & \frac{1}{2} \\
+          &             & 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+        \sqrt{2} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+                 & \frac{3}{\sqrt{6}} & \frac{1}{\sqrt{6}} \\
+                 &                    & \frac{2}{\sqrt{3}}
+    \end{bmatrix}
+\end{align*}
+则有 $\bm{A} = \bm{QR}$.
+
+\section*{第6章 \quad 广义逆矩阵}
+
+\paragraph*{定义 6.1} 设矩阵 $\bm{A} \in C^{m\times n}$, 若矩阵 $\bm{X} \in C^{n\times m}$ 满足以下4个 Penrose 方程
+\begin{gather*}
+    (1) \bm{AXA} = \bm{A} \quad \quad  (2) \bm{XAX} = \bm{X} \\
+    (3) (\bm{AX})^H = \bm{AX} \quad (4) (\bm{XA})^H = \bm{XA}
+\end{gather*}
+则称 $\bm{X}$ 为 $\bm{A}$ 的 \textbf{Moore-Penrose逆}, 记为 $\bm{A}^+$.
+
+\paragraph*{定义 6.2} 设矩阵 $\bm{A} \in C^{m\times n}$, 矩阵 $\bm{X} \in C^{n\times m}$.
+\par (1) 若 $\bm{X}$ 满足 Penrose 方程中的第($i$)个方程, 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i\}$ -逆, 记作 $\bm{A}^{(i)}$, 全体
+$\{i\}$ -逆的集合记作 $\bm{A}\{i\}$. 这种广义逆矩阵共有四类;
+\par (2) 若 $\bm{X}$ 满足 Penrose 方程中的第$(i),(j)$ 个方程$(i\neq j)$, 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i,j\}$ -逆, 记作
+$\bm{A}^{(i,j)}$, 全体 $\{i,j\}$ -逆的集合记作 $\bm{A}\{i,j\}$. 这种广义逆矩阵共有6类;;
+\par (3) 若 $\bm{X}$ 满足 Penrose 方程中的第$(i),(j),(k)$ 个方程($i,j,k$互异), 则称 $\bm{X}$ 为 $\bm{A}$ 的 $\{i,j,k\}$
+-逆, 记作 $\bm{A}^{(i,j,k)}$, 全体 $\{i,j,k\}$ -逆的集合记作 $\bm{A}\{i,j,k\}$. 这种广义逆矩阵共有4类;
+\par (4) 若 $\bm{X}$ 满足 Penrose 方程$(1) \sim (4)$, 则称 $\bm{X}$ 为 $\bm{A}$ 的 Moore-Penrose 逆 $\bm{A}^+$, 这种广义逆
+矩阵是唯一的.
+\paragraph*{公式 6.1.3}
+$$
+    \bm{A}^+ = \bm{G}^+\bm{F}^+ = \bm{G}^H(\bm{F}^H\bm{AG}^H)^{-1}\bm{F}^H
+$$
+
+\paragraph*{公式 6.1.4}
+$$
+    \bm{A}^+ = \bm{V}\begin{bmatrix}
+        \bm{\Sigma}^{-1}_r & \bm{O} \\
+        \bm{O}             & \bm{O}
+    \end{bmatrix}_{n\times m} \bm{U}^H
+$$
+
+\paragraph*{公式 6.4.1} 考虑非齐次线性方程组
+$$
+    \bm{Ax} = \bm{b}
+$$
+其中 $\bm{A} \in C^{m\times n}, \bm{b} \in C^m$ 给定, 而 $\bm{x} \in C^n$ 为待定向量. 如果存在向量 $\bm{x}$ 使方程组成立, 则称方
+程组相容, 否则称为不相容或矛盾方程组.
+
+\paragraph*{公式 6.4.2} 如果方程组相容, 其解可能有无穷多个, 求出具有极小范数的解, 即
+$$
+    \min\limits_{\bm{Ax} = \bm{b}} \lVert \bm{x} \rVert
+$$
+其中 $\lVert \bm{\cdot} \rVert$ 是欧式范数. 可以证明, 满足该条件的解是唯一的, 称之为极小范数解.
+
+\paragraph*{公式 6.4.3} 如果方程组不相容, 则不存在通常意义下的解. 但在许多实际问题中, 需要求出极值问题
+$$
+    \min\limits_{\bm{x} \in C^n} \lVert \bm{Ax} - \bm{b} \rVert
+$$
+的解 $\bm{x}$, 其中 $\lVert \bm{\cdot} \rVert$ 是欧式范数. 称这个极值问题为求矛盾方程组的最小二乘问题, 相应的 $\bm{x}$ 称为
+矛盾方程组的最小二乘解.
+
+\paragraph*{公式 6.4.4} 一般来说, 矛盾方程组的最小二乘解是不唯一的. 但在最小二乘解的集合中, 具有极小范数的解
+$$
+    \min\limits_{\min \lVert \bm{Ax} - \bm{b} \rVert} \lVert \bm{x} \rVert
+$$
+是唯一的, 称之为极小范数最小二乘解.
+
+\paragraph*{定理 6.1} 对任意 $\bm{A} \in C^{m\times n}$, $\bm{A}^+$ 存在并且唯一.
+
+\paragraph*{定理 6.2} 设 $\bm{A}^{m\times n}_r$ 的不可逆值分解为
+$$
+    \bm{A} = \bm{U} \begin{bmatrix}
+        \bm{\Sigma}_r & \bm{O} \\
+        \bm{O}        & \bm{O}
+    \end{bmatrix}_{m\times n} \bm{V}^H
+$$
+那么
+$$
+    \bm{A}^+ = \bm{V}\begin{bmatrix}
+        \bm{\Sigma}^{-1}_r & \bm{O} \\
+        \bm{O}             & \bm{O}
+    \end{bmatrix}_{n\times m} \bm{U}^H
+$$
+
+\paragraph*{定理 6.33} 设 $\bm{A} \in C^{m\times n}, \bm{b} \in C^m$, 则 $\bm{x} = \bm{A}^+\bm{b}$ 是方程组的唯一极小范数最小二乘解. 反之, 设
+$\bm{X} \in C^{n\times m}$, 若对所有 $\bm{b} \in C^m, \bm{x} = \bm{Xb}$ 是方程组的极小范数最小二乘解, 则 $\bm{X} = \bm{A}^+$.
+
+\paragraph*{例题 6.10} 已知 $\bm{A} = \begin{bmatrix}
+        -1 & 2  & 1  \\
+        1  & 0  & 1  \\
+        0  & -2 & -2 \\
+        3  & 2  & 5
+    \end{bmatrix}, \bm{b} = \begin{bmatrix}
+        1  \\
+        0  \\
+        -1 \\
+        1
+    \end{bmatrix}$.
+\par (1) 求 $\bm{A}$ 的 Moore-Penrose 逆 $\bm{A}^{+}$.
+\par (2) 用广义逆矩阵方法判断线性方程组 $\bm{Ax} = \bm{b}$ 是否有解, 并求其极小范数解或者极小范数
+最小二乘解 $\bm{x}_0$.
+
+\paragraph*{解} (1) 采用满秩分解方法求 $\bm{A}^+$. 计算得
+\begin{gather*}
+    \bm{A} \to \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}, \bm{A} = \begin{bmatrix}
+        -1 & 2  \\
+        1  & 0  \\
+        0  & -2 \\
+        3  & 2
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1
+    \end{bmatrix} = \bm{FG} \\
+    \bm{F}^+ = (\bm{F}^T\bm{F})^{-1}\bm{F}^T = \dfrac{1}{58}\begin{bmatrix}
+        -10 & 6  & 4   & 14 \\
+        13  & -2 & -11 & 5
+    \end{bmatrix} \\
+    \bm{G}^+ = \bm{G}^T(\bm{GG}^T)^{-1} = \dfrac{1}{3}\begin{bmatrix}
+        2  & -1 \\
+        -1 & 2  \\
+        1  & 1
+    \end{bmatrix} \\
+    \bm{A}^+ = \bm{G}^+\bm{F}^+ = \dfrac{1}{174}\begin{bmatrix}
+        -33 & 14  & 19  & 23 \\
+        36  & -10 & -26 & -4 \\
+        3   & 4   & -7  & 19
+    \end{bmatrix}
+\end{gather*}
+\par (2) 计算, 有
+$$
+    \bm{x}_0 = \bm{A}^+\bm{b} =\dfrac{1}{6}\begin{bmatrix}
+        -1 \\
+        2  \\
+        1
+    \end{bmatrix}
+$$
+
+\end{document}

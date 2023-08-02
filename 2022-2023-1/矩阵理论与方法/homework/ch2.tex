@@ -1,0 +1,149 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第二次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.2 \quad 线性变换及其矩阵}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\textbf{定义 1.10} \quad 设$V$是数域$K$上的线性空间，$T$是$V$到自身的一个映射，使对于任意向量$\bm{x} \in V$，
+$V$中都有唯一的向量$\bm{y}$与之对应，则称$T$是$V$的一个\textbf{变换}或\textbf{算子}，记为$T\bm{x = y}$，称
+$\bm{y}$为$\bm{x}$在$T$下的\textbf{象}，而$\bm{x}$是$\bm{y}$的\textbf{原象}（或\textbf{象源}）.
+
+\textbf{定义 1.11} \quad 如果数域$K$上的线性空间$V$的一个变换$T$具有以下性质：
+$$
+    T(k\bm{x} + l\bm{y}) = k(T\bm{x}) + l(Y\bm{y})
+$$
+其中$\bm{x,y} \in V$，$k, l \in K$，则称$T$为$V$的一个\textbf{线性变换}或\textbf{线性算子}. \par\ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\textbf{例 1.10} \quad 把线性空间$R^2$的所有向量均绕原点依顺（或逆）时针方向旋转$\theta$角的变换，就
+是一个线性变换.这是象$(\eta_1,\ \eta_2)$与原象$(\xi_1 ,\ \xi_2)$之间的关系为
+$$
+    \begin{bmatrix}
+        \eta_1 \\
+        \eta_2
+    \end{bmatrix} = \begin{bmatrix}
+        \cos\theta  & \sin\theta \\
+        -\sin\theta & \cos\theta
+    \end{bmatrix} \begin{bmatrix}
+        \xi_1 \\
+        \xi_2
+    \end{bmatrix}
+$$
+
+\textbf{例 1.11} \quad 在线性空间$P_n$中，求微分是其一个线性变换，这里用$D$表示，即
+$$
+    Df(t) = f^{'}t \qquad (\forall f(t) \in P_n)
+$$ \par
+事实上，对任意的$f(t), g(t) \in P_n$及$k,l \in R$，有
+$$
+    D(kf(t) + lg(t)) = (kf(t) + lg(t))^{'} =
+    kf^{'}(t) + lg^{'}(t) = k(Df(t)) + l(Dg(t))
+$$
+
+\textbf{例 1.12} \quad 定义在闭区间$[a,\ b]$上的所有实连续函数的集合$(C(a, \ b))$构成$R$上的一个线性
+空间，在$C(a,\ b)$上定义变换$J$，即
+$$
+    J(f(t)) = \int_a^t f(t)\, du \qquad (\forall f(t) \in C(a, \ b))
+$$
+则$J$是$C(a, \ b)$的一个线性变换. \par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\textbf{习题 1.1.10} \quad 假定$\bm{x}_1, \bm{x}_2, \bm{x}_3$是$R^3$的一个基，试求由 \\
+\centerline{$\bm{y}_1 = \bm{x}_1 - 2\bm{x}_2 + 3\bm{x}_3，\quad \bm{y}_2 = 2\bm{x}_1 - 3\bm{x}_2 + 2\bm{x}_3，\quad \bm{y}_3 = 4\bm{x}_1 + 13\bm{x}_2$}
+生成的子空间$L(\bm{y}_1, \bm{y}_2, \bm{y}_3)$的基.
+
+\textbf{解} \quad
+\begin{align*}
+    A = \begin{bmatrix}
+            1  & -2 & 3 \\
+            2  & 3  & 2 \\
+            -4 & 13 & 0
+        \end{bmatrix} = \begin{bmatrix}
+                            1 & -2 & 3 \\
+                            2 & 3  & 2 \\
+                            0 & 0  & 0
+                        \end{bmatrix}
+    r(A) = 2
+\end{align*}
+所以，基的维数是2，且$\bm{y}_1$与$\bm{y}_2$线性无关，\\
+故生成子空间$L(\bm{y}_1, \bm{y}_2, \bm{y}_3)$的基为$\{\bm{y}_1, \bm{y}_2\}$.
+
+\textbf{习题 1.1.12} \quad 给定$R^{2\times 2} = \{A = (a_{ij})_{2\times 2} \ | \ a_{ij} \in R\}$（数域$R$上的2阶实方阵按通常矩阵的
+加法与数乘矩阵构成的线性空间）的子集 \par
+\centerline{$V = \{A = (a_{ij})_{2\times 2} \ | \ a_{ij} \in R$且$a_{11}+a_{22}=0\}$}
+（1）证明$V$是$R^{2\times 2}$的子空间； \par
+（2）求$V$的维数和一个基.
+
+\textbf{解} \par
+（1）设$A = (a_{ij})_{2 \times 2} \in V$，$B = (b_{ij})_{2 \times 2} \in V$，则有 \\
+\centerline{$a_{11} + a_{22} = 0$，$b_{11}+b_{22} = 0$}
+所以
+\begin{align*}
+    A + B & = (a_{ij})_{2\times 2} + (b_{ij})_{2\times 2} \\
+          & = (a_{ij} + b_{ij})_{2\times 2}
+\end{align*}
+即
+\begin{align*}
+    a_{11} + a_{22} + b_{11} + b_{22} = 0 \\
+    \Rightarrow (a_{11} + b_{11}) + (a_{22} + b_{22}) = 0
+\end{align*}
+又
+\begin{align*}
+    kA = k(a_{ij})_{2\times 2} & = (ka_{ij})_{2 \times 2} \\
+                               & = ka_{11} + ka_{22}      \\
+                               & = k(a_{11} + a_{22}) = 0
+\end{align*}
+$$\Rightarrow A + B \in V, \ kA \in V$$
+因此，$V$是$R^{2\times 2}$的子空间. \par
+（2）设$V$中，
+$$
+    A_1 = \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix} \qquad A_2 = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix} \qquad A_3 = \begin{bmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{bmatrix}
+$$
+线性无关.对于任意$A = (a_{ij})_{2 \times 2} \in A$,\\
+有$a_{11} + a_{22} = 0$，即$a_{22} = -a_{11}$， \\
+所以 $A = a_{11}A_1 + a_{12}A_2 + a_{21}A_3$ \\
+因此，$V$的维数是3，一组基为$\{A_1, A_2, A_3\}$ \par \ \par
+
+\textbf{习题 1.2.1} \quad 判别下列哪些是线性变换：\par
+（1）在$R^3$中，设$\bm{x} = (\bm{\xi}_1, \bm{\xi}_2, \bm{\xi}_3)$，$T\bm{x} = (\bm{\xi}_1^2, \bm{xi}_1 + \bm{\xi}_2, \bm{\xi}_3)$； \par
+（2）在矩阵空间$R^{n \times n}$中，$T\mathbf{X} = \mathbf{BXC}$，这里$\mathbf{B,C}$是给定矩阵；\par
+（3）在线性空间$P_n$中，$Tf(t) = f(t + 1)$.
+
+\textbf{解} \quad
+（1）不是
+（2）是
+（3）是
+
+
+
+\end{document}

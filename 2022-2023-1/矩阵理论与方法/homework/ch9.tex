@@ -1,0 +1,266 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第九次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第2章 \quad 范数理论及其应用}
+
+\subsection*{2.1 \quad 向量范数及其性质}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 2.1} 如果$V$是数域$K$上的线性空间，对任意的$\bm{x}\in V$，定义一个实值函数$\left\lVert \bm{x}\right\rVert $，它满足
+以下三个条件：\par
+(1) 非负性：当$\bm{x} \neq \bm{0}$时，$\left\lVert \bm{x} \right\rVert > 0$；当$\bm{x} = \bm{0}$时，$\left\lVert \bm{x} \right\rVert = 0$；\par
+(2) 齐次性：$\left\lVert a\bm{x} \right\rVert = \left\lvert a\right\rvert \left\lVert \bm{x} \right\rVert\ (a\in K,\, \bm{x} \in V)$ \par
+(3) 三角不等式：$\left\lVert \bm{x} + \bm{y} \right\rVert \leqslant \left\lVert \bm{x} \right\rVert + \left\lVert \bm{y} \right\rVert\ (\bm{x},\bm{y} \in V)$ \\
+则称$\left\lVert \bm{x} \right\rVert$为$V$上向量$\bm{x}$的范数，简称\textbf{向量范数}.
+
+\paragraph*{定义 2.2} 满足
+\[
+    c_1\left\lVert \bm{x} \right\rVert _\beta \leqslant \left\lVert \bm{x} \right\rVert _\alpha \leqslant c_2 \left\lVert \bm{x} \right\rVert _\beta \qquad (\forall \bm{x} \in V)
+\]
+的范数是等价的.即有限维空间上的不同范数是等价的.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 2.1} 设$\left\lVert \bm{x}\right\rVert _\alpha$和$\left\lVert \bm{x} \right\rVert _\beta$为有限维线性空间$V$上的任意两种向量范数（他们不限于$p$-范数），
+则存在两个与向量$\bm{x}$无关的正常数$c_1$和$c_2$，使满足
+\[
+    c_1\left\lVert \bm{x} \right\rVert _\beta \leqslant \left\lVert \bm{x} \right\rVert _\alpha \leqslant c_2 \left\lVert \bm{x} \right\rVert _\beta \qquad (\forall \bm{x} \in V)
+\]
+
+\paragraph*{定理 2.2} $C^n$中的向量序列
+\[
+    \bm{x}^{(k)} = (\xi_1^{(k)},\xi_2^{(k)},\cdots,\xi_n^{(k)}) \quad (k=1,2,3,\cdots)
+\]
+收敛到向量$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n)$的充要条件是对任意一种向量范数$\left\lVert \bm{\cdot} \right\rVert$，数列$\{\left\lVert \bm{x}^{(k)} - \bm{x} \right\rVert\}$ 收
+敛于零.
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 2.1} 在$n$维酉空间$C^n$上，复向量$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n)$的长度
+\[
+    \left\lVert \bm{x} \right\rVert = \sqrt{\left\lvert \xi_1 \right\rvert^2 + \left\lvert \xi_2 \right\rvert^2 + \cdots +\left\lvert \xi_n \right\rvert^2}
+\]
+就是一种范数. \par
+
+\paragraph*{解} 为了说明这里的$\left\lvert \bm{x} \right\rvert$时范数，只需验证它满足范数的三个条件
+\begin{enumerate}
+    \item[(1)]
+        当$\bm{x} \neq \bm{0}$时，显然$\left\lVert \bm{x} \right\rVert > 0$；当$\bm{x} = \bm{0}$时，有$\left\lVert \bm{x} \right\rVert = 0$.
+    \item[(2)] 对任意的复数$a$，因为
+        \[
+            a\bm{x} = (a\xi_1, a\xi_2, \cdots, a\xi_n)
+        \]
+        所以
+        \[
+            \left\lVert a\bm{x} \right\rVert = \left\lvert a \right\rvert \sqrt{\left\lvert \xi_1 \right\rvert^2 + \left\lvert \xi_2 \right\rvert^2 + \cdots +\left\lvert \xi_n \right\rvert^2} =
+            \left\lvert a\right\rvert \left\lVert \bm{x} \right\rVert
+        \]
+    \item[(3)] 对于任意两个复向量$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n),\ \bm{y} = (\eta_1, \eta_2, \cdots, \eta_n)$，有
+        \[
+            \bm{x} + \bm{y} = (\xi_1 + \eta_1, \xi_2 + \eta_2,\cdots,\xi_n+\eta_n)
+        \]
+        可得
+        \begin{gather*}
+            \left\lVert \bm{x} + \bm{y} \right\rVert\ = \sqrt{\left\lvert \xi_1 + \eta_1 \right\rvert^2 + \left\lvert \xi_2 + \eta_2 \right\rvert^2 + \cdots +\left\lvert \xi_n + \eta_n \right\rvert^2} \\
+            \left\lVert \bm{x} + \bm{y} \right\rVert^2 = (\bm{x} + \bm{y}, \bm{x} + \bm{y}) = (\bm{x}, \bm{x}) + 2Re(\bm{x},\bm{y}) + (\bm{y}, \bm{y})
+        \end{gather*}
+        因为
+        \[
+            Re(\bm{x}, \bm{y}) \leqslant \left\lvert (\bm{x}, \bm{y}) \right\rvert \leqslant = \sqrt{(\bm{x},\bm{x}), (\bm{y}, \bm{y})} = \left\lVert \bm{x} \right\rVert \left\lVert \bm{y} \right\rVert\
+        \]
+        所以
+        \[
+            \left\lVert \bm{x} + \bm{y} \right\rVert \leqslant \left\lVert \bm{x} \right\rVert + 2\left\lVert \bm{x}\right\rVert\left\lVert \bm{y} \right\rVert = (\left\lVert \bm{x} + \bm{y} \right\rVert)^2
+        \]
+        即 $\left\lVert \bm{x} + \bm{y} \right\rVert\leqslant \left\lVert \bm{x}\right\rVert\left\lVert \bm{y} \right\rVert$.
+\end{enumerate}
+
+\paragraph*{例 2.2} 证明$\left\lVert \bm{x} + \bm{y} \right\rVert = \max\left\lVert \xi_i \right\rvert$是$C^n$上的一种范数，这里$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n) \in C^n$.
+
+\paragraph*{证} 当$\bm{x} \neq 0$时，有 $\left\lVert \bm{x} \right\rVert = \max_i\left\lvert \xi_i \right\rvert > 0$；当$\bm{x} = \bm{0}$时，显然有$\left\lVert \bm{x} \right\rVert = 0$. \\
+又对任意的$a\in C$，有
+\[
+    \left\lVert a\bm{x} \right\rVert = \max_i\left\lvert a\xi_i \right\rvert = \left\lvert a \right\rvert \max_i \left\lvert \xi_i \right\rvert = \left\lvert a \right\rvert \left\lVert \bm{x} \right\rVert
+\]
+对$C^n$的任意两个向量$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n),\ \bm{y} = (\eta_1,\eta_2,\cdots,\eta_n)$，有
+\begin{align*}
+    \left\lVert \bm{x} + \bm{y} \right\rVert = & \max_i \left\lvert \xi_i + \eta_i \right\rvert \leqslant                                                                                          \\
+                                               & \max_i \left\lvert \xi_i \right\rvert + \max_i\left\lvert \eta_i \right\rvert = \left\lVert \bm{x} \right\rVert + \left\lVert \bm{y} \right\rVert
+\end{align*}
+因此，$\left\lVert \bm{x}\right\rVert = \max_i \left\lvert \xi_i \right\rvert $是$C^n$上的一种范数.
+
+\paragraph*{例 2.3} 证明$\left\lVert \bm{x}\right\rVert = \sum_{i=1}^n\left\lvert \xi_i \right\rvert $是$C^n$上的一种范数，其中$\bm{x} = (\xi_1,\xi_2,\cdots,\xi_n) \in C^n$.
+
+\paragraph*{证} 当$\bm{x} \neq \bm{0}$时，显然$\left\lVert \bm{x} \right\rVert = \sum_{i=1}^n \left\lvert \xi_i \right\rvert > 0$；当$\bm{x} = \bm{0}$时，有$\left\lVert \bm{x} \right\rVert = 0$.\par
+又对于任意$a\in C$，有
+\[
+    \left\lVert a\bm{x} \right\rVert = \left\lvert a \right\rvert \sum_{i=1}^n\left\lvert \xi_i \right\rvert = \left\lvert a \right\rvert \left\lVert \bm{x}\right\rVert
+\]
+对于任意两个向量$\bm{x},\bm{y}\in C^n$，有
+\begin{align*}
+    \left\lVert \bm{x} + \bm{y} \right\rVert = & \sum_{i=1}^n\left\lvert \xi_i + \eta_i \right\rvert \leqslant \sum_{i=1}^n(\left\lvert \xi_i \right\rvert + \left\lvert \eta \right\rvert ) = \\
+                                               & \sum_{i=1}^n\left\lvert \xi_i \right\rvert + \sum_{i=1}^n\left\lvert \eta_i \right\rvert = \left\lVert \bm{x} + \bm{y} \right\rVert
+\end{align*}
+于是$\left\lVert \bm{x} \right\rVert = \sum_{i=1}^n \left\lvert \xi_i \right\rvert $是$C^n$上的一种范数.
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 2.1.1} 求向量$\bm{e} = (1,1,\cdots,1)$的$l_1,l_2$及$l_\infty$范数.
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)] $\left\lVert \bm{e} \right\rVert _1 = \sum_{i=1}^n\left\lvert 1 \right\rvert = n$；
+    \item[(2)] $\left\lVert \bm{e} \right\rVert _2 = \sqrt{\left\lvert 1 \right\rvert^2 + \left\lvert 1 \right\rvert^2 + \cdots + \left\lvert 1 \right\rvert^2} = \sqrt{n}$；
+    \item[(3)] $\left\lVert \bm{e} \right\rVert _\infty = \max_i \left\lvert 1 \right\rvert = 1$.
+\end{enumerate}
+
+\subsection*{2.1 \quad 矩阵的范数}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 2.3} 设$\bm{A} = \bm{C}^{m\times n}$，定义一个实值函数$\left\lVert \bm{A} \right\rVert$，它满足以下三个条件：\par
+(1) 非负性：当$\bm{A} \neq \bm{O}$时，$\left\lVert \bm{A} \right\rVert > 0$；当$\bm{A} = \bm{O}$时，$\left\lVert \bm{A} \right\rVert = 0$; \par
+(2) 齐次性：$\left\lVert a\bm{A} \right\rVert = \left\lvert a \right\rvert \left\lVert \bm{A} \right\rVert \quad (a \in C)$；\par
+(3) 三角不等式：$\left\lVert \bm{A} + \bm{B} \right\rVert \leqslant \left\lVert \bm{A} \right\rVert + \left\lVert \bm{B} \right\rVert \quad (\bm{B} \in \bm{C}^{m\times n})$
+则称$\left\lVert \bm{A} \right\rVert$为$\bm{A}$的\textbf{广义矩阵范数}.若对$\bm{C}^{m\times n},\bm{C}^{n\times l}$及$\bm{C}^{m\times l}$
+上的同类广义矩阵范数$\left\lVert \bm{\cdot} \right\rVert$，还满足下面一个条件：\par
+(4) 相容性：$\left\lVert \bm{AB} \right\rVert \leqslant \left\lVert \bm{A} \right\rVert \left\lVert \bm{B} \right\rVert \qquad (\bm{B} \in \bm{C}^{n\times l})$
+则称$\left\lVert \bm{A} \right\rVert$为$\bm{A}$的\textbf{矩阵范数}.
+
+\paragraph*{定义 2.4} 对于$C^{m\times n}$上的矩阵范数$\left\lVert \bm{\cdot} \right\rVert _M$和$\bm{C}^m$与$\bm{C}^n$上的同类向量范数$\left\lVert \bm{\cdot} \right\rVert _V$，如果
+\[
+    \left\lVert \bm{Ax} \right\rVert _V \leqslant \left\lVert \bm{A} \right\rVert _M \left\lVert \bm{x} \right\rVert _V \qquad (\forall \bm{A} \in C^{m\times n},\ \forall bm{x} \in C^n)
+\]
+则称矩阵范数$\left\lVert \bm{\cdot} \right\rVert _M$与向量范数$\left\lVert \bm{\cdot} \right\rVert _V$是相容的.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 2.4} 已知$C^m$和$C^n$上的同类向量范数$\left\lVert \bm{\cdot} \right\rVert$，设 $\bm{A} \in \bm{C}^{m\times n}$，则函数
+\[
+    \left\lVert \bm{A} \right\rVert = \max_{\left\lVert \bm{x} \right\rVert = 1} \left\lVert \bm{Ax} \right\rVert
+\]
+是$\bm{C}^{m\times n}$上的矩阵范数，且与已知的向量范数相容.
+
+\paragraph*{定理 2.5} 设 $\bm{A} = (a_{ij})_{m\times n} \in \bm{C}^{m\times n},\ \bm{x} = (\xi_1,\xi_2,\cdots,\xi_n)^T \in \bm{C}^n$，则从属于向量$\bm{x}$的三种范数
+$\left\lVert \bm{x} \right\rVert _1, \left\lVert \bm{x} \right\rVert _2, \left\lVert \bm{x} \right\rVert _\infty$的矩阵范数计算公式依次为 \par
+(1) $\left\lVert \bm{A} \right\rVert _1 = \max_j \sum_{i=1}^m \left\lvert a_{ij} \right\rvert $； \par
+(2) $\left\lVert \bm{A} \right\rVert _2 = \sqrt{\lambda_1}$，$\lambda_1$为$\bm{A}^H\bm{A}$的最大特征值；\par
+(3) $\left\lVert \bm{A} \right\rVert _\infty = \max_i \sum_{j=1}^n \left\lvert a_{ij} \right\rvert $ \par
+通常称$\left\lVert \bm{A} \right\rVert _1, \left\lVert \bm{A} \right\rVert _2$及$\left\lVert \bm{A} \right\rVert _\infty$ 依次为\textbf{列和范数、谱范数}及\textbf{行和范数}.
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 2.8} 设$\bm{A} = (a_{ij})_{m\times n} \in C^{m\times n}$，证明函数
+\[
+    \left\lVert \bm{A} \right\rVert _F = (\sum_{i=1}^m \sum_{j=1}^n \left\lvert a_{ij} \right\rvert)^\frac{1}{2} = (tr(\bm{A}^H\bm{A}))^\frac{1}{2}
+\]
+是$C^{m\times n}$上的矩阵范数，且与向量范数$\left\lVert \bm{\cdot} \right\rVert _2$相容.
+
+\paragraph*{证} 显然$\left\lVert \bm{A} \right\rVert _F$具有非负性与齐次性.设$\bm{B} \in \bm{C}^{m\times n}$，且$\bm{A}$的第$j$列分别为$\bm{a}_j,\bm{b}_j(j =
+    1,2,\cdots,n)$，则有
+\begin{align*}
+    \left\lVert \bm{A} + \bm{B} \right\rVert ^2_F = & \left\lVert \bm{a}_1 + \bm{b}_1 \right\rVert ^2_2 + \cdots + \left\lVert \bm{a}_n + \bm{b}_n \right\rVert ^2_2 \leqslant                                                   \\
+                                                    & (\left\lVert \bm{a_1} \right\rVert _2 + \left\lVert \bm{b}_1 \right\rVert _2) + \cdots + (\left\lVert \bm{a_n} \right\rVert _2 + \left\lVert \bm{b}_n \right\rVert _2)^2 = \\
+                                                    & (\left\lVert \bm{a_1} \right\rVert ^2_2 + \cdots + \left\lVert \bm{a}_n \right\rVert ^2_2) +                                                                               \\
+                                                    & 2(\left\lVert \bm{a_1} \right\rVert _2\left\lVert \bm{b_1} \right\rVert _2 + \cdots + \left\lVert \bm{a_n} \right\rVert _2 \left\lVert \bm{b_n} \right\rVert _2)           \\
+                                                    & (\left\lVert \bm{b_1} \right\rVert ^2_2 + \cdots + \left\lVert \bm{b}_n \right\rVert ^2_2)
+\end{align*}
+可得
+\[
+    \left\lVert \bm{A} + \bm{B} \right\rVert _F^2 \leqslant \left\lVert \bm{A} \right\rVert ^2_F + 2\left\lVert \bm{A} \right\rVert _F \left\lVert \bm{B} \right\rVert _F + \left\lVert \bm{B} \right\rVert ^2_F = (\left\lVert \bm{A} \right\rVert _F + \left\lVert \bm{B} \right\rVert _F)^2
+\]
+即三角不等式成立.\par
+再设$\bm{B} = (b_{ij}){n\times l} \in \bm{C}^{n\times l}$，则$\bm{AB} = (\sum_{k=1}^na_{ik}b_{kj})_{m\times l} \in \bm{C}^{m \times l}$，于是有
+\[
+    \left\lVert \bm{AB} \right\rVert ^2_F = \sum_{i=1}^m\sum_{j=1}^l \left\lvert \sum_{k=1}^n a_{ik}b_{kj} \right\rvert ^2 \leqslant \sum_{i=1}^m\sum_{j=1}^l(\sum_{k=1}^n \left\lvert a_{ik} \right\rvert\left\lvert b_{kj} \right\rvert)^2
+\]
+可得
+\begin{align*}
+    \left\lVert \bm{AB} \right\rVert ^2_F \leqslant & = \sum_{i=1}^m\sum_{j=1}^l [(\sum_{k=1}^n \left\lvert a_{ik} \right\rvert ^2)(\sum_{k=1}^n \left\lvert b_{kj} \right\rvert ^2)] =                                                                    \\
+                                                    & (\sum_{i=1}^m\sum_{k=1}^n\left\lvert a_{ik} \right\rvert ^2)(\sum_{j=1}^l\sum_{k=1}^n \left\lvert b_{kj} \right\rvert ^2) = \left\lVert \bm{A} \right\rVert ^2_F\left\lVert \bm{B} \right\rVert ^2_F
+\end{align*}
+即$\left\lVert \bm{A} \right\rVert _F$是$\bm{A}$的矩阵范数.\par
+取$\bm{B} = \bm{x} \in \bm{C}^{n\times l}$，则有
+\[
+    \left\lVert \bm{Ax} \right\rVert _2 = \left\lVert \bm{AB} \right\rVert _F \leqslant \left\lVert \bm{A} \right\rVert _F \left\lVert \bm{B} \right\rVert _F =
+    \left\lVert \bm{A} \right\rVert _F \left\lVert \bm{x} \right\rVert _2
+\]
+即矩阵范数$\left\lVert \bm{\cdot} \right\rVert _F$ 与向量范数$\left\lVert \bm{\cdot} \right\rVert _2$相容.
+
+\paragraph*{例 2.9} 设$\left\lVert \bm{\cdot} \right\rVert _M$ 是矩阵范数，任取$C^n$中的非零列向量$\bm{y}$，则函数
+\[
+    \left\lVert \bm{x} \right\rVert _V = \left\lVert \bm{xy}^H \right\rVert _M \qquad (\forall \bm{x} \in \bm{C}^n)
+\]
+是$\bm{C}^n$上的向量范数，且矩阵范数$\left\lVert \bm{\cdot} \right\rVert _M$ 与向量范数$\left\lVert \bm{\cdot} \right\rVert _V$相容.
+
+\paragraph*{证}
+非负性.当$\bm{x} \neq \bm{0}$时，$\bm{xy}^H \neq \bm{O}$，从而$\left\lVert \bm{x} \right\rVert _V > 0$；当$\bm{x} = \bm{0}$时，$\bm{xy}^H = \bm{O}$，从而$\left\lVert \bm{x} \right\rVert _V = 0$.\par
+齐次性.对任意$\bm{x}_1,\bm{x}_2 \in \bm{C}^n$，有
+\[
+    \left\lVert k\bm{x} \right\rVert _V = \left\lVert k\bm{xy}^H \right\rVert _M = \left\lvert k \right\rvert \left\lVert \bm{xy}^H \right\rVert _M = \left\lVert k\bm{xy}^H \right\rVert _M = \left\lvert k \right\rvert \left\lVert \bm{x} \right\rVert _V
+\] \par
+三角不等式.对任意$\bm{x}_1,\bm{x}_2 \in \bm{C}^n$，有
+\begin{align*}
+    \left\lVert \bm{x}_1 + \bm{x}_2 \right\rVert _V  = & \left\lVert (\bm{x}_1 + \bm{x}_2)\bm{y}^H \right\rVert _M = \left\lVert \bm{x}_1\bm{y}^H + \bm{x}_2\bm{y}^H \right\rVert _M \leqslant                                     \\
+                                                       & \left\lVert \bm{x}_1\bm{y}^H \right\rVert _M + \left\lVert \bm{x}_2\bm{y}^H \right\rVert _M = \left\lVert \bm{x}_1 \right\rVert _V + \left\lVert \bm{x}_2 \right\rVert _V
+\end{align*}
+因此，$\left\lVert \bm{x} \right\rVert _V$是$\bm{C}^n$上的向量范数.当$\bm{A} \in \bm{C}^{n\times n},\ \bm{x} \in \bm{C}^n$时，有
+\begin{align*}
+    \left\lVert \bm{Ax} \right\rVert _V = & \left\lVert (\bm{Ax})\bm{y}^H \right\rVert _M = \left\lVert \bm{x}_1\bm{y}^H + \bm{x}_2\bm{y}^H \right\rVert _M \leqslant                   \\
+                                          & \left\lVert A \right\rVert _M \left\lVert \bm{xy}^H \right\rVert _M = \left\lVert \bm{A} \right\rVert _M \left\lVert \bm{x} \right\rVert _V
+\end{align*}
+即矩阵范数$\left\lVert \bm{\cdot} \right\rVert _M$与向量范数$\left\lVert \bm{\cdot} \right\rVert _V$相容.
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 2.2.1} 求矩阵
+$\bm{A} = \begin{bmatrix}
+        -1 & 2 & 1
+    \end{bmatrix}$和
+$\bm{B} = \begin{bmatrix}
+        -j & 2 & 2 \\
+        1  & 0 & j
+    \end{bmatrix}$
+的$\left\lVert \bm{\cdot} \right\rVert _ 1,\ \left\lVert \bm{\cdot} \right\rVert _\infty$及$\left\lVert \bm{\cdot} \right\rVert _2$.
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)]
+        $\left\lVert \bm{A} \right\rVert _1 = \max_j\sum_{i=1}^m \left\lvert a_{ij} \right\rvert = 2$； \\
+        $\left\lVert \bm{B} \right\rVert _1 = \max_j\sum_{i=1}^m \left\lvert b_{ij} \right\rvert = 4$；
+    \item[(2)]
+        $\left\lVert \bm{A} \right\rVert _\infty = \max_i\sum_{i=j}^m \left\lvert a_{ij} \right\rvert = 4$； \\
+        $\left\lVert \bm{B} \right\rVert _\infty = \max_i\sum_{i=j}^m \left\lvert b_{ij} \right\rvert = 6$；
+    \item[(3)]
+        $\left\lVert \bm{A} \right\rVert _2 = \sqrt{\lambda_1} = \sqrt{6}$； \\
+        $\left\lVert \bm{B} \right\rVert _2 = \sqrt{\lambda_1} = \sqrt{8 + 2\sqrt{13}}$；
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第七次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.3 \quad 两个特殊的线性空间}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 1.22} 设$V$是实数域$\mathbb{R}$上的线性空间，对于$V$中任意两个向量$\bm{x}$与$\bm{y}$，按照某种规则
+定义一个实数，用$(\bm{x},\ \bm{y})$来表示，且它满足下述$4$个条件：
+\begin{enumerate}
+    \item[(1)] 交换律：$(\bm{x},\ \bm{y}) = (\bm{y},\ \bm{x})$;
+    \item[(2)] 分配律：$(\bm{x,\ \bm{y} + \bm{z}}) = (\bm{x},\ \bm{y}) + (\bm{x},\ \bm{z})$;
+    \item[(3)] 齐次性：$(k\bm{x},\ y) = k(\bm{x},\ \bm{y})\ (\forall k \in \mathbb{R})$;
+    \item[(4)] 非负性：$(\bm{x},\ \bm{x}) \geqslant 0$，当且仅当 $\bm{x} = \bm{0}$ 时，$(\bm{x},\ \bm{x}) = 0$.
+\end{enumerate}
+则称实数$(\bm{x},\ \bm{y})$为向量$\bm{x}$与$\bm{y}$的内积，而称$V$为\textbf{$\bm{{\rm Euclid}}$空间}，简称\textbf{欧氏空间}或\textbf{实内积空间.}
+
+\paragraph*{定义 1.28} 设$V$为欧氏空间，$T$是$V$的一个线性变换，如果$T$保持$V$中任意向量$\bm{x}$的长度不变，则有
+\[
+    (T\bm{x},\ T\bm{x}) = (\bm{x},\ \bm{x})
+\]
+那么称$T$是$V$的一个\textbf{正交变换.}
+
+\paragraph*{定义 1.29} 如果实方阵$\bm{Q}$满足$\bm{Q}^T\bm{Q} = \bm{I}$，则称$\bm{Q}$为\textbf{正交方阵.} \par
+容易证明：$\bm{Q}$是正交矩阵的充要条件是它的列向量是两两正交的单位向量.此外，正交矩阵还有下面的性质.
+\begin{enumerate}
+    \item[(1)] 正交矩阵是可逆的.
+    \item[(2)] 正交矩阵的逆矩阵仍是正交矩阵.
+    \item[(3)] 两个正交矩阵的乘积仍为正交矩阵.
+\end{enumerate}
+
+\paragraph*{定义 1.30} 设$T$是欧氏空间$V$的一个线性变换，且对$V$中任意两个向量$\bm{x},\ \bm{y}$，都有
+\[
+    (T\bm{x}, \bm{y}) = (\bm{x},\ T\bm{y})
+\]
+则称$T$为$V$的一个\textbf{对称变换}.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 1.33} 对于欧氏空间$V^n$的任一基$\bm{x}_1,\ \bm{x}_2,\ \cdots, \ \bm{x}_n$，都可以找到一个标准正交基$\bm{y}_1$，$\bm{y}_2$，
+$\cdots$，$\bm{y}_n$，换言之，任意非零欧氏空间都有正交基和标准正交基.
+
+\paragraph*{定理 1.36} 线性变换$T$为正交变换的充要条件是，对于欧氏空间$V$中任意向量$\bm{x},\ \bm{y}$，都有
+$(T\bm{x},\ T\bm{y}) = (\bm{x},\ \bm{y}).$
+
+\paragraph*{定理 1.38} 欧氏空间的线性变换是实对称变换的充要条件是，它对于标准正交基的矩阵是实对
+称矩阵.
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例题 1.33} 试把向量组$\bm{x}_1 = (1,\ 1,\ 0,\ 0)$，$\bm{x}_2 = (1,\ 0,\ 1,\ 0)$，$\bm{x}_3 = (-1,\ 0,\ 0,\ 1)$，$\bm{x}_4b =
+    (1,\ -1,\ -1,\ 1)$正交单位化.
+
+\paragraph*{解} 先把它们正交化，使用$l_i = -\dfrac{(\bm{x}_{m+1},\ \bm{y}_i')}{\bm{y}_i',\ \bm{y}_i'}$，可得
+\begin{flalign*}
+     & \bm{y}_1' = \bm{x}_1 = (1,\ 1,\ 0,\ 0)                                                                                                                                                                                               & \\
+     & \bm{y}_2' = \bm{x}_2 -\dfrac{(\bm{x}_{2},\ \bm{y}_1')}{(\bm{y}_1',\ \bm{y}_1')}y_1' = \bigl(\dfrac{1}{2},\ -\dfrac{1}{2},\ 1,\ 0\bigr)                                                                                               & \\
+     & \bm{y}_3' = \bm{x}_3 -\dfrac{(\bm{x}_{3},\ \bm{y}_2')}{(\bm{y}_2',\ \bm{y}_2')}y_2' -\dfrac{(\bm{x}_{3},\ \bm{y}_1')}{(\bm{y}_1',\ \bm{y}_1')}y_1' = \bigl(-\dfrac{1}{3},\ \dfrac{1}{3},\ \dfrac{1}{3},\ 1\bigr)                     & \\
+     & \bm{y}_4' = \bm{x}_4 -\dfrac{(\bm{x}_{4},\ \bm{y}_3')}{(\bm{y}_3',\ \bm{y}_3')}y_3'-\dfrac{(\bm{x}_{4},\ \bm{y}_2')}{(\bm{y}_2',\ \bm{y}_2')}y_2' -\dfrac{(\bm{x}_{4},\ \bm{y}_1')}{(\bm{y}_1',\ \bm{y}_1')}y_1' = (1,\ -1,\ -1,\ 1)
+\end{flalign*}
+再单位化，则有
+\begin{align*}
+    \bm{y}_1 & = \dfrac{1}{|\bm{y}_1'|}\bm{y}_1' = \bigl(\dfrac{1}{\sqrt{2}},\ \dfrac{1}{\sqrt{2}},\ 0,\ 0 \bigr)                                            \\
+    \bm{y}_2 & = \dfrac{1}{|\bm{y}_2'|}\bm{y}_2' = \bigl(\dfrac{1}{\sqrt{6}},\ \dfrac{-1}{\sqrt{6}},\ \dfrac{2}{\sqrt{6}},\ 0\bigr)                          \\
+    \bm{y}_3 & = \dfrac{1}{|\bm{y}_3'|}\bm{y}_3' = \bigl(-\dfrac{1}{\sqrt{12}},\ \dfrac{1}{\sqrt{12}},\ \dfrac{1}{\sqrt{12}},\ \dfrac{3}{\sqrt{12}},\ \bigr) \\
+    \bm{y}_4 & = \dfrac{1}{|\bm{y}_4'|}\bm{y}_4' = \bigl(\dfrac{1}{2},\ -\dfrac{1}{2},\ -\dfrac{1}{2},\ \dfrac{1}{2}\bigr)
+\end{align*}
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 1.3.2} 设 $\bm{x}_1,\ \bm{x}_2,\ \cdots,\ \bm{x}_n$ 是实线性空间$V^n$的基，向量
+\[
+    \bm{x} = \xi_1\bm{x}_1 + \xi_2\bm{x}_2 + \cdots + \xi_n\bm{x}_n, \qquad
+    \bm{y} = \eta_1\bm{y}_1 + \eta_2\bm{y}_2 + \cdots + \eta_n\bm{y}_n,
+\]
+定义实数$(\bm{x},\ \bm{y}) = \sum_{i=1}^{n}i\xi_i\eta_i$，问$V^n$是否形成欧氏空间.
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)] 交换律
+        \[
+            (\bm{x}, \bm{y}) = \sum_{i=1}^{n}i\xi_i\eta_i = \sum_{i=1}^{n}i\eta_i\xi_i = (\bm{y},\ \bm{x})
+        \]
+    \item[(2)] 分配律，设 $\bm{z} = \mu_1\bm{z}_1 + \mu_2\bm{z}_2 + \cdots + \mu_n\bm{z}_n,$
+        \[
+            (\bm{x} + \bm{y},\ \bm{z}) = \sum_{i=1}^{n}i(\xi_i + \eta_i)\mu_i = \sum_{i=1}^{n}i\xi_i\mu_i + \sum_{i=1}^{n}i\xi_i\mu_i = (\bm{x},\bm{z}) + (\bm{y},\ \bm{z})
+        \]
+    \item[(3)] 齐次性
+        \[
+            (k\bm{x},\ y) = \sum_{i=1}^{n}ik\xi_i\eta_i = k\sum_{i=1}^{n}i\xi_i\eta_i = k(\bm{x},\ \bm{y})
+        \]
+    \item[(4)] 非负性
+        \[
+            (\bm{x},\ \bm{x}) = \sum_{i=1}^{n}i\xi_i\xi_i = \sum_{i=1}^{n}i\xi_i^2 \geqslant 0
+        \]
+        且当 $\bm{x} = \bm{0}$时，、11等号成立.
+\end{enumerate}
+综上，$V^n$是一个欧氏空间.
+
+\paragraph*{习题 1.3.5} 设$\bm{x}_1,\ \bm{x}_2,\ \bm{x}_3,\ \bm{x}_4,\ \bm{x}_5$是欧氏空间$V^5$的一个标准正交基.$V_1 = L(\bm{y}_1,\ \bm{y}_2,\ \bm{y}_3)$，其
+中$\bm{y}_1 = \bm{x}_1 + \bm{x}_5,\ \bm{y}_2 = \bm{x}_1 - \bm{x}_2 + \bm{x}_4,\ \bm{y}_3 = 2\bm{x}_1 + \bm{x}_2 + \bm{x}_3$，求$V_1$的一个标准正交基.
+
+\paragraph*{解} 由题，得
+\[
+    \bm{y}_1 = (1,\ 0,\ 0,\ 0,\ 1) \qquad \bm{y}_2 = (1,\ -1,\ 0,\ 1,\ 0) \qquad \bm{y}_3 = (2,\ 1,\ 1,\ 0,\ 0)
+\]
+先把他们正交化
+\begin{align*}
+    \bm{e}_1' & = \bm{y}_1 = (1,\ 0,\ 0,\ 0,\ 1) = \bm{x}_1 + \bm{x}_5                                                                                                                                                      & \\
+    \bm{e}_2' & = \bm{y}_2 -\dfrac{(\bm{y}_{2},\ \bm{e}_1')}{(\bm{e}_1',\ \bm{e}_1')}e_1' = \dfrac{1}{2}(1,\ -2,\ 0,\ 2,\ -1) = \dfrac{1}{2}(\bm{x}_1 - 2\bm{x}_2 + 2\bm{x}_4 - \bm{x}_5)                                   & \\
+    \bm{e}_3' & = \bm{y}_3 -\dfrac{(\bm{y}_{3},\ \bm{e}_2')}{(\bm{e}_2',\ \bm{e}_2')}e_2' -\dfrac{(\bm{y}_{3},\ \bm{e}_1')}{(\bm{e}_1',\ \bm{e}_1')}e_1' = (1,\ 1,\ 1,\ 0,\ -1) = \bm{x}_1 + \bm{x}_2 + \bm{x}_3 - \bm{x}_5 & \\
+\end{align*}
+再单位化，则有
+\begin{align*}
+    \bm{e}_1 & = \dfrac{1}{|\bm{e}_1'|}\bm{e}_1' = \dfrac{1}{\sqrt{2}}(\bm{x}_1 + \bm{x}_5)                          \\
+    \bm{e}_2 & = \dfrac{1}{|\bm{e}_2'|}\bm{e}_2' = \dfrac{1}{\sqrt{10}}(\bm{x}_1 - 2\bm{x}_2 + 2\bm{x}_4 - \bm{x}_5) \\
+    \bm{e}_3 & = \dfrac{1}{|\bm{e}_3'|}\bm{e}_3' = \dfrac{1}{2}(\bm{x}_1 + \bm{x}_2 + \bm{x}_3 - \bm{x}_5)           \\
+\end{align*}
+
+
+\end{document}

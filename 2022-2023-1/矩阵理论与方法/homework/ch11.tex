@@ -1,0 +1,198 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第十一次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第3章 \quad 矩阵分析及其应用}
+
+\subsection*{3.1 \quad 矩阵序列}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 3.1} 设有矩阵序列$\{\bm{A}^{(k)}\}$，其中$\bm{A}^{(k)} = (a_{ij}^(k))_{m\times n} \in \bm{C}^{m\times n}$，当$a_{ij}^{(k)} \to a_{ij}(k\to \infty)$时，
+称$\{\bm{A}^(k)\}$收敛，或称矩阵$\bm{A} = (a_{ij})_{m\times n}$为$\{\bm{A}^(k)\}$的极限，或称$\{\bm{A}^(k)\}$收敛于$\bm{A}$，记为
+\[
+    \lim_{k\to \infty}\bm{A}^{(k)} = \bm{A} \quad 或 \quad \bm{A}^{(k)} \to \bm{A}
+\]
+不收敛的矩阵序列称为\textbf{发散}.
+
+\paragraph*{定义 3.2} 矩阵序列$\{\bm{A}^{(k)}\}$称为\textbf{有界}的，如果存在常数$M > 0$，使得对一切$k$都有
+\[
+    |a_{ij}^{(k)}| < M\quad (i = 1,2,\cdots,m;j = 1,2,\cdots,n)
+\]
+
+\paragraph*{定义 3.3} 设$\bm{A}$为方阵，且$\bm{A}^k \to \bm{O}(k \to \infty)$，则称$\bm{A}$为\textbf{收敛矩阵}.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 3.1} 设$\bm{A}^{(k)} \in \bm{C}^{m\times n}$，则
+\begin{enumerate}
+    \item[(1)] $\bm{A}^{(k)} \to \bm{O}$的充要条件是$\left\lVert \bm{A}^{(k)} \right\rVert \to 0$.
+    \item[(2)] $\bm{A}^{(k)} \to \bm{A}$的充要条件是$\left\lVert \bm{A}^{(k)} - \bm{A} \right\rVert \to 0$.
+\end{enumerate}
+
+\paragraph*{定理 3.2} $\bm{A}$为收敛矩阵的充要条件是$\rho(\bm{A}) < 1$.
+
+\paragraph*{定理 3.3} $\bm{A}$为收敛矩阵的充分条件是只要有一种矩阵范数$\left\lVert \bm{\cdot}\right\rVert$，使得$\left\lVert \bm{A}\right\rVert < 1$.
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 3.1} 判断$\bm{A} = \begin{bmatrix}
+        0.1 & 0.3 \\
+        0.7 & 0.6
+    \end{bmatrix} 是否为收敛矩阵$.
+
+\paragraph*{解} 因为$\left\lVert \bm{A}\right\rVert _1 = 0.9 < 1$，所以$\bm{A}$是收敛矩阵.
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 3.1.2} 设$\bm{A} = \begin{bmatrix}
+        0 & c & c \\
+        c & 0 & c \\
+        c & c & 0
+    \end{bmatrix}\ (c \in R)$，讨论$c$取何值时$\bm{A}$为收敛矩阵.
+
+\paragraph*{解}
+\[
+    |\lambda E - \bm{A}| = \begin{bmatrix}
+        \lambda & -c      & -c      \\
+        -c      & \lambda & -c      \\
+        -c      & -c      & \lambda
+    \end{bmatrix} = (\lambda + c)^2(\lambda - 2c)
+\]
+所以$\bm{A}$的特征值为$\lambda_1 = 2c,\lambda_2 = \lambda_3 = -c$，于是$r(\bm{A}) = 2|c|$\\
+根据$r(\bm{A}) < 1$得到，$-\dfrac{1}{2} < c < \dfrac{1}{2}$.
+
+\subsection*{3.2 \quad 范数的一些应用}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 3.4} 把定义3.1中的矩阵序列所形成的无穷和$\bm{A}^{(0)} + \bm{A}^{(1)} + \bm{A}^{(2)} + \cdots + \bm{A}^{(k)} + \cdots$称为
+\textbf{矩阵级数}，记为$\sum_{k=0}^\infty \bm{A}^{(k)}$，则有
+\[
+    \sum_{k=0}^\infty \bm{A}^{(k)} = \bm{A}^{(0)} + \bm{A}^{(1)} + \bm{A}^{(2)} + \cdots + \bm{A}^{(k)} + \cdots
+\]
+
+\paragraph*{定义 3.5} 记$\bm{S}^{(N)} = \sum_{k = 0}^N \bm{A}^{(k)}$，称其为矩阵级数式的\textbf{部分和}.如果矩阵序列$\{\bm{S}^{(N)}\}$收敛，且有极限$\bm{S}$，则有
+\[
+    \lim_{N\to \infty} \bm{S}^{(N)} = \bm{S}
+\]
+那么就成矩阵级数式\textbf{收敛}，而且有\textbf{和}$\bm{S}$，记为
+\[
+    \bm{S} = \sum_{k = 0}^\infty \bm{A}^{(k)}
+\]
+不收敛的矩阵级数称为是\textbf{发散}的. \\
+若用$s_{ij}$表示$\bm{S}$的第$i$行第$j$列的元素，那么，和$\sum_{k=0}^\infty \bm{A}^{(k)} = \bm{S}$的意义指的是
+\[
+    \sum_{k=0}^\infty a_{ij}^{(k)} = s_{ij} \quad (i = 1,2,\cdots,m;j = 1,2,\cdots,n)
+\]
+
+\paragraph*{定义 3.6} 如果左端$mn$个数项数都是绝对收敛的，则称矩阵级数式是\textbf{绝对收敛}的.
+
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 3.5} 设方阵$\bm{A}$对某一矩阵范数$\left\lVert \bm{\cdot}\right\rVert$有$\left\lVert \bm{A}\right\rVert < 1$，则对任何非负整数$N$，以$(\bm{I} - \bm{A})^{-1}$为
+部分和的$\bm{I} + \bm{A} + \bm{A}^2 + \cdot + \bm{A}^N$的近似矩阵时，其误差为
+\[
+    \left\lVert (\bm{I} - \bm{A})^{-1} - (\bm{I} + \bm{A} + \bm{A}^2 + \cdot + \bm{A}^N) \right\rVert \leqslant \frac{\left\lVert \bm{A}\right\rVert ^{N + 1}}{1 - \left\lVert \bm{A}\right\rVert}
+\]
+
+\paragraph*{定理 3.6} 设幂级数
+\[
+    f(z) = \sum_{k=0}^\infty c_kz^k
+\]
+的收敛半径为$r$，如果方阵$\bm{A}$满足$\rho(\bm{A}) < r$，则矩阵幂级数
+\[
+    \sum_{k = 0}^\infty c_k \bm{A}^k
+\]
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 3.2} 研究矩阵级数$\sum_{k = 1}^\infty \bm{A}^{(k)}$的收敛性，其中
+\[
+    \bm{A}^{(k)} = \begin{bmatrix}
+        \frac{1}{2^k} & \frac{\pi}{3 \times 4^k} \\
+        0             & \frac{1}{k(k + 1)}
+    \end{bmatrix}\quad (k = 1,2,\cdots)
+\]
+
+\paragraph*{解} 因为
+\[
+    \bm{S}^{(N)} = \sum_{k = 1}^N \bm{A}^{(k)} = \begin{bmatrix}
+        \sum_{k=1}^N \frac{1}{2^k} & \sum_{k=1}^N\frac{\pi}{3 \times 4^k} \\
+        0                          & \sum_{k=1}^N\frac{1}{k(k + 1)}
+    \end{bmatrix} = \begin{bmatrix}
+        1 - (\frac{1}{2})^N & \frac{\pi}{9}[1 - (\frac{1}{4})^N] \\
+        0                   & \frac{N}{N + 1}
+    \end{bmatrix}
+\]
+所以
+\[
+    \bm{S} = \lim_{N\to \infty} \bm{S}^{(N)} = \begin{bmatrix}
+        1 & \frac{\pi}{9} \\
+        0 & 1
+    \end{bmatrix}
+\]
+因此，所给级数收敛.
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 3.2.1} 问矩阵幂级数$\sum_{k = 1}^\infty \bm{A}^k$收敛还是发散，其原因是什么？其中
+\[
+    \bm{A} = \begin{bmatrix}
+        -1 & 0 & 1 \\
+        1  & 1 & 0 \\
+        -4 & 0 & 3
+    \end{bmatrix}
+\]
+
+\paragraph*{解}
+\[
+    |\lambda \bm{E} - \bm{A}| = \begin{bmatrix}
+        \lambda + 1 & 0           & -1          \\
+        -1          & \lambda - 1 & 0           \\
+        4           & 0           & \lambda - 3
+    \end{bmatrix} = (\lambda - 1)^3
+\]
+所以，$\rho(\bm{A}) = 1$，因此，发散.
+
+\paragraph*{习题 3.2.2} 设幂级数$\sum_{k=1}^\infty c_kz^k$的收敛半径是3，3阶方阵$\bm{A}$的谱半径也是3，问矩阵幂级数$\sum_{k = 1}^\infty c_k \bm{A}^k$是否有可能收敛.
+
+\paragraph*{解} 有可能收敛，但不是绝对收敛.
+
+\paragraph*{习题 3.2.4} 设$\bm{A}^{(k)} \in \bm{C}^{m \times n}$，且矩阵级数$\sum_{k=0}^\infty \bm{A}^{(k)}$收敛，证明$\lim_{k\to \infty} = \bm{O}$.
+
+\paragraph*{解} 记$\bm{S}^{(N)} = \sum_{k=0}^N \bm{A}^{(k)}$，已知$\sum_{k=0}^\infty \bm{A}^{(k)}$收敛，可设
+\[
+    \lim_{N \to \infty} \bm{S}^{(N)} = \bm{S}
+\]
+于是有，$\lim_{N\to \infty} \bm{A}^{(N)} = \lim_{N\to \infty} (\bm{S}^{(N)} - \bm{S}^{(N - 1)}) = \bm{O}$
+
+
+\end{document}

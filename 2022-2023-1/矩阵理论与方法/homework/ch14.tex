@@ -1,0 +1,414 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第十四次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第4章 \quad 矩阵分解}
+
+\subsection*{4.3 \quad 矩阵的满秩分解}
+
+\paragraph*{定义 4.8} 设 $\bm{A} \in \bm{C}^{m\times n}_r (r > 0)$, 如果存在矩阵 $\bm{F} \in \bm{C}^{m\times n}_r$ 和 $\bm{G} \in \bm{C}^{m\times n}_r$, 使得
+$$
+    \bm{A} = \bm{FG}
+$$
+则称其为矩阵 $\bm{A}$ 的\textbf{满秩分解}.
+\par 当 $\bm{A}$ 是满秩(列满秩或行满秩)矩阵时, $\bm{A}$ 可分解为一个因子是单位矩阵, 另一个因子是 $\bm{A}$
+本身, 称此满秩分解为\textbf{平凡分解}.
+
+\paragraph*{定理 4.13} 设 $\bm{A} \in \bm{C}^{m\times n}_r(r > 0)$, 则 $\bm{A}$ 有满秩分解 $\bm{A} = \bm{FG}$.
+
+\paragraph*{例 4.10} 求矩阵 $\bm{A}$ 的满秩分解, 其中
+$$
+    \bm{A} = \begin{bmatrix}
+        -1 & 0 & 1  & 2  \\
+        1  & 2 & -1 & 1  \\
+        2  & 2 & -2 & -1
+    \end{bmatrix}
+$$
+
+\paragraph*{解}
+\begin{align*}
+    [\bm{A} \vdots \bm{I}] & = \begin{bmatrix}
+                                   -1 & 0 & 1  & 2  & \vdots & 1 & 0 & 0 \\
+                                   1  & 2 & -1 & 1  & \vdots & 0 & 1 & 0 \\
+                                   2  & 2 & -2 & -1 & \vdots & 0 & 0 & 1
+                               \end{bmatrix} \\
+                           & \to \begin{bmatrix}
+                                     -1 & 0 & 1 & 2 & \vdots & 1 & 0 & 0 \\
+                                     0  & 2 & 0 & 3 & \vdots & 1 & 1 & 0 \\
+                                     0  & 0 & 0 & 0 & \vdots & 0 & 0 & 1
+                                 \end{bmatrix}
+\end{align*}
+则有
+$$
+    \bm{B} = \begin{bmatrix}
+        -1 & 0 & 1 & 2 \\
+        0  & 2 & 0 & 3 \\
+        0  & 0 & 0 & 0
+    \end{bmatrix}, \quad
+    \bm{P} = \begin{bmatrix}
+        1 & 0  & 0 \\
+        1 & 1  & 0 \\
+        1 & -1 & 1
+    \end{bmatrix}
+$$
+可求得
+$$
+    \bm{P}^{-1} = \begin{bmatrix}
+        1  & 0 & 0 \\
+        -1 & 1 & 0 \\
+        -2 & 1 & 1
+    \end{bmatrix}
+$$
+于是有
+$$
+    \bm{A} = \begin{bmatrix}
+        1  & 0 \\
+        -1 & 1 \\
+        -2 & 1
+    \end{bmatrix} \begin{bmatrix}
+        -1 & 0 & 1 & 2 \\
+        0  & 2 & 0 & 3
+    \end{bmatrix}
+$$
+
+\paragraph*{习题 4.3.1} 求下列各矩阵的满秩分解.
+$$
+    (1) \begin{bmatrix}
+        1 & 2 & 3 & 0  \\
+        0 & 2 & 1 & -1 \\
+        1 & 0 & 2 & 1
+    \end{bmatrix};\quad (2) \begin{bmatrix}
+        1  & -1 & 1  & 1  \\
+        -1 & 1  & -1 & -1 \\
+        -1 & -1 & 1  & 1  \\
+        1  & 1  & -1 & -1
+    \end{bmatrix}
+$$
+
+\paragraph*{解}
+
+\begin{enumerate}
+    \item[(1)]
+        \begin{align*}
+            [\bm{A} \vdots \bm{I}] & = \begin{bmatrix}
+                                           1 & 2 & 3 & 0  & \vdots & 1 & 0 & 0 \\
+                                           0 & 2 & 1 & -1 & \vdots & 0 & 1 & 0 \\
+                                           1 & 0 & 2 & 1  & \vdots & 0 & 0 & 1
+                                       \end{bmatrix}    \\
+                                   & \to \begin{bmatrix}
+                                             1 & 2 & 3 & 0  & \vdots & 1  & 0 & 0 \\
+                                             0 & 2 & 1 & -1 & \vdots & 0  & 1 & 0 \\
+                                             0 & 0 & 0 & 0  & \vdots & -1 & 1 & 1
+                                         \end{bmatrix}
+        \end{align*}
+        则有
+        $$
+            \bm{B} = \begin{bmatrix}
+                1 & 2 & 3 & 0  \\
+                0 & 2 & 1 & -1 \\
+                0 & 0 & 0 & 0
+            \end{bmatrix},\quad
+            \bm{P} = \begin{bmatrix}
+                1  & 0 & 0 \\
+                0  & 1 & 0 \\
+                -1 & 1 & 1
+            \end{bmatrix}
+        $$
+        可求得
+        $$
+            \bm{P}^{-1} = \begin{bmatrix}
+                1 & 0  & 0 \\
+                0 & 1  & 0 \\
+                1 & -1 & 1
+            \end{bmatrix}
+        $$
+        于是有
+        $$
+            \bm{A} = \begin{bmatrix}
+                1 & 0  \\
+                0 & 1  \\
+                1 & -1
+            \end{bmatrix} \begin{bmatrix}
+                1 & 2 & 3 & 0  \\
+                0 & 2 & 1 & -1
+            \end{bmatrix}
+        $$
+    \item[(2)]
+        \begin{align*}
+            [\bm{A} \vdots \bm{I}] & = \begin{bmatrix}
+                                           1  & -1 & 1  & 1  & \vdots & 1 & 0 & 0 & 0 \\
+                                           -1 & 1  & -1 & -1 & \vdots & 0 & 1 & 0 & 0 \\
+                                           -1 & -1 & 1  & 1  & \vdots & 0 & 0 & 1 & 0 \\
+                                           1  & 1  & -1 & -1 & \vdots & 0 & 0 & 0 & 1
+                                       \end{bmatrix} \\
+                                   & \to \begin{bmatrix}
+                                             1 & -1 & 1 & 1 & \vdots & 1 & 0 & 0 & 0 \\
+                                             0 & -2 & 2 & 2 & \vdots & 1 & 0 & 1 & 0 \\
+                                             0 & 0  & 0 & 0 & \vdots & 1 & 1 & 0 & 0 \\
+                                             0 & 0  & 0 & 0 & \vdots & 0 & 0 & 1 & 1
+                                         \end{bmatrix}
+        \end{align*}
+        则有
+        $$
+            \bm{B} = \begin{bmatrix}
+                1 & -1 & 1 & 1 \\
+                0 & -2 & 2 & 2 \\
+                0 & 0  & 0 & 0 \\
+                0 & 0  & 0 & 0
+            \end{bmatrix}, \quad
+            \bm{P} = \begin{bmatrix}
+                1 & 0 & 0 & 0 \\
+                1 & 0 & 1 & 0 \\
+                1 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 1
+            \end{bmatrix}
+        $$
+        可求得
+        $$
+            \bm{P}^{-1} = \begin{bmatrix}
+                1  & 0  & 0 & 0 \\
+                -1 & 0  & 1 & 0 \\
+                -1 & 1  & 0 & 0 \\
+                1  & -1 & 0 & 1
+            \end{bmatrix}
+        $$
+        于是有
+        $$
+            \bm{A} = \begin{bmatrix}
+                1  & 0  \\
+                -1 & 0  \\
+                -1 & 1  \\
+                1  & -1
+            \end{bmatrix} \begin{bmatrix}
+                1 & -1 & 1 & 1 \\
+                0 & -2 & 2 & 2
+            \end{bmatrix}
+        $$
+\end{enumerate}
+
+\subsection*{4.4 \quad 矩阵的奇异值分解}
+
+\paragraph*{定义 4.11} 设 $\bm{A} \in \bm{C}^{m\times n}_r(r > 0)$, $\bm{A}^{H}\bm{A}$ 的特征值为
+$$
+    \lambda_1 \geqslant \lambda_2 \geqslant \cdots \geqslant \lambda_r > \lambda_{r + 1} = \cdots = \lambda_n = 0
+$$
+则称 $\sigma_i = \sqrt{\lambda_i} (i = 1,2, \cdots, n)$ 为 $\bm{A}$ 的\textbf{奇异值}; 当 $\bm{A}$ 为零矩阵时, 它的奇异值都是0.
+
+\paragraph*{定理 4.15} 设 $\bm{A} \in R^{n\times n}$ 可逆, 则存在正交矩阵 $\bm{P}$ 和 $\bm{Q}$, 使得
+$$
+    \bm{Q}^T(\bm{A}^T\bm{A})\bm{Q} = \mathrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)
+$$
+其中 $\lambda_i > 0 (i = 1, 2, \cdots, n)$ 为 $\bm{A}^T\bm{A}$ 的特征值.
+
+\paragraph*{定理 4.16} 设 $\bm{A} \in \bm{C}^{m\times n}_r(r > 0)$, 则存在 $m$ 阶酉矩阵 $\bm{U}$ 和 $n$ 阶酉矩阵 $\bm{V}$, 使得
+$$
+    \bm{U}^H\bm{AV} = \begin{bmatrix}
+        \bm{\Sigma} & \bm{O} \\
+        \bm{O}      & \bm{O}
+    \end{bmatrix}
+$$
+其中 $\Sigma = \mathrm{diag}(\sigma_1, \sigma_2, \cdots, \sigma_r)$, 而 $\sigma_i(i = 1,2,\cdots,r)$ 为矩阵 $\bm{A}$ 的全部非零奇异值.
+
+\paragraph*{例 4.14} 求矩阵 $\bm{A} = \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix}$ 的奇异值分解.
+
+\paragraph*{解} 计算
+$$
+    \bm{B} = \bm{A}^T\bm{A} = \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        1 & 1 & 2
+    \end{bmatrix}
+$$
+求得 $\bm{B}$ 的特征值为 $\lambda_1 = 3, \lambda_2 = 1, \lambda_3 = 0$, 对应的特征向量依次是
+$$
+    \bm{\xi}_1 = \begin{bmatrix}
+        1 \\
+        1 \\
+        2
+    \end{bmatrix}, \quad
+    \bm{\xi}_2 = \begin{bmatrix}
+        1  \\
+        -1 \\
+        0
+    \end{bmatrix}, \quad
+    \bm{\xi}_3 = \begin{bmatrix}
+        1 \\
+        1 \\
+        -1
+    \end{bmatrix}
+$$
+可得
+$$
+    \mathrm{rank}\bm{A} = 2, \bm{\Sigma} = \begin{bmatrix}
+        \sqrt{3} & 0 \\
+        0        & 1
+    \end{bmatrix}
+$$
+且正交矩阵为
+$$
+    \bm{V} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{6}} & \dfrac{1}{\sqrt{2}}  & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{1}{\sqrt{6}} & -\dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{2}{\sqrt{6}} & 0                    & -\dfrac{1}{\sqrt{3}}
+    \end{bmatrix}
+$$
+计算
+$$
+    \bm{U}_1 = \bm{AV}_1\bm{\Sigma}^{-1} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{2}}  \\
+        \dfrac{1}{\sqrt{2}} & -\dfrac{1}{\sqrt{2}} \\
+        0                   & 0
+    \end{bmatrix}
+$$
+构造
+$$
+    \bm{U}_2 = \begin{bmatrix}
+        0 \\
+        0 \\
+        1
+    \end{bmatrix}, \quad
+    \bm{U} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{2}}  & 0 \\
+        \dfrac{1}{\sqrt{2}} & -\dfrac{1}{\sqrt{2}} & 0 \\
+        0                   & 0                    & 1
+    \end{bmatrix}
+$$
+则 $\bm{A}$ 的奇异值分解为
+$$
+    \bm{A} = \bm{U}\begin{bmatrix}
+        \sqrt{3} & 0 & 0 \\
+        0        & 1 & 0 \\
+        0        & 0 & 0
+    \end{bmatrix}\bm{V}^T
+$$
+
+\paragraph*{例 4.15} 设矩阵 $\bm{A}$ 的奇异值分解为
+$$
+    \bm{A} = \bm{U}\begin{bmatrix}
+        \bm{\Sigma} & \bm{O} \\
+        \bm{O}      & \bm{O}
+    \end{bmatrix}\bm{V}^H
+$$
+证明: $\bm{U}$ 的列向量是 $\bm{AA}^H$ 的特征向量, $\bm{V}$ 的列向量是$\bm{AA}^H$ 的特征向量.
+
+\paragraph*{证} 可求得
+$$
+    \bm{AA}^H = \bm{U}\begin{bmatrix}
+        \bm{\Sigma}^2 & \bm{O} \\
+        \bm{O}        & \bm{O}
+    \end{bmatrix}\bm{U}^H
+$$
+即
+$$
+    (\bm{AA}^H)\bm{U} = \bm{U} \cdot \mathrm{diag}(\lambda_1, \lambda_2, \cdots, \lambda_r, 0, \cdots, 0)
+$$
+记 $\bm{U} = (\bm{u}_1, \bm{u}_2, \cdots, \bm{u}_m)$, 则有
+$$
+    (\bm{AA}^H)\bm{u}_i = \lambda_i\bm{u}_i (i = 1,2,\cdots,m)
+$$
+这表明 $\bm{u}_i$ 是 $\bm{AA}^H$ 的属于特征值 $\lambda_i$ 的特征向量. 同理可证另一结论.
+
+\paragraph*{习题 4.4.2} 给出应用奇异值分解式求解齐次线性方程组 $\bm{Ax} = \bm{0}$ 的方法.
+
+\paragraph*{解} 当 $\bm{Ax} = \bm{0}$ 时, $\bm{A}^T\bm{Ax} = \bm{0}$, 所以 $\bm{Ax} = \bm{0}$ 的解是$\bm{A}^T\bm{Ax} = \bm{0}$ 的解.
+\\ 当 $\bm{A}^T\bm{Ax} = \bm{0}$ 时, 等式两边同时乘以 $\bm{x}^T$, 得 $\bm{x}^T\bm{A}^T\bm{Ax} = \bm{0}$, 也就是 $(\bm{Ax})^T\bm{Ax} = \bm{0}$.
+\\ 而 $(\bm{Ax})^T\bm{Ax} = ||\bm{Ax}||$, 称为 $\bm{Ax}$ 的范数, 它的取值大于等于0, 当且仅当 $\bm{Ax} = 0$ 时, $||\bm{Ax}|| = 0$.
+\\ 所以 $\bm{A}^T\bm{Ax} = \bm{0}$ 的解是 $\bm{Ax} = \bm{0}$ 的解.
+
+\begin{gather*}
+    \bm{AA}^T = \bm{E\Sigma V}^T\bm{V\Sigma}^T\bm{U}^T = \bm{U\Sigma\Sigma}^T\bm{U}^T \\
+    \bm{A}^T\bm{A} = \bm{V\Sigma}^T\bm{U}^T\bm{U\Sigma V}^T = \bm{V\Sigma}^T\bm{\Sigma V}^T \\
+    \bm{\Sigma\Sigma}^T = \begin{bmatrix}
+        \sigma_1^2 & 0          & \cdots & 0          \\
+        0          & \sigma_2^2 & \cdots & 0          \\
+        \vdots     & \vdots     &        & \vdots     \\
+        0          & 0          & \cdots & \sigma_m^2
+    \end{bmatrix}, \quad \bm{\Sigma^T}\bm{\Sigma}= \begin{bmatrix}
+        \sigma_1^2 & 0          & \cdots & 0          \\
+        0          & \sigma_2^2 & \cdots & 0          \\
+        \vdots     & \vdots     &        & \vdots     \\
+        0          & 0          & \cdots & \sigma_n^2
+    \end{bmatrix}
+\end{gather*}
+
+\paragraph*{习题 4.4.4} 求 $\bm{A} = \begin{bmatrix}
+        1 & 0 \\
+        0 & 1 \\
+        1 & 1
+    \end{bmatrix}$ 的奇异值分解.
+
+\paragraph*{解} 计算
+$$
+    \bm{B} = \bm{A}^T\bm{A} = \begin{bmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{bmatrix}
+$$
+求得 $\bm{B}$ 的特征值为 $\lambda_1 = 3, \lambda_2 = 1$, 对应的特征向量为
+$$
+    \bm{\xi}_1 = \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}, \quad \bm{\xi}_2 = \begin{bmatrix}
+        1 \\
+        -1
+    \end{bmatrix}
+$$
+于是可得
+$$
+    \mathrm{rank}\bm{A} = 2, \bm{\Sigma} = \begin{bmatrix}
+        \sqrt{3} & 0 \\
+        0        & 1
+    \end{bmatrix}
+$$
+且正交矩阵为
+$$
+    \bm{V} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{2}}  \\
+        \dfrac{1}{\sqrt{2}} & -\dfrac{1}{\sqrt{2}}
+    \end{bmatrix}
+$$
+构造
+$$
+    \bm{U} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{6}} & \dfrac{1}{\sqrt{2}}  & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{1}{\sqrt{6}} & -\dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{2}{\sqrt{6}} & 0                    & -\dfrac{1}{\sqrt{3}}
+    \end{bmatrix}
+$$
+因此
+$$
+    \bm{A} = \begin{bmatrix}
+        \dfrac{1}{\sqrt{6}} & \dfrac{1}{\sqrt{2}}  & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{1}{\sqrt{6}} & -\dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{3}}  \\
+        \dfrac{2}{\sqrt{6}} & 0                    & -\dfrac{1}{\sqrt{3}}
+    \end{bmatrix}\begin{bmatrix}
+        \sqrt{3} & 0 \\
+        0        & 1 \\
+        0        & 0
+    \end{bmatrix}\begin{bmatrix}
+        \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{2}}  \\
+        \dfrac{1}{\sqrt{2}} & -\dfrac{1}{\sqrt{2}}
+    \end{bmatrix}
+$$
+
+\end{document}

@@ -1,0 +1,355 @@
+\documentclass[12pt, a4paper, oneside, fontset=none]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, color, fontspec, float, pgfplots}
+\usepackage{bm}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage{xeCJK, CJKnumb}
+\xeCJKsetup{CJKmath=true,CheckSingle=true}
+\setCJKmainfont[ItalicFont=KaiTi]{微软雅黑}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2.18cm, bottom=2.18cm}
+\author{}
+\date{}
+\linespread{1.25}
+\title{\vspace{-3em}\textbf{矩阵论 \quad 第六次作业}\vspace{-3em}}
+
+\begin{document}
+
+\maketitle
+
+\section*{第1章 \quad 线性空间和线性变换}
+
+\subsection*{1.2 \quad 线性变换及其矩阵}
+
+\centerline{\large{\textbf{定义}}} \ \par
+
+\paragraph*{定义 1.21} 如果给每个子空间$V$，选一适当的基，每个子空间的基合并起来即为$V^n$的基，且
+$T$在该基下的矩阵为以下形式的准对角矩阵
+\begin{equation*}
+    \bm{J} = \begin{bmatrix}
+        \bm{J}_1(\lambda_1) &                     &        &                     \\
+                            & \bm{J}_2(\lambda_2) &        &                     \\
+                            &                     & \ddots &                     \\
+                            &                     &        & \bm{J}_s(\lambda_s)
+    \end{bmatrix}
+\end{equation*}
+其中
+\begin{equation*}
+    \bm{J}_i(\lambda_i) = \begin{bmatrix}
+        \lambda_i & 1         &           &        &           \\
+                  & \lambda_i & 1         &        &           \\
+                  &           & \lambda_i & \ddots &           \\
+                  &           &           & \ddots & 1         \\
+                  &           &           &        & \lambda_i
+    \end{bmatrix}_{m_i\times m_i} \qquad (i = 1,\ 2,\ \cdots,\ s)
+\end{equation*}
+由上式给出的矩阵$\bm{J}$称为矩阵$A$的\textbf{Jordan 标准型}，$\bm{J}_i(\lambda_i)$称为因式$(\lambda-\lambda_i)^{m_i}$对应的\textbf{Jordan
+    块}.
+\par \ \par
+
+\centerline{\large{\textbf{定理}}} \ \par
+
+\paragraph*{定理 1.29} 设$\bm{A}$是$n$阶复矩阵，且其特征多项式的某种分解式是
+\[
+    \varphi(\lambda) = (\lambda - \lambda_1)^{m_1}(\lambda - \lambda_2)^{m_2}\cdots(\lambda - \lambda_i)^{m_i} \quad (m_1 + m_2 + \cdots + m_s = n)
+\]
+则存在$n$阶复可逆矩阵$\bm{P}$，使
+\[
+    \bm{P}^{-1}\bm{AP} = \bm{J}
+\]
+
+\paragraph*{定理 1.30} 每个$n$阶复矩阵$\bm{A}$都与一个Jordan标准形相似，这个Jordan标准形除去其中
+Jordan块的排列次序外，是被$\bm{A}$唯一确定的.
+
+\par \ \par
+
+\centerline{\large{\textbf{例题}}} \ \par
+
+\paragraph*{例 1.26} 求矩阵$\bm{A}$的Jordan标准形，其中
+\[
+    \bm{A} = \begin{bmatrix}
+        -1 & 1 & 0 \\
+        -4 & 3 & 0 \\
+        1  & 0 & 2
+    \end{bmatrix}
+\]
+
+\paragraph*{解} 求$\lambda\bm{I} - \bm{A}$的初等因子组，由于
+\begin{align*}
+    \lambda\bm{I} - \bm{A} & =  \begin{bmatrix}
+                                    \lambda + 1 & -1          & 0           \\
+                                    4           & \lambda - 2 & 0           \\
+                                    -1          & 0           & \lambda - 2
+                                \end{bmatrix} \to \begin{bmatrix}
+                                                      -1          & 0                              & 0           \\
+                                                      \lambda - 3 & (\lambda + 1)(\lambda - 3) + 4 & 0           \\
+                                                      0           & -1                             & \lambda - 2
+                                                  \end{bmatrix} \\
+                           & \to \begin{bmatrix}
+                                     1 & 0               & 0           \\
+                                     0 & (\lambda - 1)^2 & 0           \\
+                                     0 & -1              & \lambda - 2
+                                 \end{bmatrix} \to \begin{bmatrix}
+                                                       1 & 0               & 0 \\
+                                                       0 & (\lambda - 1)^2 & 0 \\
+                                                   \end{bmatrix}                                   \\
+                           & \to \begin{bmatrix}
+                                     1 & 0 & 0                            \\
+                                     0 & 1 & 0                            \\
+                                     0 & 0 & (\lambda - 2)(\lambda - 1)^2
+                                 \end{bmatrix}
+\end{align*}
+因此，所求的初等因子组为$\lambda - 2,\ (\lambda - 1)^2.$于是有
+\[
+    \bm{A} \sim \bm{J} = \begin{bmatrix}
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+\]
+
+\paragraph*{例 1.28} 试分别计算使$\bm{A}$、$\bm{B}$
+\[
+    \bm{A} = \begin{bmatrix}
+        -1 & 1 & 0 \\
+        -4 & 3 & 0 \\
+        1  & 0 & 2
+    \end{bmatrix} \quad \bm{B} = \begin{bmatrix}
+        1 & 2 & 3 & 4 \\
+          & 1 & 2 & 3 \\
+          &   & 1 & 2 \\
+          &   &   & 1
+    \end{bmatrix}
+\]
+相似于Jordan标准形时所用的可逆矩阵$\bm{P}.$
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)]
+        因为$\lambda_1 = 2,\ \lambda_2 = 1$分别是$\bm{A}$的单特征值和二重特征值，所以可求$\bm{P} = (p_{ij})_{3\times 3}$，这里
+        \[
+            (p_{1i},\ p_{2i},\ p_{3i})^T = \bm{x}_i(i = 1,\ 2,\ 3)
+        \]
+        解方程组
+        \[
+            (2\bm{I} - \bm{A})\bm{x}_1 = \bm{0}, \quad (\bm{I} - \bm{A})\bm{x}_2 = \bm{0},\ (\bm{I} - \bm{A})\bm{x}_3 = -\bm{x}_2
+        \]
+        得特征向量$\bm{x}_1,\ \bm{x}_2$及广义特征向量$\bm{x}_3$依次为
+        \[
+            \bm{x_1} = (0,\ 0,\ 1)^T,\quad \bm{x_2} = (1,\ 2,\ -1)^T,\quad \bm{x_3} = (0,\ 1,\ -1)^T
+        \]
+        故所求矩阵$\bm{P}$为
+        \[
+            \bm{P} = \begin{bmatrix}
+                0 & 1  & 0  \\
+                0 & 2  & 1  \\
+                1 & -1 & -1
+            \end{bmatrix}.
+        \]
+    \item[(2)]
+        因为$\lambda_1$是$\bm{B}$的四重特征值，所以可以求矩阵$\bm{P}$，解方程组
+        \[
+            (\lambda_1\bm{I} - \bm{A})\bm{x}_1 = \bm{0}
+        \]
+        使得属于$\lambda_1$的特征向量为$\bm{x}_1 = (8,\ 0,\ 0,\ 0)^T$；然后解方程组
+        \[
+            (\bm{I} - \bm{A})\bm{x}_2 = -\bm{x}_1
+        \]
+        得广义特征向量$x_2 = (4,\ 4,\ 0,\ 0)^T$，再依次解方程组
+        \[
+            (\bm{I} - \bm{A})x_3 = -\bm{x}_2, \quad (\bm{I} - \bm{A})\bm{x}_4 = -\bm{x}_3
+        \]
+        便得广义特征向量
+        \[
+            \bm{x}_3 = (0,\ -1,\ 2,\ 0)^T, \quad \bm{x_4} = (0,\ 1,\ -2,\ 1)^T
+        \]
+        于是所求矩阵$P$为
+        \[
+            \bm{P} = (\bm{x}_1,\ \bm{x}_2,\ \bm{x}_3,\ \bm{x}_4) = \begin{bmatrix}
+                8 & 4 & 0  & 0  \\
+                0 & 4 & -1 & 1  \\
+                0 & 0 & 2  & -2 \\
+                0 & 0 & 0  & 1
+            \end{bmatrix}
+        \]
+\end{enumerate}
+
+\par \ \par
+
+\centerline{\large{\textbf{ppt例题}}} \ \par
+
+\paragraph*{P36} 求矩阵
+\[
+    \bm{A} = \begin{bmatrix}
+        1 & -1 & 2 \\
+        3 & -3 & 6 \\
+        2 & -2 & 4
+    \end{bmatrix}
+\]
+的若当标准形.
+
+\paragraph*{解}
+\begin{align*}
+    \lambda\bm{I} - \bm{A} & = \begin{bmatrix}
+                                   \lambda - 1 & 1           & -2          \\
+                                   -3          & \lambda + 3 & - 6         \\
+                                   -2          & 2           & \lambda - 4
+                               \end{bmatrix}                  \\
+                           & \to \begin{bmatrix}
+                                     \lambda - 1           & 1 & -2        \\
+                                     -\lambda^2 - 2\lambda & 0 & 2 \lambda \\
+                                     -2\lambda             & 0 & \lambda
+                                 \end{bmatrix} \to \begin{bmatrix}
+                                                       1 & -2       & \lambda - 1           \\
+                                                       0 & 2\lambda & -\lambda^2 - 2\lambda \\
+                                                       0 & \lambda  & -2\lambda
+                                                   \end{bmatrix} \\
+                           & \to \begin{bmatrix}
+                                     1 & 0        & 0                     \\
+                                     0 & 2\lambda & -\lambda^2 - 2\lambda \\
+                                     0 & \lambda  & -2\lambda
+                                 \end{bmatrix} \to \begin{bmatrix}
+                                                       1 & 0       & 0                   \\
+                                                       0 & 0       & -\lambda^2+2\lambda \\
+                                                       0 & \lambda & -2\lambda
+                                                   \end{bmatrix}    \\
+                           & \to \begin{bmatrix}
+                                     1 & 0       & 0                     \\
+                                     0 & 0       & -\lambda^2 + 2\lambda \\
+                                     0 & \lambda & 0
+                                 \end{bmatrix} \to \begin{bmatrix}
+                                                       1 & 0       & 0                    \\
+                                                       0 & \lambda & 0                    \\
+                                                       0 & 0       & \lambda(\lambda - 2)
+                                                   \end{bmatrix}
+\end{align*}
+$\therefore \bm{A}$的初等因子为$\lambda,\ \lambda,\ \lambda - 2.$ \\
+故$\bm{A}$的若当标准形为$
+    \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & 0 &   \\
+        0 & 0 & 2
+    \end{bmatrix}.
+$
+
+\par \ \par
+
+\centerline{\large{\textbf{习题}}} \ \par
+
+\paragraph*{习题 1.2.16} 求矩阵$\bm{A}$的特征多项式和最小多项式，其中
+\[
+    \bm{A} = \begin{bmatrix}
+        7  & 4  & -4 \\
+        4  & -8 & -1 \\
+        -4 & -1 & -8
+    \end{bmatrix}
+\]
+
+\paragraph*{解}
+\begin{align*}
+    \lambda\bm{I} - A & = \begin{bmatrix}
+                              \lambda - 7 & -4          & 4           \\
+                              -4          & \lambda + 8 & 1           \\
+                              4           & 1           & \lambda + 8
+                          \end{bmatrix}           \\
+                      & \to \begin{bmatrix}
+                                1           & \lambda + 8 & -4          \\
+                                4           & -4          & \lambda - 7 \\
+                                \lambda + 8 & 1           & 4
+                            \end{bmatrix}         \\
+                      & \to \begin{bmatrix}
+                                1 & 0                           & 0             \\
+                                0 & -4\lambda - 36              & \lambda + 9   \\
+                                0 & (\lambda + 9)(-\lambda - 7) & 4\lambda + 36
+                            \end{bmatrix} \\
+                      & \to \begin{bmatrix}
+                                1 & 0                           & 0           \\
+                                0 & -4\lambda - 36              & \lambda + 9 \\
+                                0 & (\lambda + 9)(-\lambda + 9) & 0
+                            \end{bmatrix}   \\
+                      & \to \begin{bmatrix}
+                                1 & 0           & 0                           \\
+                                0 & \lambda + 9 & 0                           \\
+                                0 & 0           & (\lambda + 9)(-\lambda + 9)
+                            \end{bmatrix}
+\end{align*}
+因此，特征多项式$\varphi(\lambda) = (\lambda + 9)^2(\lambda - 9)$ \\
+最小多项式$m(\lambda) = (\lambda + 9)(\lambda - 9).$
+
+\paragraph*{习题 1.2.19} 求下列各矩阵的Jordan标准形.
+\[
+    (1) \begin{bmatrix}
+        3  & 7   & -3 \\
+        -2 & -5  & 2  \\
+        -4 & -10 & 3
+    \end{bmatrix}; \quad
+    (2) \begin{bmatrix}
+        3  & 1  & 0  & 0 \\
+        -4 & -1 & 0  & 0 \\
+        7  & 1  & 2  & 1 \\
+        -7 & -6 & -1 & 0
+    \end{bmatrix}.
+\]
+
+\paragraph*{解}
+\begin{enumerate}
+    \item[(1)]
+        \begin{align*}
+            \lambda\bm{I} - \bm{A} & = \begin{bmatrix}
+                                           \lambda - 3 & -7          & 3           \\
+                                           2           & \lambda + 5 & -2          \\
+                                           4           & 10          & \lambda - 3
+                                       \end{bmatrix} \\
+                                   & \to \begin{bmatrix}
+                                             1 &   &                             \\
+                                               & 1 &                             \\
+                                               &   & (\lambda - 1)(\lambda^2 +1)
+                                         \end{bmatrix}
+        \end{align*}
+        故$\bm{A}$的初等因子为$\lambda - 1,\ \lambda - i,\ \lambda + i.$ \\
+        因此$\bm{A}$的若当标准形为$\begin{bmatrix}
+                1 & 0 & 0  \\
+                0 & i & 0  \\
+                0 & 0 & -i
+            \end{bmatrix}.$
+    \item[(2)]
+        \begin{align*}
+            \lambda\bm{I} - \bm{A} & = \begin{bmatrix}
+                                           \lambda - 3 & -1          & 0           & 0       \\
+                                           4           & \lambda + 1 & 0           & 0       \\
+                                           -7          & -1          & \lambda - 2 & -1      \\
+                                           7           & 6           & 1           & \lambda
+                                       \end{bmatrix}   \\
+                                   & \to \begin{bmatrix}
+                                             -1          & \lambda - 3 & 0           & 0       \\
+                                             \lambda + 1 & 4           & 0           & 0       \\
+                                             -1          & -7          & \lambda - 2 & - 1     \\
+                                             6           & 7           & 1           & \lambda
+                                         \end{bmatrix} \\
+                                   & \to \begin{bmatrix}
+                                             -1 & \lambda - 3     & 0           & 0       \\
+                                             0  & (\lambda - 1)^2 & 0           & 0       \\
+                                             0  & -\lambda - 4    & \lambda - 2 & -1      \\
+                                             0  & 6\lambda - 11   & 1           & \lambda
+                                         \end{bmatrix}      \\
+                                   & \to \begin{bmatrix}
+                                             1 & 0 & 0               & 0               \\
+                                             0 & 1 & 0               & 0               \\
+                                             0 & 0 & (\lambda - 1)^2 & 0               \\
+                                             0 & 0 & 0               & (\lambda - 1)^2
+                                         \end{bmatrix}
+        \end{align*}
+        所以初等因子组是$(\lambda - 1)^2,\ (\lambda - 1)^2$.
+        于是$\bm{J_1} = \bm{J_2} = \begin{bmatrix}
+                1 & 1 \\
+                0 & 1
+            \end{bmatrix}.$ \\
+        因此，$\bm{A}$的若当标准形为$\begin{bmatrix}
+                1 & 1 & 0 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 1 \\
+                0 & 0 & 0 & 1
+            \end{bmatrix}.$
+\end{enumerate}
+
+\end{document}
