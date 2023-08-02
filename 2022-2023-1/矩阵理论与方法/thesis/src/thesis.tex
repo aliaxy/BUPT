@@ -124,7 +124,7 @@
 \usetikzlibrary{shapes,arrows,positioning}
 %===================   正文开始    ===================
 \begin{document}
-\bibliographystyle{gbt7714-2005}     %论文引用格式
+\bibliographystyle{plain}     %论文引用格式
 %===================  定理类环境定义 ===================
 \newtheorem{example}{例}              % 整体编号
 \newtheorem{algorithm}{算法}
@@ -150,7 +150,7 @@
 \renewcommand{\proofname}{证明}
 \renewcommand{\algorithm}{算法}
 %============== 封皮和前言 =================
-\includepdf[pages=-]{body/cover.pdf}
+% \includepdf[pages=-]{body/cover.pdf}
 \pagestyle{plain}
 \pagenumbering{Roman}
 \include{body/abstract}
@@ -168,6 +168,7 @@
 \addcontentsline{toc}{section}{参考文献}
 \clearpage
 \bibliography{bibfile}
+% \include{body/reference}
 \clearpage
 %=============  致谢  ======================
 \include{body/acknowledge}
