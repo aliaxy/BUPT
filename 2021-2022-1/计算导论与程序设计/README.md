@@ -1,4 +1,4 @@
-# 计算导论与课程设计
+# 计算导论与程序设计
 
 * [第01次上机练习](https://github.com/Aliaxy/BUPT/tree/main/2021-2022-1/计算导论与程序设计/第01次上机练习)
 * [第02次上机练习](https://github.com/Aliaxy/BUPT/tree/main/2021-2022-1/计算导论与程序设计/第02次上机练习)
